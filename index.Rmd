@@ -186,7 +186,7 @@ The following learning objectives are designed to build on one another, with som
 |  | Th 4/16 | **Project Phase 3** |
 | **15** | Tu 4/21 | $\rightarrow$ Multiple Linear Regression (Optional)<br>$\rightarrow$ Logistic Regression (Optional) |
 |  | Th 4/23 | $\rightarrow$ Rank Based Tests (Optional)<br>$\rightarrow$ Power Calculations (Optional) |
-| **16** | Tu 4/29 | **Final Project Presentations** |
+| **16** | Tu 4/29 | **Project Final Phase, Presentations, and Peer Review** |
 
 <br>
 
@@ -336,7 +336,7 @@ Writing a scientific report/paper is essential for any student who wants to purs
 
 This course's main assessments is through a semester-long project and it will be divided into phases. The purpose of the project phases is to break the project into smaller tasks, allowing for incremental progress toward its completion.
 
-* **Phase 0: Group formation and data selection.** Each group should consist of 2-4 people. For people who want to form their own groups, please send a list of names for your group by the due date. The rest will be randomly assigned. Each group must choose a data set to analyze. Each group should have a unique data set. Final group formations will be announced.
+* **Phase 0: Group formation and data selection.** Each group should consist of 2-3 people. For people who want to form their own groups, please send a list of names for your group by the due date. The rest will be randomly assigned. Each group must choose a data set to analyze from an approved lists of data sets. Each group should have a unique data set. Final group formations will be announced.
 
 * **Phase 1: Study design, data exploration, and framing research questions.** Explore your chosen dataset. Your first project report document must include these three parts:
     - *Dataset:* Put together your first data frame. What is it? Where does it come from? What is the description of each variable? What are the types of variables? What kind of sampling strategy (or data collection) was used?
@@ -408,7 +408,7 @@ The final report must include all relevant R codes that generated all figures an
 
 Here are some other rules regarding group formations:
 
-  * If a group must be disbanded for any reason, students need to discuss their disbandment to me - as soon as possible - for a detailed plan on how to move forward.
+  * If a group must be disbanded for any reason, students need to discuss their disbandment to me —as soon as possible— for a detailed plan on how to move forward.
   * If groups must be combined for any reason, the new group must inform me about the union as soon as possible, and their plans on moving forward.
   * Group disbandment or union are allowed up to Phase 3 of the project. Special cases are considered.
 
