@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+    
+    
+    <title>MTH 361: Applied Statistics I</title>
+
+        <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+        <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="site_libs/navigation-1.1/tabsets.js"></script>
+        <link href="site_libs/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="site_libs/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="site_libs/readthedown-0.1/readthedown.js"></script>
+    
+    
+    
+        <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+         <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+   
+        
+      <h1 class="title">MTH 361: Applied Statistics I</h1>
+         <h1 class="subtitle"><div class="line-block">Section A<br />
+Spring 2026<br />
+Department of Mathematics<br />
+University of Portland</div></h1>
+   
+         <!-- readthedown authors -->
+   <div id="sidebar">
+    <h2><a href="#content">MTH 361: Applied Statistics I</a></h2>
+    <div id="toc">
+      <ul>
+      <li><a href="#syllabus" id="toc-syllabus">Syllabus</a>
+      <ul>
+      <li><a href="#about-the-class"
+      id="toc-about-the-class"><strong>About the Class</strong></a></li>
+      <li><a href="#communication-tools"
+      id="toc-communication-tools"><strong>Communication
+      Tools</strong></a></li>
+      <li><a href="#assignment-tools"
+      id="toc-assignment-tools"><strong>Assignment
+      Tools</strong></a></li>
+      <li><a href="#learning-goals"
+      id="toc-learning-goals"><strong>Learning Goals</strong></a></li>
+      <li><a href="#topics-schedule" id="toc-topics-schedule">Topics
+      Schedule</a></li>
+      <li><a href="#academic-support"
+      id="toc-academic-support"><strong>Academic
+      Support</strong></a></li>
+      <li><a href="#assessment"
+      id="toc-assessment"><strong>Assessment</strong></a></li>
+      <li><a href="#assignments"
+      id="toc-assignments"><strong>Assignments</strong></a></li>
+      <li><a href="#academic-integrity"
+      id="toc-academic-integrity"><strong>Academic
+      Integrity</strong></a></li>
+      <li><a href="#other-expectations"
+      id="toc-other-expectations"><strong>Other
+      Expectations</strong></a></li>
+      </ul></li>
+      <li><a href="#materials" id="toc-materials">Materials</a>
+      <ul>
+      <li><a href="#class-readings-and-presentations"
+      id="toc-class-readings-and-presentations">Class Readings and
+      Presentations</a></li>
+      <li><a href="#books-online-resources-lists"
+      id="toc-books-online-resources-lists">Books &amp; Online Resources
+      Lists</a></li>
+      </ul></li>
+      </ul>
+    </div>
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> <div
+class="line-block">Dr. <a href="https://www.alexjohnquijano.com"
+target="_blank">Alex John Quijano</a> <a
+href="https://creativecommons.org/licenses/by/4.0/"
+target="_blank">CC-BY 4.0</a><br />
+Department of Mathematics<br />
+University of Portland<br />
+<br />
+Made with <a href="https://cran.r-project.org/" target="_blank">R</a>
+and <a href="https://rmarkdown.rstudio.com/"
+target="_blank">RMarkdown</a><br />
+Last updated on January 12, 2026</div></p>
+                      </div>
+   </div>
+     
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="main">
+<p><img src="figures/statistical-thinking-in-data-science-lifecycle.png" width="70%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Statistical thinking is a way of understanding the world through
+data, serving as the foundational principle of statistics.</p>
+<div id="syllabus" class="section level1">
+<h1>Syllabus</h1>
+<div id="about-the-class" class="section level2">
+<h2><strong>About the Class</strong></h2>
+<div id="description" class="section level3">
+<h3>Description</h3>
+<p>This course offers an introduction to exploratory data analysis,
+probability theory, random variables, regression modeling, hypothesis
+testing, point and interval estimates, and sampling methods. Emphasis is
+placed on a data-driven approach and project-based learning, with the
+goal of developing the ability to provide clear and organized written
+and verbal explanations of statistical and probabilistic ideas to a
+diverse audience. To promote scientific transparency, replicability, and
+reproducibility, the course includes an introduction to the R
+programming language for data exploration, visualization, and
+statistical and probabilistic computing.</p>
+</div>
+<div id="instructor-information" class="section level3">
+<h3>Instructor Information</h3>
+<blockquote>
+<ul>
+<li>Instructor: Dr. Alex John Quijano</li>
+<li>Office: Buckley Center 279</li>
+</ul>
+</blockquote>
+</div>
+<div id="lectures-and-discussions" class="section level3">
+<h3>Lectures and Discussions</h3>
+<p>This course meets on Tuesdays and Thursdays. The typical class
+routine will include pre-reading assignments before each class, followed
+by a short lecture or demonstration, worksheet activities, group
+presentations, and discussions.</p>
+<blockquote>
+<p>The course schedule and location is:</p>
+<ul>
+<li><strong>Section A:</strong> TuTh 11:20 AM - 12:45 PM, Franz Hall
+217</li>
+</ul>
+</blockquote>
+</div>
+<div id="textbook" class="section level3">
+<h3>Textbook</h3>
+<p>This course uses the following textbook —which is free to access— for
+reading and practice.</p>
+<blockquote>
+<ul>
+<li>Speegle D, lair, Bryan (2021). <em>Probability, Statistics, and
+Data: A, Fresh Approach Using R</em>. Chapman and Hall/CRC., <a
+href="https://probstatsdata.com/"
+class="uri">https://probstatsdata.com/</a>.</li>
+</ul>
+</blockquote>
+</div>
+<div id="credit-hours-and-prerequisites" class="section level3">
+<h3>Credit Hours and Prerequisites</h3>
+<ul>
+<li>Credit hours: 3</li>
+<li>Prerequisites: MTH 161 (Elementary Statistics) or MTH 201 (Calculus
+I) with a grade of C- or higher</li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="communication-tools" class="section level2">
+<h2><strong>Communication Tools</strong></h2>
+<div id="class-website" class="section level3">
+<h3>Class Website</h3>
+<p>The syllabus, tentative topics schedule, and other information are
+posted on the course website.</p>
+<blockquote>
+<p>You can access the course website at <a href="index.html"
+target="_blank">mth-361a-sp26</a>.</p>
+</blockquote>
+<p>Note that this website can also be viewed in Teams.</p>
+</div>
+<div id="microsoft-teams" class="section level3">
+<h3>Microsoft Teams</h3>
+<p>We will be using Teams as the main real-time communication tool for
+general announcements, question-answering discussions, and direct
+messages.</p>
+<blockquote>
+<p>The Teams for this course is <a
+href="https://teams.microsoft.com/l/team/19%3ALujyzbarzFjlZszUD1znX1UgPPd7aRVSummQ1WtAzYM1%40thread.tacv2/conversations?groupId=08d5ebee-6e90-47f3-80b4-fadc91987b08&amp;tenantId=ea8f3949-231c-40b6-a33f-56873af96f87"
+target="_blank">MTH-361A-sp26</a>. I added you to the Teams page
+already, so you just need to log in using your UP credentials. If not,
+then send a request when you log in. Let me know if you need any
+assistance.</p>
+</blockquote>
+<p>I recommend that you install the Teams software on your own machine
+for easy and stable access, instead of accessing Teams on the browser.
+Note that this course website and textbook can be accessed in Teams.</p>
+</div>
+<div id="email" class="section level3">
+<h3>Email</h3>
+<p>My UP email is <a href="mailto:quijano@up.edu"
+class="email">quijano@up.edu</a>.</p>
+<blockquote>
+<p>If you prefer communicating through email, note that I have set up an
+email filter for this course, and you must put the “MTH 361” keyword in
+your subject line.</p>
+</blockquote>
+<p>It is easy for me to get notice of your email if you put the keyword
+in the subject line. Concise and specific messages are helpful, so I
+know how I can best help you.</p>
+<p><br></p>
+</div>
+</div>
+<div id="assignment-tools" class="section level2">
+<h2><strong>Assignment Tools</strong></h2>
+<div id="moodle" class="section level3">
+<h3>Moodle</h3>
+<p>We will be using the course <a href="https://learning.up.edu"
+target="_blank">Moodle</a> page for submitting assignments and giving
+feedback.</p>
+<blockquote>
+<p>The Moodle for this course is <a
+href="https://learning.up.edu/course/view.php?id=44593"
+target="_blank">MTH-361A - sp26 - Applied Statistics I</a>. You are
+already listed in Moodle for this course using your UP account.</p>
+</blockquote>
+</div>
+<div id="posit-cloud" class="section level3">
+<h3>Posit Cloud</h3>
+<p>We will be using the R programming language as a computational tool
+for all assignments. This tool is free and open-source. We will use the
+Posit Cloud service.</p>
+<ul>
+<li><p><a href="https://login.posit.cloud/login?redirect=%2F"
+target="_blank">Posit Cloud</a> is an online computing environment that
+supports computations in R.</p></li>
+<li><p><a href="https://www.r-project.org/" target="_blank">R</a> is a
+programming language and environment used for statistical analysis, data
+visualization, and data-driven research.</p></li>
+<li><p><a href="https://posit.co/download/rstudio-desktop/"
+target="_blank">R Studio</a> is an environment that makes it easier to
+write, run, and manage R code for data analysis and
+visualization.</p></li>
+</ul>
+<blockquote>
+<p>Create a free account at <a
+href="https://login.posit.cloud/register?redirect=%2F"
+target="_blank">Posit Cloud Sign-Up</a> using your UP email. Note that
+you must use your UP email for me to add you into the course’s workspace
+in Posit Cloud. You will receive an email inviting you into the
+workspace at the first week of the semester.</p>
+</blockquote>
+<p>If you’d like to set up R on your own computer, start by installing
+<a href="https://cran.r-project.org/" target="_blank">R</a>, then
+install <a href="https://posit.co/download/rstudio-desktop/"
+target="_blank">R Studio</a> to run and share code interactively. Feel
+free to reach out if you’d like help with any step!</p>
+<blockquote>
+<p>R instructions and materials will be provided ad hoc.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="learning-goals" class="section level2">
+<h2><strong>Learning Goals</strong></h2>
+<div id="learning-outcomes" class="section level3">
+<h3>Learning Outcomes</h3>
+<p>Upon completion of the course, you will be able to:</p>
+<ul>
+<li>Understand the basics of statistical thinking.</li>
+<li>Evaluate a given statistical problem, and generate appropriate
+questions.</li>
+<li>Understand the basics of tabular data structures and how it was
+collected.</li>
+<li>Evaluate a given data set on its statistical properties through the
+process of exploratory data analysis.</li>
+<li>Understand the basic concepts of random variables and probability,
+and their applications in statistical analysis.</li>
+<li>Perform statistical inference, which includes hypothesis testing,
+confidence intervals, and estimation.</li>
+<li>Use basic statistical models appropriately and interpret their
+outcomes in context.</li>
+<li>Write clear and concise statistical reports, which includes drawing
+meaningful conclusions and critically assess claims.</li>
+<li>Communicate effectively about statistical conclusions and claims
+with other students, instructors, and professionals.</li>
+<li>Work independently and as part of a team to conduct statistical
+analysis.</li>
+<li>Effectively use technology to support the analysis of a given data
+set.</li>
+</ul>
+</div>
+<div id="learning-objectives" class="section level3">
+<h3>Learning Objectives</h3>
+<p>The following learning objectives are designed to build on one
+another, with some overlap. The goal is to help you achieve proficiency
+in these areas.</p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Topic Category</strong></th>
+<th align="left"><strong>Learning Objectives</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Statistical Thinking</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Define
+the purpose and importance of statistical thinking in data
+analysis.<br><span class="math inline">\(\rightarrow\)</span> Explain
+the principles of statistical inference, including the concepts of
+sampling variability, estimation, and hypothesis testing.<br><span
+class="math inline">\(\rightarrow\)</span> Differentiate between
+descriptive and inferential statistics.<br><span
+class="math inline">\(\rightarrow\)</span> Explain the role of
+variability and uncertainty in data.<br><span
+class="math inline">\(\rightarrow\)</span> Distinguish between
+observational studies and experiments.<br><span
+class="math inline">\(\rightarrow\)</span> Identify key components of a
+well-designed experiment (i.e. randomization, control,
+replication).<br><span class="math inline">\(\rightarrow\)</span> Use
+the appropriate hypothesis test to a given research question,
+considering the data type, sample size, and underlying assumptions, to
+draw valid statistical conclusions.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Exploratory Data Analysis</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Gather, process, and manage data sets for statistical analysis.<br><span
+class="math inline">\(\rightarrow\)</span> Identify and categorize
+different types of data (e.g. numerical vs. categorical).<br><span
+class="math inline">\(\rightarrow\)</span> Compute and interpret
+statistical measures of central tendency (e.g. mean, median, mode) and
+spread (e.g. range, variance, standard deviation).<br><span
+class="math inline">\(\rightarrow\)</span> Choose appropriate
+statistical measures for different data types.<br><span
+class="math inline">\(\rightarrow\)</span> Visualize data using basic
+plots (e.g. dot, bar, scatter, histograms, and line). <br><span
+class="math inline">\(\rightarrow\)</span> Choose appropriate
+visualizations for different data types.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Probability</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Define
+and interpret discrete and continuous random variables.<br><span
+class="math inline">\(\rightarrow\)</span> Define, calculate and
+interpret probabilities using basic rules such as independence,
+addition, and complement.<br><span
+class="math inline">\(\rightarrow\)</span> Define, calculate, and
+interpret conditional probabilities using basic rules such as
+dependence, chain, and Bayes’ theorem.<br><span
+class="math inline">\(\rightarrow\)</span> Use and interpret common
+probability functions such as binomial, geometric, and normal.<br><span
+class="math inline">\(\rightarrow\)</span> Calculate expected values and
+variances of common probability functions.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Models</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Define
+and interpret dependent and independent variables.<br><span
+class="math inline">\(\rightarrow\)</span>Use random sampling
+simulations to estimate statistical measures and analyze distributions
+of data sets.<br><span class="math inline">\(\rightarrow\)</span>
+Describe key sampling techniques (e.g. simple random, stratified,
+cluster) and evaluate their strengths and limitations.<br><span
+class="math inline">\(\rightarrow\)</span> Use contingency tables to
+analyze relationships between categorical variables.<br><span
+class="math inline">\(\rightarrow\)</span> Use Logistic regression to
+analyze relationships between a numerical and categorical
+variables.<br><span class="math inline">\(\rightarrow\)</span> Use
+simple linear regression to analyze relationships between two numerical
+variables.<br><span class="math inline">\(\rightarrow\)</span> Use
+multiple linear regression to analyze relationships between more than
+one independent variables and one dependent variable.<br><span
+class="math inline">\(\rightarrow\)</span> Calculate and interpret the
+slope and intercept of a regression line.<br><span
+class="math inline">\(\rightarrow\)</span> Analyze the correlation
+coefficient, residuals, and regression errors to assess model fit and
+accuracy.<br><span class="math inline">\(\rightarrow\)</span> Estimate
+regression coefficients, distinguish regression outliers, construct
+confidence intervals, and evaluate assumptions using the least squares
+method.<br><span class="math inline">\(\rightarrow\)</span> Choose the
+appropriate statistical or probabilistic model to analyze relationships
+between different types of variables.<br><span
+class="math inline">\(\rightarrow\)</span> Explain and interpret the Law
+of Large Numbers to show how sample averages converge to the
+popula<br><span class="math inline">\(\rightarrow\)</span> Explain and
+interpret the Central Limit Theorem to approximate the sampling
+distribution of a statistical measure for various population
+distributions.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Inference</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Conduct a hypothesis test, evaluate assumptions, and interpret the
+p-value and confidence interval for one proportion.<br><span
+class="math inline">\(\rightarrow\)</span> Perform hypothesis tests,
+evaluate assumptions, and interpret the p-value and confidence interval
+for two proportions.<br><span class="math inline">\(\rightarrow\)</span>
+Perform one-sample t-tests, evaluate assumptions, and interpret the
+p-value and confidence interval for one mean.<br><span
+class="math inline">\(\rightarrow\)</span> Perform two-sample t-tests,
+evaluate assumptions, and interpret the p-value and confidence interval
+for comparing two means.<br><span
+class="math inline">\(\rightarrow\)</span> Conduct t-tests to compare
+means, evaluate assumptions, and interpret confidence interval and
+p-value for paired data.<br><span
+class="math inline">\(\rightarrow\)</span> Use chi-square tests to
+assess goodness of fit, evaluate assumptions, and interpret the
+chi-square statistic in the context.<br><span
+class="math inline">\(\rightarrow\)</span> Conduct chi-square tests for
+independence, evaluate assumptions and interpret the p-value for two-way
+tables.<br><span class="math inline">\(\rightarrow\)</span> Use Analysis
+of Variance (ANOVA) to compare more than two group means, and interpret
+F-statistics and p-values for multiple means.<br><span
+class="math inline">\(\rightarrow\)</span> Perform hypothesis testing
+for simple and multiple linear regressions.<br><span
+class="math inline">\(\rightarrow\)</span> Perform hypothesis testing
+for logistic regression.<br><span
+class="math inline">\(\rightarrow\)</span> Explain the concepts of point
+estimates and variation.<br><span
+class="math inline">\(\rightarrow\)</span> Explain and interpret the
+p-value.<br><span class="math inline">\(\rightarrow\)</span> Explain and
+interpret confidence intervals.<br><span
+class="math inline">\(\rightarrow\)</span> Define and interpret the null
+and alternative hypothesis.<br><span
+class="math inline">\(\rightarrow\)</span> Define Type I and Type II
+errors and their implications in hypothesis testing.<br><span
+class="math inline">\(\rightarrow\)</span> Differentiate between a
+population and a sample.<br><span
+class="math inline">\(\rightarrow\)</span> Evaluate the impact of sample
+size and significance level on decision errors.<br><span
+class="math inline">\(\rightarrow\)</span> Identify the key
+characteristics of different hypothesis tests and understand the
+conditions under which each test is appropriate.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Use Technology</strong></td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Implement the basics of using R for statistical analysis.<br><span
+class="math inline">\(\rightarrow\)</span> Use R to process, visualize,
+and analyze data sets.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="topics-schedule" class="section level2">
+<h2>Topics Schedule</h2>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Week</strong></th>
+<th align="center"><strong>Day</strong></th>
+<th align="left"><strong>Topics</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>1</strong></td>
+<td align="center">Tu 1/13</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Orientation<br><span class="math inline">\(\rightarrow\)</span>
+Statistical Thinking</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 1/15</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> R and
+R Studio<br><span class="math inline">\(\rightarrow\)</span>
+RMarkdown</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>2</strong></td>
+<td align="center">Tu 1/20</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Data
+Principles<br><span class="math inline">\(\rightarrow\)</span> Basics of
+Data Processing<br><span class="math inline">\(\rightarrow\)</span>
+Basics of Visualizations</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 1/22</td>
+<td align="left"><strong>Project Phase 0</strong><br><span
+class="math inline">\(\rightarrow\)</span> Exploring Numerical
+Data<br><span class="math inline">\(\rightarrow\)</span> Exploring
+Categorical Data</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>3</strong></td>
+<td align="center">Tu 1/27</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Study
+Design<br><span class="math inline">\(\rightarrow\)</span>
+Inference</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 1/29</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Random
+Variables<br><span class="math inline">\(\rightarrow\)</span>
+Probability</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>4</strong></td>
+<td align="center">Tu 2/3</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Expected Value<br><span class="math inline">\(\rightarrow\)</span>
+Variance</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 2/5</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Random
+Sampling<br><span class="math inline">\(\rightarrow\)</span> Law of
+Large Numbers</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>5</strong></td>
+<td align="center">Tu 2/10</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Discrete Random Variables<br><span
+class="math inline">\(\rightarrow\)</span> Probability Mass
+Functions</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 2/12</td>
+<td align="left"><strong>Project Phase 1</strong></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>6</strong></td>
+<td align="center">Tu 2/17</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Binomial Distribution<br><span
+class="math inline">\(\rightarrow\)</span> Geometric Distribution</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 2/19</td>
+<td align="left"><span
+class="math inline">\(\rightarrow\)</span>Continuous Random
+Variables<br><span class="math inline">\(\rightarrow\)</span>
+Probability Density Functions</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>7</strong></td>
+<td align="center">Tu 2/24</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Normal
+Distribution<br><span class="math inline">\(\rightarrow\)</span>
+Exponential Distribution</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 2/26</td>
+<td align="left"><span
+class="math inline">\(\rightarrow\)</span>Conditional
+Probability<br><span class="math inline">\(\rightarrow\)</span> Bayes’
+Theorem</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>8</strong></td>
+<td align="center">Tu 3/3</td>
+<td align="left"><em>Spring Vacation</em></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 3/5</td>
+<td align="left"><em>Spring Vacation</em></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>9</strong></td>
+<td align="center">Tu 3/10</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Central Limit Theorem<br><span
+class="math inline">\(\rightarrow\)</span> Bootstrapping and
+Randomization</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 3/12</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Parameter Estimation<br><span class="math inline">\(\rightarrow\)</span>
+Hypothesis Testing</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>10</strong></td>
+<td align="center">Tu 3/17</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Decision Errors</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 3/19</td>
+<td align="left"><strong>Project Phase 2</strong></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>11</strong></td>
+<td align="center">Tu 3/24</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Inference for One Proportion<br><span
+class="math inline">\(\rightarrow\)</span> Inference for Two
+Proportions</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 3/26</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Chi-Squared Test for Goodness of Fit<br><span
+class="math inline">\(\rightarrow\)</span> Chi-Squared Tests for
+Independence</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>12</strong></td>
+<td align="center">Tu 3/31</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Inference for One Mean<br><span
+class="math inline">\(\rightarrow\)</span> Inference for Two Means</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 4/2</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Linear
+Regression<br><span class="math inline">\(\rightarrow\)</span> Residual
+Analysis</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>13</strong></td>
+<td align="center">Tu 4/7</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Inference for Linear Regression<br><span
+class="math inline">\(\rightarrow\)</span> Hypothesis Testing for Linear
+Regression</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 4/9</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Inference for Many Means<br><span
+class="math inline">\(\rightarrow\)</span> One-Way Analysis of Variance
+(ANOVA)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>14</strong></td>
+<td align="center">Tu 4/14</td>
+<td align="left"><em>Scholarship Day</em></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">W 4/15 to F 4/17</td>
+<td align="left"><strong>Project Phase 3</strong></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>15</strong></td>
+<td align="center">Tu 4/21</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span>
+Multiple Linear Regression (Optional)<br><span
+class="math inline">\(\rightarrow\)</span> Logistic Regression
+(Optional)</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Th 4/23</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> Rank
+Based Tests (Optional)<br><span
+class="math inline">\(\rightarrow\)</span> Power Calculations
+(Optional)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>16</strong></td>
+<td align="center">Tu 4/29</td>
+<td align="left"><strong>Final Project Presentations</strong></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="academic-support" class="section level2">
+<h2><strong>Academic Support</strong></h2>
+<div id="help-hours" class="section level3">
+<h3>Help Hours</h3>
+<blockquote>
+<p>Dr. Alex John Quijano</p>
+<ul>
+<li>Walk-in Monday to Friday at 4:00 PM - 5:00 PM, Buckley Center
+279</li>
+<li><a
+href="https://outlook.office.com/bookwithme/user/563068e7b8f84361b7e7eaf55bc932d8@up.edu/meetingtype/KXqoHwKuE0qdlfS1AiumEg2?bookingcode=31b921a7-10ad-4113-895c-50152bee77c0&amp;anonymous&amp;ismsaljsauthenabled&amp;ep=mLinkFromTile"
+target="_blank">One-to-One, Buckley Center 279</a> <br><em>Click on the
+link to sign-up for a 15-minute session.</em></li>
+</ul>
+</blockquote>
+<p>My walk-in and by-appointment help hours begin in Week 2. If you need
+more than 15 minutes, you can book at most two consecutive sessions.</p>
+</div>
+<div id="the-learning-commons" class="section level3">
+<h3>The Learning Commons<span class="math inline">\(^*\)</span></h3>
+<p>Students may receive academic assistance through Learning Commons
+tutoring services and workshops. The Co-Pilot peer tutoring program
+provides students with opportunities to work with other students to get
+help in writing, math, group projects, and many other courses. Schedule
+an appointment to meet with a Co-Pilot (tutor) by visiting the Learning
+Commons website (<a href="www.up.edu/learningcommons"
+target="_blank">www.up.edu/learningcommons</a>). Students can also meet
+with a Co-Pilot during drop-in hours. Check the Learning Commons website
+or stop by the Learning Commons in BC 163 to learn more about their
+services. Co-Pilots are a wonderful support along your academic
+journey.</p>
+</div>
+<div id="math-resource-center" class="section level3">
+<h3>Math Resource Center</h3>
+<p>Appointment-based tutoring accepts appointments starting week 1 and
+sessions start week 2. Visit the <a
+href="https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html"
+target="_blank">Math Resource Center</a> website to sign-up for an
+appointment. Drop-in tutoring is Monday to Thursday, 3:00 PM - 7:00 PM
+in BC 163 and starts week 2. Check the Math Resource Center website or
+drop by the center for more information.</p>
+</div>
+<div id="help-hours-guidelines" class="section level3">
+<h3>Help Hours Guidelines</h3>
+<p>It is strongly recommended that you attend the walk-in help hours or
+set up a one-to-one meeting with the me if you feel like you are falling
+behind during our in-person class activities, or if you just need to
+clarify concepts discussed in class. In order to be more productive
+during a one-to-one meeting (or the walk-in help hours), these are three
+recommendations before you come in:</p>
+<ul>
+<li>List all gaps in knowledge you have (missed concepts) or list all
+concepts that were unclear to you during class. We will address them one
+by one.</li>
+<li>Prepare questions you want answered and be ready to show relevant
+materials.</li>
+<li>Regarding assignments, prepare to show (a) what are the steps you
+have tried and (b) what are the errors you encountered and the
+strategies you have tried.</li>
+</ul>
+<p>Note that these are recommendations so that you can get the most out
+of the help hours allocated for you. If you just want to come in and
+chat about something else, feel free to do so. If the dedicated time for
+one-to-one meeting does not work for you, send me a message to set up an
+appointment.</p>
+</div>
+<div id="collaboration-policy" class="section level3">
+<h3>Collaboration Policy</h3>
+<p>I expect you to participate in the class through lectures, class
+activities, discussions, homework, and other engagements. I also expect
+you to make use of opportunities to get help outside of class (help
+hours, Teams, email, tutoring) if you need help. Concise and specific
+messages are the most helpful so I know how I can best help you.</p>
+<blockquote>
+<p>You are encouraged to participate in discussions with your peers
+regarding assignments. However, each student must take responsibility
+and ownership of their work and submit their work individually, except
+for group projects.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="assessment" class="section level2">
+<h2><strong>Assessment</strong></h2>
+<div id="assessment-disclosure-statement" class="section level3">
+<h3>Assessment Disclosure Statement<span
+class="math inline">\(^*\)</span></h3>
+<p>Student work products for this course may be used by the University
+for educational quality assurance purposes. For reasons of
+confidentiality, such examples will not include student names.</p>
+</div>
+<div id="standards-based-grading" class="section level3">
+<h3>Standards-Based Grading</h3>
+<p>Learning statistics demands focus, rigorous examination of the
+concepts you have encountered, and a process of ongoing refinement and
+improvement. You will be assessed on your proficiency in statistical
+thinking, scientific reasoning, and inference. You will have
+opportunities to demonstrate your proficiency, revise your work, and
+reflect on your growth in analyzing data, interpreting results, and
+making data-driven conclusions.</p>
+<p>This course uses a standards-based grading system, which emphasizes
+mastery of specific learning objectives. This approach is more precise
+and motivating than traditional grading methods and fosters a more
+equitable learning environment. Key features of standards-based grading
+include:</p>
+<ul>
+<li>A clear focus on mastering defined learning objectives</li>
+<li>The use of diverse assessment methods to evaluate understanding</li>
+<li>Regular, detailed feedback to guide your progress</li>
+<li>Support in setting meaningful goals and tracking your growth</li>
+</ul>
+<p>This system prioritizes learning and personal development, enabling
+you to excel and reach your highest potential.</p>
+</div>
+<div id="general-marking-guide" class="section level3">
+<h3>General Marking Guide</h3>
+<p>Each assignment will be graded according to the general marking guide
+detailed below. You will be given feedback on your assignment and
+learning process to improve your performance. Note that each assignment
+has its own rubric guided by these general guidelines and the
+assignment’s learning objectives.</p>
+<p>Given the following marks, your work:</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Mark</strong></th>
+<th align="left"><strong>Rubric Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Outstanding <br>(O)</strong></td>
+<td align="left">Shows perfect solution sets with key steps shown
+clearly and concisely; applies concepts/methods correctly and
+consistently across similar problems; includes complete and
+well-represented graphs/diagrams; and, when appropriate, may extend on
+applying concepts/methods to new situations.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Excellent <br>(E)</strong></td>
+<td align="left">Shows near-perfect solution sets with key steps shown
+clearly and concisely; applies concepts/methods correctly and
+consistently across similar problems but with minor errors such as
+non-propagating algebraic mistakes, and incomplete or under-represented
+graphs/diagrams.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Acceptable <br>(A)</strong></td>
+<td align="left">Shows approximate solutions sets with key steps shown
+clearly and concisely; applies concepts/methods correctly and
+consistently across similar problems but with major errors such as
+propagating algebraic mistakes, and incomplete or under-represented
+graphs/diagrams.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Needs Improvement <br>(NI)</strong></td>
+<td align="left">Shows rough solution sets with key steps mostly shown
+comprehensibly; applies concepts/methods incorrectly or inconsistently
+across similar problems with major errors such as propagating algebraic
+mistakes, and incomplete or under-represented graphs/diagrams.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Needs Major Improvement <br>(NMI)</strong></td>
+<td align="left">Shows rudimentary solution sets but with key steps
+mostly shown incomprehensibly; applies concepts/methods incorrectly and
+inconsistently across similar problems with major errors such as
+propagating algebraic mistakes, and incomplete or under-represented
+graphs/diagrams.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Missing <br>(M)</strong></td>
+<td align="left">Shows incomplete or fully incomprehensible work.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that these are categorical marks, not numerical scores.</p>
+</div>
+<div id="final-course-grades" class="section level3">
+<h3>Final Course Grades</h3>
+<table style="width:100%;">
+<colgroup>
+<col width="20%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Assignment</strong></th>
+<th align="center"><strong>Rank</strong></th>
+<th align="center"><strong>Mark</strong></th>
+<th align="center"><strong>A</strong></th>
+<th align="center"><strong>B</strong></th>
+<th align="center"><strong>C</strong></th>
+<th align="center"><strong>D</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Project Phases</strong></td>
+<td align="center">1</td>
+<td align="center">O</td>
+<td align="center"><span class="math inline">\(\frac{3}{4}\)</span></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">E</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{3}{4}\)</span></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">A</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{2}{4}\)</span></td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">NI</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{2}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Homeworks</strong></td>
+<td align="center">2</td>
+<td align="center">O</td>
+<td align="center"><span class="math inline">\(\frac{6}{6}\)</span></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">E</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{6}{6}\)</span></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">A</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{5}{6}\)</span></td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">NI</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(\frac{5}{6}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Worksheets</strong></td>
+<td align="center">3</td>
+<td align="center">Completed</td>
+<td align="center"><span
+class="math inline">\(\frac{34}{37}\)</span></td>
+<td align="center"><span
+class="math inline">\(\frac{30}{37}\)</span></td>
+<td align="center"><span
+class="math inline">\(\frac{26}{37}\)</span></td>
+<td align="center"><span
+class="math inline">\(\frac{23}{37}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The above table shows the fraction of given assignments. These
+fractions are minimum requirements for each letter grade.</p>
+<p>The ranking indicates the relative importance of each assignment:
+Rank 1 is the most important, and Rank 3 is the least. If the mark
+distribution across assignments varies for you, this ranking will be
+used to determine your final grade. There will also be optional
+assignments that you may complete to contribute additional credit within
+each assignment category.</p>
+<blockquote>
+<p>Each of you will receive an individual assignment marksheet in the
+middle of the semester to help you track your progress and current
+standing in the course. If you need more assistance on understanding
+your overall standing in this course, I encourage you to communicate
+with me directly.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="assignments" class="section level2">
+<h2><strong>Assignments</strong></h2>
+<div id="submission-guidelines" class="section level3">
+<h3>Submission Guidelines</h3>
+<blockquote>
+<p>You need to submit all assignments online through Moodle.</p>
+<ul>
+<li>Worksheets must be in a single <code>.pdf</code> file.</li>
+<li>Homework or Project Phase reports must be in both <code>.html</code>
+and <code>.Rmd</code> files.</li>
+</ul>
+</blockquote>
+<p>Your work must be labeled correctly and clearly written.</p>
+<ul>
+<li>If you choose to handwrite your answers on paper, scan your document
+using a scanner app to ensure the text is clear. I recommend using the
+“Adobe Scan” app, which is available for both Android and iOS.</li>
+<li>If the assignment involves a R coding component, you must include
+all relevant R code files that generated all outputs, plots, and
+analysis. Your R code must be properly documented or with comments.</li>
+</ul>
+</div>
+<div id="worksheets" class="section level3">
+<h3>Worksheets</h3>
+<p>There will be worksheets every class day except for exam weeks. The
+purpose of the worksheets is for in-class group work and activities, and
+it will include instructions on how to use Python for ODEs.</p>
+<blockquote>
+<p>You must submit your worksheet individually by end-of-class or
+end-of-day. Your name must exist in your worksheet and the names of your
+collaborators.</p>
+</blockquote>
+<p>Worksheets are marked mostly on completion, and partially on
+correctness. It will be marked either pass or fail, there will no
+detailed feedback on worksheets, and no opportunities for revisions and
+make-up.</p>
+</div>
+<div id="homeworks" class="section level3">
+<h3>Homeworks</h3>
+<p>Homeworks are assigned every Tuesday, except for exam days. The
+purpose of the homework is to provide practice with problems, and it
+will include tasks that involve Python.</p>
+<blockquote>
+<p>You must submit your homework individually by the prescribed
+deadline.</p>
+</blockquote>
+<p>Homeworks are marked using the general grading guide and will be
+returned with detailed feedback.</p>
+</div>
+<div id="homework-revisions" class="section level3">
+<h3>Homework Revisions</h3>
+<p>You can revise your homework for an up-grade, meaning -for example- a
+grade of “NI” can be up-graded to “A”.</p>
+<p>Here are the qualifications and requirements for homework
+revisions:</p>
+<ul>
+<li>A homework mark of “NMI”, “NI”, “A”, or “E”.</li>
+<li>The revised homework must be completed, meaning all parts should
+have your full written solutions.</li>
+<li>Homework marked with “M” is disqualified for revisions, but you can
+still use them as practice.</li>
+</ul>
+<p>Here are the rules for homework revisions:</p>
+<ul>
+<li>Homework revisions are accepted within one week of the homework
+being returned to you, otherwise the grade is set.</li>
+<li>You have one chance to revise your homework.</li>
+</ul>
+</div>
+<div id="project-phases" class="section level3">
+<h3>Project Phases</h3>
+<p>Writing a scientific report/paper is essential for any student who
+wants to pursue a STEM career or STEM-related careers. Your project is a
+way for you to get exposure to the rigors of writing a paper that
+involves data exploration and statistical analysis.</p>
+<p>This course’s main assessments is through a semester-long project and
+it will be divided into phases. The purpose of the project phases is to
+break the project into smaller tasks, allowing for incremental progress
+toward its completion.</p>
+<ul>
+<li><p><strong>Phase 0: Group formation and data selection.</strong>
+Each group should consist of 2-4 people. For people who want to form
+their own groups, please send a list of names for your group by the due
+date. The rest will be randomly assigned. Each group must choose a data
+set to analyze. Each group should have a unique data set. Final group
+formations will be announced.</p></li>
+<li><p><strong>Phase 1: Study design, data exploration, and framing
+research questions.</strong> Explore your chosen dataset. Your first
+project report document must include these three parts:</p>
+<ul>
+<li><em>Dataset:</em> Put together your first data frame. What is it?
+Where does it come from? What is the description of each variable? What
+are the types of variables? What kind of sampling strategy (or data
+collection) was used?</li>
+<li><em>Exploration:</em> Exploring the dataset involves creating plots
+such as scatterplots, bar plots, boxplots, histograms, etc. Once you see
+what you are interested in, pick plots relevant to your research
+questions.</li>
+<li><em>Research questions:</em> Formulate your research question and
+include relevant background research.</li>
+</ul></li>
+<li><p><strong>Phase 2: Hypothesis formulation, more data exploration,
+and testing out appropriate methods.</strong> Focus on data exploration,
+test the methods discussed in class, and formulate a hypothesis with
+clear statements and appropriate mathematical symbols. Action items
+should address the feedback provided in the Phase 2 submission. Your
+second project report document must include these three parts:</p>
+<ul>
+<li><em>More Exploration:</em> To create a hypothesis, you must explore
+more and consider different ways to look at your data. What other
+variables can you include in your analysis? What are your observations
+of the data?</li>
+<li><em>Hypothesis Formulation:</em> Based on your research questions,
+formulate a hypothesis –or hypotheses. The hypothesis statements must be
+complete sentences with their corresponding mathematical notations.</li>
+<li><em>Trying Out Statistical Methods:</em> Depending on the
+hypothesis, what statistical method can you apply to answer your
+research question (randomization, bootstrapping, etc.)? Are you using
+proportions, means, difference in proportions, difference in means, etc?
+What are your point estimates? What are your initial
+results/findings/observations?</li>
+</ul></li>
+<li><p><strong>Phase 3: Methods fine-tuning, and writing the
+interpretation and discussion of the results in the context of the
+data.</strong> Implement the method described in Phase 3 and address the
+feedback comments. Your third project report document must include these
+three parts:</p>
+<ul>
+<li><em>Performing the statistical analysis:</em> Rigorously perform the
+appropriate statistical method for your data.</li>
+<li><em>Interpret the results and discuss your conclusions:</em> Write
+at least two paragraphs detailing the results of your analysis. What
+insights and conclusions can you write based on your results? How do
+your results support your hypothesis? Are your research questions
+answered or supported?</li>
+</ul></li>
+<li><p><strong>Final Phase, Presentations, and Peer Review: Draft
+conclusions, compile the report into a cohesive scientific narrative,
+and participate in the peer review process.</strong> Your final report
+and presentation must include the following:</p>
+<ul>
+<li><em>Put your report together as one scientific narrative:</em>Your
+final report should contain these three parts below. Note that you
+already wrote most of these from Phases 2-4. You need to organize them
+in a more scientific narrative fashion.
+<ul>
+<li><strong>Title.</strong> Your final project report must have a
+descriptive title, and list all group members.</li>
+<li><strong>Introduction.</strong> This section should include your
+background research, research questions, hypothesis statements, and data
+description.</li>
+<li><strong>Data Exploration.</strong> This section should explore the
+data that leads to your question and hypotheses. Include details on how
+you wrangle your data or if you made additional computations.</li>
+<li><strong>Methods.</strong> This section should include the processes
+you used for your statistical method.</li>
+<li><strong>Results and Discussions.</strong> This section should
+include the results of your statistical analysis and discuss them in the
+context of your research question. You can still include figures and
+tables here.</li>
+<li><strong>Conclusions.</strong> This is a summary of your argument or
+experiment/research, and it should be related to the introduction.</li>
+</ul></li>
+<li><em>Create a 10-minute Presentation:</em> There will be a final
+presentation on the day of the “final exam”. Your talk should highlight
+and be organized around the following points.
+<ul>
+<li><strong>Short Title.</strong> Include a short title of your report
+and list all group members.</li>
+<li><strong>Motivation.</strong> What is the problem? Why should the
+audience tune in to this talk? Why is this an interesting problem?</li>
+<li><strong>Key Ideas.</strong> What is your dataset? What statistical
+methods did you use? What are the strengths and weaknesses of the method
+you used? What are the results? What are your key conclusions?</li>
+</ul></li>
+<li><em>Peer Review:</em> Complete the peer-review questionnaire on the
+day of the presentations, where you answer specific questions to review
+another group’s project presentation.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>The final project presentations are on:</p>
+<ul>
+<li><strong>Section A:</strong> April 28, Tu 10:30 AM - 12:30 PM, Franz
+Hall 217</li>
+</ul>
+</blockquote>
+</div>
+<div id="project-assessments" class="section level3">
+<h3>Project Assessments</h3>
+<p>Project phase reports are marked using the general grading guide and
+will be returned with detailed feedback. Each phase will include the
+group’s project report and an individual assessment worksheet.</p>
+<p>There will be no revisions for project phases because each phase is
+designed to include drafting and revising as part of the process. This
+semester-long project is intentionally structured to be iterative.</p>
+<div id="assessing-project-reports" class="section level5">
+<h5>Assessing Project Reports</h5>
+<p>The project reports allows you demonstrate your understanding of the
+material in written form. This part will be evaluated on the details of
+your methodology and analysis.</p>
+<p>Reports will be graded on 3 components:</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Report</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Methodology</strong></td>
+<td align="left">The appropriate or prescribed method should be applied
+correctly and consistently across similar problems with shown solid
+understanding of the underlying principles.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Reasoning</strong></td>
+<td align="left">The method should be explained in a clear and logical
+way with each key step justified and explained.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Writing</strong></td>
+<td align="left">The solution process should be written in a clear and
+concise way including key steps with appropriate mathematical notations
+along with complete and well represented graphs/diagrams.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="assessing-project-presentations" class="section level5">
+<h5>Assessing Project Presentations</h5>
+<p>The project presentations allows you to demonstrate your
+understanding of the materials as well as your ability to communicate
+your work.</p>
+<p>Presentations will be graded on 3 components:</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Presentation</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Knowledge</strong></td>
+<td align="left">The mathematical definitions and procedures should be
+recalled accurately and applied appropriately and consistently.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Communication</strong></td>
+<td align="left">The underlying concepts should be explained clearly,
+concisely, and consistently using appropriate mathematical
+language.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Problem-solving</strong></td>
+<td align="left">The given problem should be critically identified,
+understood, and solved using the prescribed or unprescribed methods or
+strategies.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="project-guidelines" class="section level3">
+<h3>Project Guidelines</h3>
+<blockquote>
+<p>Each group must submit a report together by the next project phase.
+The report must be written in <code>.Rmd</code> file and rendered as
+<code>.html</code> file.</p>
+</blockquote>
+<p>The final report must include all relevant R codes that generated all
+figures and statistical analysis. R codes can be also be included in the
+Appendix section of your report if you choose. The R Code must be
+properly documented or with comments.</p>
+<p>Here are some other rules regarding group formations:</p>
+<ul>
+<li>If a group must be disbanded for any reason, students need to
+discuss their disbandment to me - as soon as possible - for a detailed
+plan on how to move forward.</li>
+<li>If groups must be combined for any reason, the new group must inform
+me about the union as soon as possible, and their plans on moving
+forward.</li>
+<li>Group disbandment or union are allowed up to Phase 3 of the project.
+Special cases are considered.</li>
+</ul>
+</div>
+</div>
+<div id="academic-integrity" class="section level2">
+<h2><strong>Academic Integrity</strong></h2>
+<div id="the-honor-code-statement" class="section level3">
+<h3>The Honor Code Statement</h3>
+<blockquote>
+<p>I commit to upholding the code of academic integrity by demonstrating
+ethical and responsible academic practices and adhering to the
+principles of academic integrity.</p>
+</blockquote>
+<p>You are encouraged to utilize all resources available to you,
+including course materials, online references, and collaborative
+discussions with your classmates. However, you must adhere to the
+following principles:</p>
+<ul>
+<li><strong>Follow the Academic Integrity Policy:</strong> Ensure all
+work is your own or properly credited where collaboration or external
+resources are involved.</li>
+<li><strong>Comply with the Course AI Policy:</strong> Any use of AI
+tools must align with the course-specific AI guidelines provided. Misuse
+of AI will be considered a violation of academic integrity.</li>
+<li><strong>Adhere to Referencing and Citation Guidelines:</strong>
+Properly cite all external sources used in your work to give appropriate
+credit and avoid plagiarism.</li>
+<li><strong>Uphold the Academic Honor Code:</strong> I trust you to
+maintain the highest standards of honesty and integrity in your
+work.</li>
+<li><strong>Take Ownership of Your Work:</strong> You must contribute
+meaningfully and be prepared to explain and defend your work.</li>
+</ul>
+</div>
+<div id="code-of-academic-integrity" class="section level3">
+<h3>Code of Academic Integrity<span
+class="math inline">\(^*\)</span></h3>
+<p>The University of Portland is a diverse academic community of
+learners and scholars who are dedicated to freely sharing ideas and
+engaging in respectful discussion of those ideas to discover truth. Such
+pursuits require each person, whether student or faculty, to present
+truthfully our own ideas and give credit to others for the ideas that
+they generate. Thus, cheating on exams, copying another student’s
+assignment, including homework, or using the work of others without
+proper citation are some examples of violating academic integrity.</p>
+<p>Especially for written and oral assignments, students have an ethical
+responsibility to properly cite the authors of any books, articles, or
+other sources that they use. Students should expect to submit
+assignments to Turnitin, a database that ensures assignments are
+original work of the student submitting. Each discipline has guidelines
+for how to give appropriate credit, and instructors will communicate the
+specific guidelines for their discipline. The Clark Library also
+maintains a webpage that provides citation guidelines at <a
+href="https://libguides.up.edu/cite"
+target="_blank_">https://libguides.up.edu/cite</a>.</p>
+<p>The misuse of AI to shortcut course learning outcomes will be treated
+as a violation of academic integrity comparable to plagiarism or
+cheating. Faculty are responsible for including a written “Course AI
+Policy” in their syllabi that clearly states what they consider
+appropriate and inappropriate uses of AI in the context of their
+courses. Students are responsible for using AI in ways that do not
+detract from the established learning outcomes of the course. All
+members of the scholarly community are responsible for demonstrating
+sound judgment in discerning when and how to utilize AI in their work,
+upholding standards of citation, originality, and integrity.</p>
+</div>
+<div id="course-ai-policy" class="section level3">
+<h3>Course AI Policy</h3>
+<p>The use of generative AI —such as Copilot, Gemini, or ChatGPT— is
+allowed in all of its capacity. However, students must use these tools
+ethically and responsibly. To use generative AI responsibly in this
+class, students should grasp underlying concepts, acknowledge AI’s
+assistance, protect data privacy, verify information, and uphold
+academic honor code. AI should be seen as a learning aid, not a
+replacement for critical thinking.</p>
+<p>This AI policy applies only to this course. For other courses, please
+follow those professors’ AI policies, which may differ from this
+one.</p>
+</div>
+<div id="ethics-of-information" class="section level3">
+<h3>Ethics of Information<span class="math inline">\(^*\)</span></h3>
+<p>The University of Portland is a community dedicated to the
+investigation and discovery of processes for thinking ethically and
+encouraging the development of ethical reasoning in the formation of the
+whole person. Using information ethically, as an element in open and
+honest scholarly endeavors, involves moral reasoning to determine the
+right way to access, create, distribute, and employ information,
+including: considerations of intellectual property rights, fair use,
+information bias, censorship, and privacy. More information can be found
+in the Clark Library’s guide to the Ethical Use of Information at <a
+href="https://libguides.up.edu/ethicaluse"
+target="_blank">libguides.up.edu/ethicaluse</a>.</p>
+</div>
+</div>
+<div id="other-expectations" class="section level2">
+<h2><strong>Other Expectations</strong></h2>
+<div id="deadline-extensions" class="section level3">
+<h3>Deadline Extensions</h3>
+<p>If you need more time to submit an assignment, you may request an
+extension by following these steps:</p>
+<ul>
+<li>Communicate with me at least 12 hours before the deadline.</li>
+<li>Specify the exact day you plan to submit your work or the number of
+extra days you need.</li>
+<li>Please ensure that you adhere to the established timeline for
+submitting assignments, as it is important to maintain fairness and
+avoid over-reliance on extensions.</li>
+</ul>
+<p>Extensions for in-class assignments —such as worksheets— will only be
+granted if I decide to extend the deadline for the entire class.</p>
+</div>
+<div id="late-assignments" class="section level3">
+<h3>Late Assignments</h3>
+<p>Submitting a few hours late is usually not a major issue, as long as
+I receive your work before I begin marking and providing feedback. An
+extension is not required in such cases.</p>
+<p>You are expected to turn in all completed assignments “on time”.
+Extenuating circumstances that may disallow you to turn in your work on
+time are understandable. Please let me know if you have missed the
+deadline way beyond its original posted date without prior communication
+regarding extensions. Because every assignment is an important aspect of
+your learning in this class, we will discuss when you will turn in the
+assignment as well as decide upon an acceptable consequence for your
+turning it in late. I am committed to successfully helping you learn
+from this course.</p>
+</div>
+<div id="attendance-and-participation" class="section level3">
+<h3>Attendance and Participation</h3>
+<p>Class attendance is highly recommended and often tracked through
+assignments and general behavior. You are expected to actively
+participate in this class. Participation includes coming to class on
+time, being prepared, being willing to ask questions and share ideas,
+setting up study groups outside of class, attending tutoring and help
+hour sessions, posting helpful resources online, and contributing to the
+discussion channels. Group and individual presentation of ideas is a
+suggested component of participation.</p>
+</div>
+<div id="absences" class="section level3">
+<h3>Absences</h3>
+<p>Generally, you are expected to attend all class sessions according to
+my direction. If you feel unwell, you should not attend class in person.
+Should I need to miss class, the course may be temporarily conducted
+remotely. Should I be unable to teach for an extended period of time,
+the mathematics department will find a substitute to continue the
+course.</p>
+</div>
+<div id="appointment-cancellations" class="section level3">
+<h3>Appointment Cancellations</h3>
+<p>Please try to show-up to your scheduled appointments. You can cancel
+your appointments, but it is strongly recommended that you communicate
+this to me before your scheduled appointment. You can reschedule for a
+different day and time if necessary.</p>
+</div>
+<div id="incompletes" class="section level3">
+<h3>Incompletes</h3>
+<p>An incomplete <strong>I</strong> will only be considered when the
+quality of your work is satisfactory (C- or better). For some essential
+reason the course has not been completed, an <strong>I</strong> is
+reserved for extenuating circumstances only. If this applies to you,
+please let me know as soon as possible to discuss next steps.</p>
+</div>
+<div id="withdrawal-procedures" class="section level3">
+<h3>Withdrawal Procedures</h3>
+<p>It is your responsibility to drop the course if you are no longer
+planning on attending the course or fulfilling the course requirements.
+In order to drop, you must use an Add/Drop form available at the
+Registrar’s Office. If you do not properly withdraw from this course,
+you may receive an <strong>F</strong> for the course. A properly
+withdrawn student will receive a <strong>W</strong>. The last day to
+withdraw is <strong>Monday, 4/13</strong>.</p>
+</div>
+<div id="accessibility-statement" class="section level3">
+<h3>Accessibility Statement<span class="math inline">\(^*\)</span></h3>
+<p>The University of Portland strives to make its courses and services
+fully accessible to all students. Students are encouraged to discuss
+with their instructors what might be most helpful in enabling them to
+meet the learning goals of the course. Students who experience a
+disability are encouraged to use the services of the Office for
+Accessible Education Services (AES), located in the Shepard Academic
+Resource Center (503-943-8985). <strong>If you have an AES Accommodation
+Plan</strong>, you should meet with your instructor to discuss how to
+implement your plan in this class. Requests for alternate location for
+exams and/or extended exam time should, where possible, be made two
+weeks in advance of an exam, and must be made at least one week in
+advance of an exam. Also, if applicable, you should meet with your
+instructor to discuss emergency medical information or how best to
+ensure your safe evacuation from the building in case of fire or other
+emergency. All information that students provide regarding disability or
+accommodation is confidential. All students are responsible for
+completing the required coursework and are held to the same evaluation
+standards specified in the course syllabus.</p>
+</div>
+<div id="mental-health-statement" class="section level3">
+<h3>Mental Health Statement<span class="math inline">\(^*\)</span></h3>
+<p>Anyone can experience problems with their mental health that
+interfere with academic experiences and negatively impact daily life. If
+you or someone you know experiences mental health challenges at UP,
+please contact the University of Portland Counseling Center (<a
+href="https://www.up.edu/counseling/"
+target="_Blank">https://www.up.edu/counseling/</a>) in the upper level
+of Orrico Hall (down the hill from Franz Hall and near Mehling Hall) at
+503-943-7134 or <a href="mailto:hcc@up.edu"
+class="email">hcc@up.edu</a>. Their services are free and confidential.
+In addition, mental health consultation and support is available through
+the Pilot Helpline by calling 503-943-7134 and pressing 3. All UP
+students also have access to teletherapy through BetterMynd. The
+University of Portland Campus Safety Department (503-943-4444) also has
+personnel trained to respond sensitively to mental health emergencies at
+all hours. Remember that getting help is a smart and courageous thing to
+do —for yourself, for those you care about, and for those who care about
+you. For more information on health and wellness resources at UP go to
+<a href="www.linktr.ee/wellnessUP"
+target="_Blank">www.linktr.ee/wellnessUP</a>.</p>
+</div>
+<div id="non-violence-statement" class="section level3">
+<h3>Non-Violence Statement<span class="math inline">\(^*\)</span></h3>
+<p>The University of Portland is committed to fostering a safe and
+respectful community free from all forms of violence. Violence of any
+kind, and in particular acts of power-based personal violence, are
+inconsistent with our mission. Together, all UP community members must
+take a stand against violence. Learn more about what interpersonal
+violence looks like, campus and community resources, UP’s prevention
+strategy, and what we as individuals can do to assist on the Green Dot
+website, <a href="https://www.up.edu/greendot"
+target="_blank">www.up.edu/greendot</a>. Further information and
+reporting options may be found on the Title IX website, <a
+href="https://www.up.edu/titleix"
+target="_blank">www.up.edu/titleix</a>.</p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="materials" class="section level1">
+<h1>Materials</h1>
+<blockquote>
+<p>You are “required” to read the materials, and are strongly encouraged
+to actively participate in class discussions and complete the
+assignments efficiently to deepen your understanding and succeed in the
+course.</p>
+</blockquote>
+<div id="class-readings-and-presentations" class="section level2">
+<h2>Class Readings and Presentations</h2>
+<p>The “Read” column in the table below contains page numbers (Pg.) or
+chapters (Ch.) on which it refers to a label in the Books &amp; Online
+Resources List. For example “Pg. 1-5 <span class="citation">[1]</span>”
+refers to pages 1-5 of the textbook titled <em>Probability, Statistics,
+and Data: A Fresh Approach Using R</em>.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Topic</strong></th>
+<th align="left"><strong>Read</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Orientation</td>
+<td align="left">Syllabus</td>
+</tr>
+<tr class="even">
+<td align="left">Statistical Thinking</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">R and R Studio</td>
+<td align="left">Ch. 1.1-1.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">RMarkdown</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Data Principles</td>
+<td align="left">Ch. 1.3-1.8 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Basics of Data Processing</td>
+<td align="left">Ch. 6.1-6.7 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Basics of Visualizations</td>
+<td align="left">Ch. 7.1 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Exploring Numerical Data</td>
+<td align="left">Ch. 7.2-7.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Exploring Categorical Data</td>
+<td align="left">Ch. 7.4, &amp; Ch. 10.1 <span
+class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Study Design</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Inference</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Random Variables</td>
+<td align="left">Ch. 2.1 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Probability</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Expected Value</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Variance</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Random Sampling</td>
+<td align="left">Ch. 2.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Law of Large Numbers</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Discrete Random Variables</td>
+<td align="left">Ch. 3.1-3.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Probability Mass Functions</td>
+<td align="left">Ch. 3.5 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Binomial Distribution</td>
+<td align="left">ch. 3.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Geometric Distribution</td>
+<td align="left">ch. 3.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Continuous Random Variables</td>
+<td align="left">ch. 4.1 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Probability Density Functions</td>
+<td align="left">ch. 4.2-4.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Normal Distribution</td>
+<td align="left">ch. 4.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Exponential Distribution</td>
+<td align="left">ch. 4.5 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Conditional Probability</td>
+<td align="left">ch. 2.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Bayes’ Theorem</td>
+<td align="left">ch. 2.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Central Limit Theorem</td>
+<td align="left">ch. 5.1-5.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Bootstrapping and Randomization</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Parameter Estimation</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Hypothesis Testing</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Decision Errors</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Inference for One Proportion</td>
+<td align="left">Ch. 10.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Inference for Two Proportions</td>
+<td align="left">Ch. 10.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Chi-Squared Test for Goodness of Fit</td>
+<td align="left">Ch. 10.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Chi-Squared Tests for Independence</td>
+<td align="left">Ch. 10.4-10.5 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Inference for One Mean</td>
+<td align="left">Ch. 8.1-8.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Inference for Two Means</td>
+<td align="left">Ch. 8.6 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Linear Regression</td>
+<td align="left">Ch. 11.1-11.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Residual Analysis</td>
+<td align="left">Ch. 11.3-11.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Inference for Linear Regression</td>
+<td align="left">Ch. 11.5 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Hypothesis Testing for Linear Regression</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Inference for Many Means</td>
+<td align="left">Ch. 12.1-12.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">One-Way Analysis of Variance</td>
+<td align="left">Ch. 12.3-12.4 <span class="citation">[1]</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Multiple Linear Regression (Optional)</td>
+<td align="left">Ch. 13.1-12.3 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Logistic Regression (Optional)</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Rank Based Tests (Optional)</td>
+<td align="left">Ch. 9.1-9.2 <span class="citation">[1]</span></td>
+</tr>
+<tr class="even">
+<td align="left">Power Calculations (Optional)</td>
+<td align="left">Ch. 8.7 &amp; Ch. 9.3-9.4 <span
+class="citation">[1]</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="books-online-resources-lists" class="section level2">
+<h2>Books &amp; Online Resources Lists</h2>
+<div id="refs" class="references csl-bib-body" entry-spacing="0">
+<div id="ref-speegle2021probability" class="csl-entry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Speegle, Darrin and Clair, Bryan (2021) <a
+href="https://probstatsdata.com/">Probability, statistics, and data: A
+fresh approach using r</a>, Chapman; Hall/CRC.</div>
+</div>
+<div id="ref-diez2012openintro" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Diez
+DM, Barr CD, Çetinkaya-Rundel M (2012) <a
+href="https://www.openintro.org/book/os/">OpenIntro statistics</a>,
+OpenIntro.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+   
+   
+            
+      
+
+  <script>
+    $(document).ready(function () {
+
+			
+ 		
+	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>

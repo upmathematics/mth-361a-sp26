@@ -1,0 +1,70 @@
+/* theme customizations */
+
+#sidebar {
+    color: #FFFFFF;
+    background: #5E6A71;
+}
+
+#sidebar h2 {
+    color: #FFFFFF;
+    background-color: #0D776E;
+}
+
+#sidebar a {
+    color: #FFFFFF;
+}
+
+#sidebar a:hover {
+    color: #FFFFFF;
+    background-color: #0D776E;
+}
+
+#postamble {
+  color: #FFFFFF;
+  background:#0D776E;
+}
+
+#postamble a {
+  color: #d4efdf;
+}
+
+#postamble a:hover {
+  color: #f7dc6f;
+}
+
+#main h1, h2, h3, h4, h5, h6, legend {
+    color: #17202a;
+}
+
+.title {
+  color: #0D776E;
+}
+
+.subtitle {
+  color: #0D776E;
+}
+
+/* Center box */
+
+.center {
+  text-align: center;
+}
+
+/* Information box */
+
+.infobox {
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 10px;
+  border: 5px solid #0D776E;
+  border-radius: 10px;
+  background: #eefdfc 5px center/3em no-repeat;
+}
+
+/* Block Quote */
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border-left: 5px solid #0D776E;
+    background: #eefdfc 5px center/3em no-repeat;
+}

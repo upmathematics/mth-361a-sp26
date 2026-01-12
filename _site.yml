@@ -1,0 +1,9 @@
+name: "MTH-361A-sp2026"
+output_dir: "docs"
+description: |
+  Applied Statistics I Section A at the University of Portland
+output:
+   rmdformats::readthedown:
+      lib_dir: site_libs
+      link-citations: true
+      css: css/custom.css

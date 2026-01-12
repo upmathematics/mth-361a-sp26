@@ -1,0 +1,561 @@
+---
+title: "MTH 361: Applied Statistics I"
+subtitle: | 
+  | Section A
+  | Spring 2026
+  | Department of Mathematics
+  | University of Portland
+author: | 
+  | Dr. [Alex John Quijano](https://www.alexjohnquijano.com){target='_blank'} [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/){target='_blank'}
+  | Department of Mathematics
+  | University of Portland
+  | 
+  | Made with [R](https://cran.r-project.org/){target='_blank'} and [RMarkdown](https://rmarkdown.rstudio.com/){target='_blank'}
+  | Last updated on `r format(Sys.Date(), format='%B %d, %Y')`
+bibliography: references.bib
+csl: mbe.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r statistical-thinking-1, echo=FALSE, fig.align='left', out.width = '70%'}
+knitr::include_graphics("figures/statistical-thinking-in-data-science-lifecycle.png")
+```
+
+Statistical thinking is a way of understanding the world through data, serving as the foundational principle of statistics.
+
+# Syllabus
+
+## **About the Class**
+
+### Description
+
+This course offers an introduction to exploratory data analysis, probability theory, random variables, regression modeling, hypothesis testing, point and interval estimates, and sampling methods. Emphasis is placed on a data-driven approach and project-based learning, with the goal of developing the ability to provide clear and organized written and verbal explanations of statistical and probabilistic ideas to a diverse audience. To promote scientific transparency, replicability, and reproducibility, the course includes an introduction to the R programming language for data exploration, visualization, and statistical and probabilistic computing.
+
+### Instructor Information
+
+> * Instructor: Dr. Alex John Quijano
+> * Office: Buckley Center 279
+
+### Lectures and Discussions
+
+This course meets on Tuesdays and Thursdays. The typical class routine will include pre-reading assignments before each class, followed by a short lecture or demonstration, worksheet activities, group presentations, and discussions.
+
+> The course schedule and location is:
+>
+> * **Section A:** TuTh 11:20 AM - 12:45 PM, Franz Hall 217
+
+### Textbook
+
+This course uses the following textbook —which is free to access— for reading and practice.
+
+```{r echo=FALSE}
+refs <- bibtex::read.bib("references.bib")
+```
+
+>  * `r capture.output(print(refs["speegle2021probability"]))`
+
+### Credit Hours and Prerequisites
+
+* Credit hours: 3
+* Prerequisites: MTH 161 (Elementary Statistics) or MTH 201 (Calculus I) with a grade of C- or higher
+
+<br>
+
+## **Communication Tools**
+
+### Class Website
+
+The syllabus, tentative topics schedule, and other information are posted on the course website.
+
+> You can access the course website at [mth-361a-sp26](index.html){target="_blank"}.
+
+Note that this website can also be viewed in Teams.
+
+### Microsoft Teams
+
+We will be using Teams as the main real-time communication tool for general announcements, question-answering discussions, and direct messages.
+
+> The Teams for this course is [MTH-361A-sp26](https://teams.microsoft.com/l/team/19%3ALujyzbarzFjlZszUD1znX1UgPPd7aRVSummQ1WtAzYM1%40thread.tacv2/conversations?groupId=08d5ebee-6e90-47f3-80b4-fadc91987b08&tenantId=ea8f3949-231c-40b6-a33f-56873af96f87){target="_blank"}. I added you to the Teams page already, so you just need to log in using your UP credentials. If not, then send a request when you log in. Let me know if you need any assistance.
+
+I recommend that you install the Teams software on your own machine for easy and stable access, instead of accessing Teams on the browser. Note that this course website and textbook can be accessed in Teams.
+
+### Email
+
+My UP email is quijano@up.edu. 
+
+> If you prefer communicating through email, note that I have set up an email filter for this course, and you must put the “MTH 361” keyword in your subject line. 
+
+It is easy for me to get notice of your email if you put the keyword in the subject line. Concise and specific messages are helpful, so I know how I can best help you.
+
+<br>
+
+## **Assignment Tools**
+
+### Moodle
+
+We will be using the course [Moodle](https://learning.up.edu){target="_blank"} page for submitting assignments and giving feedback.
+
+> The Moodle for this course is [MTH-361A - sp26 - Applied Statistics I](https://learning.up.edu/course/view.php?id=44593){target="_blank"}. You are already listed in Moodle for this course using your UP account.
+
+### Posit Cloud
+
+We will be using the R programming language as a computational tool for all assignments. This tool is free and open-source. We will use the Posit Cloud service.
+
+* [Posit Cloud](https://login.posit.cloud/login?redirect=%2F){target="_blank"} is an online computing environment that supports computations in R.
+
+* [R](https://www.r-project.org/){target="_blank"} is a programming language and environment used for statistical analysis, data visualization, and data-driven research.
+
+* [R Studio](https://posit.co/download/rstudio-desktop/){target="_blank"} is an environment that makes it easier to write, run, and manage R code for data analysis and visualization.
+
+> Create a free account at [Posit Cloud Sign-Up](https://login.posit.cloud/register?redirect=%2F){target="_blank"} using your UP email. Note that you must use your UP email for me to add you into the course’s workspace in Posit Cloud. You will receive an email inviting you into the workspace at the first week of the semester.
+
+If you'd like to set up R on your own computer, start by installing [R](https://cran.r-project.org/){target="_blank"}, then install [R Studio](https://posit.co/download/rstudio-desktop/){target="_blank"} to run and share code interactively. Feel free to reach out if you'd like help with any step!
+
+> R instructions and materials will be provided ad hoc.
+
+<br>
+
+## **Learning Goals**
+
+### Learning Outcomes
+
+Upon completion of the course, you will be able to:
+
+  * Understand the basics of statistical thinking.
+  * Evaluate a given statistical problem, and generate appropriate questions.
+  * Understand the basics of tabular data structures and how it was collected.
+  * Evaluate a given data set on its statistical properties through the process of exploratory data analysis.
+  * Understand the basic concepts of random variables and probability, and their applications in statistical analysis.
+  * Perform statistical inference, which includes hypothesis testing, confidence intervals, and estimation.
+  * Use basic statistical models appropriately and interpret their outcomes in context.
+  * Write clear and concise statistical reports, which includes drawing meaningful conclusions and critically assess claims.
+  * Communicate effectively about statistical conclusions and claims with other students, instructors, and professionals.
+  * Work independently and as part of a team to conduct statistical analysis.
+  * Effectively use technology to support the analysis of a given data set.
+
+### Learning Objectives
+
+The following learning objectives are designed to build on one another, with some overlap. The goal is to help you achieve proficiency in these areas.
+
+| **Topic Category** | **Learning Objectives** |
+|:---|:---------|
+| **Statistical Thinking** | $\rightarrow$ Define the purpose and importance of statistical thinking in data analysis.<br>$\rightarrow$ Explain the principles of statistical inference, including the concepts of sampling variability, estimation, and hypothesis testing.<br>$\rightarrow$ Differentiate between descriptive and inferential statistics.<br>$\rightarrow$ Explain the role of variability and uncertainty in data.<br>$\rightarrow$ Distinguish between observational studies and experiments.<br>$\rightarrow$ Identify key components of a well-designed experiment (i.e. randomization, control, replication).<br>$\rightarrow$ Use the appropriate hypothesis test to a given research question, considering the data type, sample size, and underlying assumptions, to draw valid statistical conclusions. |
+| **Exploratory Data Analysis** | $\rightarrow$ Gather, process, and manage data sets for statistical analysis.<br>$\rightarrow$ Identify and categorize different types of data (e.g. numerical vs. categorical).<br>$\rightarrow$ Compute and interpret statistical measures of central tendency (e.g. mean, median, mode) and spread (e.g. range, variance, standard deviation).<br>$\rightarrow$ Choose appropriate statistical measures for different data types.<br>$\rightarrow$ Visualize data using basic plots (e.g. dot, bar, scatter, histograms, and line). <br>$\rightarrow$ Choose appropriate visualizations for different data types. |
+| **Probability** | $\rightarrow$ Define and interpret discrete and continuous random variables.<br>$\rightarrow$ Define, calculate and interpret probabilities using basic rules such as independence, addition, and complement.<br>$\rightarrow$ Define, calculate, and interpret conditional probabilities using basic rules such as dependence, chain, and Bayes’ theorem.<br>$\rightarrow$ Use and interpret common probability functions such as binomial, geometric, and normal.<br>$\rightarrow$ Calculate expected values and variances of common probability functions. |
+| **Models** | $\rightarrow$ Define and interpret dependent and independent variables.<br>$\rightarrow$Use random sampling simulations to estimate statistical measures and analyze distributions of data sets.<br>$\rightarrow$ Describe key sampling techniques (e.g. simple random, stratified, cluster) and evaluate their strengths and limitations.<br>$\rightarrow$ Use contingency tables to analyze relationships between categorical variables.<br>$\rightarrow$ Use Logistic regression to analyze relationships between a numerical and categorical variables.<br>$\rightarrow$ Use simple linear regression to analyze relationships between two numerical variables.<br>$\rightarrow$ Use multiple linear regression to analyze relationships between more than one independent variables and one dependent variable.<br>$\rightarrow$ Calculate and interpret the slope and intercept of a regression line.<br>$\rightarrow$ Analyze the correlation coefficient, residuals, and regression errors to assess model fit and accuracy.<br>$\rightarrow$ Estimate regression coefficients, distinguish regression outliers, construct confidence intervals, and evaluate assumptions using the least squares method.<br>$\rightarrow$ Choose the appropriate statistical or probabilistic model to analyze relationships between different types of variables.<br>$\rightarrow$ Explain and interpret the Law of Large Numbers to show how sample averages converge to the popula<br>$\rightarrow$ Explain and interpret the Central Limit Theorem to approximate the sampling distribution of a statistical measure for various population distributions. |
+| **Inference** | $\rightarrow$ Conduct a hypothesis test, evaluate assumptions, and interpret the p-value and confidence interval for one proportion.<br>$\rightarrow$ Perform hypothesis tests, evaluate assumptions, and interpret the p-value and confidence interval for two proportions.<br>$\rightarrow$ Perform one-sample t-tests, evaluate assumptions, and interpret the p-value and confidence interval for one mean.<br>$\rightarrow$ Perform two-sample t-tests, evaluate assumptions, and interpret the p-value and confidence interval for comparing two means.<br>$\rightarrow$ Conduct t-tests to compare means, evaluate assumptions, and interpret confidence interval and p-value for paired data.<br>$\rightarrow$ Use chi-square tests to assess goodness of fit, evaluate assumptions, and interpret the chi-square statistic in the context.<br>$\rightarrow$ Conduct chi-square tests for independence, evaluate assumptions and interpret the p-value for two-way tables.<br>$\rightarrow$ Use Analysis of Variance (ANOVA) to compare more than two group means, and interpret F-statistics and p-values for multiple means.<br>$\rightarrow$ Perform hypothesis testing for simple and multiple linear regressions.<br>$\rightarrow$ Perform hypothesis testing for logistic regression.<br>$\rightarrow$ Explain the concepts of point estimates and variation.<br>$\rightarrow$ Explain and interpret the p-value.<br>$\rightarrow$ Explain and interpret confidence intervals.<br>$\rightarrow$ Define and interpret the null and alternative hypothesis.<br>$\rightarrow$ Define Type I and Type II errors and their implications in hypothesis testing.<br>$\rightarrow$ Differentiate between a population and a sample.<br>$\rightarrow$ Evaluate the impact of sample size and significance level on decision errors.<br>$\rightarrow$ Identify the key characteristics of different hypothesis tests and understand the conditions under which each test is appropriate. |
+| **Use Technology** | $\rightarrow$ Implement the basics of using R for statistical analysis.<br>$\rightarrow$ Use R to process, visualize, and analyze data sets. |
+
+<br>
+
+## Topics Schedule
+
+| **Week** | **Day** | **Topics** |
+|:--:|:--:|:---------------|
+| **1** | Tu 1/13 | $\rightarrow$ Orientation<br>$\rightarrow$ Statistical Thinking |
+|  | Th 1/15 | $\rightarrow$ R and R Studio<br>$\rightarrow$ RMarkdown |
+| **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing<br>$\rightarrow$ Basics of Visualizations |
+|  | Th 1/22 | **Project Phase 0**<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
+| **3** | Tu 1/27 | $\rightarrow$ Study Design<br>$\rightarrow$ Inference |
+|  | Th 1/29 | $\rightarrow$ Random Variables<br>$\rightarrow$ Probability |
+| **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
+|  | Th 2/5 | $\rightarrow$ Random Sampling<br>$\rightarrow$ Law of Large Numbers |
+| **5** | Tu 2/10 | $\rightarrow$ Discrete Random Variables<br>$\rightarrow$ Probability Mass Functions |
+|  | Th 2/12 | **Project Phase 1** |
+| **6** | Tu 2/17 | $\rightarrow$ Binomial Distribution<br>$\rightarrow$ Geometric Distribution |
+|  | Th 2/19 | $\rightarrow$Continuous Random Variables<br>$\rightarrow$ Probability Density Functions |
+| **7** | Tu 2/24 | $\rightarrow$ Normal Distribution<br>$\rightarrow$ Exponential Distribution |
+|  | Th 2/26 | $\rightarrow$Conditional Probability<br>$\rightarrow$ Bayes' Theorem |
+| **8** | Tu 3/3 | _Spring Vacation_ |
+|  | Th 3/5 | _Spring Vacation_ |
+| **9** | Tu 3/10 | $\rightarrow$ Central Limit Theorem<br>$\rightarrow$ Bootstrapping and Randomization |
+|  | Th 3/12 | $\rightarrow$ Parameter Estimation<br>$\rightarrow$ Hypothesis Testing |
+| **10** | Tu 3/17 | $\rightarrow$ Decision Errors |
+|  | Th 3/19 | **Project Phase 2** |
+| **11** | Tu 3/24 | $\rightarrow$ Inference for One Proportion<br>$\rightarrow$ Inference for Two Proportions |
+|  | Th 3/26 | $\rightarrow$ Chi-Squared Test for Goodness of Fit<br>$\rightarrow$ Chi-Squared Tests for Independence |
+| **12** | Tu 3/31 | $\rightarrow$ Inference for One Mean<br>$\rightarrow$ Inference for Two Means |
+|  | Th 4/2 | $\rightarrow$ Linear Regression<br>$\rightarrow$ Residual Analysis |
+| **13** | Tu 4/7 | $\rightarrow$ Inference for Linear Regression<br>$\rightarrow$ Hypothesis Testing for Linear Regression |
+|  | Th 4/9 | $\rightarrow$ Inference for Many Means<br>$\rightarrow$ One-Way Analysis of Variance (ANOVA) |
+| **14** | Tu 4/14 | _Scholarship Day_ |
+|  | W 4/15 to F 4/17 | **Project Phase 3** |
+| **15** | Tu 4/21 | $\rightarrow$ Multiple Linear Regression (Optional)<br>$\rightarrow$ Logistic Regression (Optional) |
+|  | Th 4/23 | $\rightarrow$ Rank Based Tests (Optional)<br>$\rightarrow$ Power Calculations (Optional) |
+| **16** | Tu 4/29 | **Final Project Presentations** |
+
+<br>
+
+## **Academic Support**
+
+### Help Hours
+
+> Dr. Alex John Quijano
+> 
+> * Walk-in Monday to Friday at 4:00 PM - 5:00 PM, Buckley Center 279
+> * [One-to-One, Buckley Center 279](https://outlook.office.com/bookwithme/user/563068e7b8f84361b7e7eaf55bc932d8@up.edu/meetingtype/KXqoHwKuE0qdlfS1AiumEg2?bookingcode=31b921a7-10ad-4113-895c-50152bee77c0&anonymous&ismsaljsauthenabled&ep=mLinkFromTile){target="_blank"} <br>*Click on the link to sign-up for a 15-minute session.*
+
+My walk-in and by-appointment help hours begin in Week 2. If you need more than 15 minutes, you can book at most two consecutive sessions.
+
+### The Learning Commons$^*$
+
+Students may receive academic assistance through Learning Commons tutoring services and workshops. The Co-Pilot peer tutoring program provides students with opportunities to work with other students to get help in writing, math, group projects, and many other courses. Schedule an appointment to meet with a Co-Pilot (tutor) by visiting the Learning Commons website ([www.up.edu/learningcommons](www.up.edu/learningcommons){target="_blank"}). Students can also meet with a Co-Pilot during drop-in hours. Check the Learning Commons website or stop by the Learning Commons in BC 163 to learn more about their services. Co-Pilots are a wonderful support along your academic journey.
+
+### Math Resource Center
+
+Appointment-based tutoring accepts appointments starting week 1 and sessions start week 2. Visit the [Math Resource Center](https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html){target="_blank"} website to sign-up for an appointment. Drop-in tutoring is Monday to Thursday, 3:00 PM - 7:00 PM in BC 163 and starts week 2. Check the Math Resource Center website or drop by the center for more information.
+
+### Help Hours Guidelines
+
+It is strongly recommended that you attend the walk-in help hours or set up a one-to-one meeting with the me if you feel like you are falling behind during our in-person class activities, or if you just need to clarify concepts discussed in class. In order to be more productive during a one-to-one meeting (or the walk-in help hours), these are three recommendations before you come in:
+
+  * List all gaps in knowledge you have (missed concepts) or list all concepts that were unclear to you during class. We will address them one by one.
+  * Prepare questions you want answered and be ready to show relevant materials.
+  * Regarding assignments, prepare to show (a) what are the steps you have tried and (b) what are the errors you encountered and the strategies you have tried.
+
+Note that these are recommendations so that you can get the most out of the help hours allocated for you. If you just want to come in and chat about something else, feel free to do so. If the dedicated time for one-to-one meeting does not work for you, send me a message to set up an appointment.
+
+### Collaboration Policy
+
+I expect you to participate in the class through lectures, class activities, discussions, homework, and other engagements. I also expect you to make use of opportunities to get help outside of class (help hours, Teams, email, tutoring) if you need help. Concise and specific messages are the most helpful so I know how I can best help you.
+
+> You are encouraged to participate in discussions with your peers regarding assignments. However, each student must take responsibility and ownership of their work and submit their work individually, except for group projects.
+
+<br>
+
+## **Assessment**
+
+### Assessment Disclosure Statement$^*$
+
+Student work products for this course may be used by the University for educational quality assurance purposes. For reasons of confidentiality, such examples will not include student names.
+
+### Standards-Based Grading
+
+Learning statistics demands focus, rigorous examination of the concepts you have encountered, and a process of ongoing refinement and improvement. You will be assessed on your proficiency in statistical thinking, scientific reasoning, and inference. You will have opportunities to demonstrate your proficiency, revise your work, and reflect on your growth in analyzing data, interpreting results, and making data-driven conclusions.
+
+This course uses a standards-based grading system, which emphasizes mastery of specific learning objectives. This approach is more precise and motivating than traditional grading methods and fosters a more equitable learning environment. Key features of standards-based grading include:
+
+  * A clear focus on mastering defined learning objectives
+  * The use of diverse assessment methods to evaluate understanding
+  * Regular, detailed feedback to guide your progress
+  * Support in setting meaningful goals and tracking your growth
+
+This system prioritizes learning and personal development, enabling you to excel and reach your highest potential.
+
+### General Marking Guide
+
+Each assignment will be graded according to the general marking guide detailed below. You will be given feedback on your assignment and learning process to improve your performance. Note that each assignment has its own rubric guided by these general guidelines and the assignment’s learning objectives.
+
+Given the following marks, your work:
+
+| **Mark** | **Rubric Description** |
+|:-----|:---------------|
+| **Outstanding <br>(O)** | Shows perfect solution sets with key steps shown clearly and concisely; applies concepts/methods correctly and consistently across similar problems; includes complete and well-represented graphs/diagrams; and, when appropriate, may extend on applying concepts/methods to new situations. |
+| **Excellent <br>(E)** | Shows near-perfect solution sets with key steps shown clearly and concisely; applies concepts/methods correctly and consistently across similar problems but with minor errors such as non-propagating algebraic mistakes, and incomplete or under-represented graphs/diagrams. |
+| **Acceptable <br>(A)** | Shows approximate solutions sets with key steps shown clearly and concisely; applies concepts/methods correctly and consistently across similar problems but with major errors such as propagating algebraic mistakes, and incomplete or under-represented graphs/diagrams. |
+| **Needs Improvement <br>(NI)** | Shows rough solution sets with key steps mostly shown comprehensibly; applies concepts/methods incorrectly or inconsistently across similar problems with major errors such as propagating algebraic mistakes, and incomplete or under-represented graphs/diagrams. |
+| **Needs Major Improvement <br>(NMI)** | Shows rudimentary solution sets but with key steps mostly shown incomprehensibly; applies concepts/methods incorrectly and inconsistently across similar problems with major errors such as propagating algebraic mistakes, and incomplete or under-represented graphs/diagrams.  |
+| **Missing <br>(M)** | Shows incomplete or fully incomprehensible work. |
+
+Note that these are categorical marks, not numerical scores.
+
+### Final Course Grades
+
+| **Assignment** | **Rank** | **Mark** | **A** | **B** | **C** | **D** |
+|:----------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| **Project Phases** | 1 | O | $\frac{3}{4}$ | - | - | - |
+|  |  | E | - | $\frac{3}{4}$ | - | - |
+|  |  | A | - | - | $\frac{2}{4}$ | - |
+|  |  | NI | - | - | - | $\frac{2}{4}$ |
+| **Homeworks** | 2 | O | $\frac{6}{6}$ | - | - | - |
+|  |  | E | - | $\frac{6}{6}$ | - | - |
+|  |  | A | - | - | $\frac{5}{6}$ | - |
+|  |  | NI | - | - | - | $\frac{5}{6}$ |
+| **Worksheets** | 3 | Completed | $\frac{34}{37}$ | $\frac{30}{37}$ | $\frac{26}{37}$ | $\frac{23}{37}$ |
+
+The above table shows the fraction of given assignments. These fractions are minimum requirements for each letter grade.
+
+The ranking indicates the relative importance of each assignment: Rank 1 is the most important, and Rank 3 is the least. If the mark distribution across assignments varies for you, this ranking will be used to determine your final grade. There will also be optional assignments that you may complete to contribute additional credit within each assignment category.
+
+> Each of you will receive an individual assignment marksheet in the middle of the semester to help you track your progress and current standing in the course. If you need more assistance on understanding your overall standing in this course, I encourage you to communicate with me directly.
+
+<br>
+
+## **Assignments**
+
+### Submission Guidelines
+
+> You need to submit all assignments online through Moodle.
+>   
+>   * Worksheets must be in a single `.pdf` file.
+>   * Homework or Project Phase reports must be in both `.html` and `.Rmd` files.
+
+Your work must be labeled correctly and clearly written.
+
+* If you choose to handwrite your answers on paper, scan your document using a scanner app to ensure the text is clear. I recommend using the "Adobe Scan" app, which is available for both Android and iOS.
+* If the assignment involves a R coding component, you must include all relevant R code files that generated all outputs, plots, and analysis. Your R code must be properly documented or with comments.
+
+### Worksheets
+
+There will be worksheets every class day except for exam weeks. The purpose of the worksheets is for in-class group work and activities, and it will include instructions on how to use Python for ODEs.
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+
+### Homeworks
+
+Homeworks are assigned every Tuesday, except for exam days. The purpose of the homework is to provide practice with problems, and it will include tasks that involve Python.
+
+> You must submit your homework individually by the prescribed deadline.
+
+Homeworks are marked using the general grading guide and will be returned with detailed feedback.
+
+### Homework Revisions
+
+You can revise your homework for an up-grade, meaning -for example- a grade of "NI" can be up-graded to "A".
+
+Here are the qualifications and requirements for homework revisions:
+
+  * A homework mark of "NMI", "NI", "A", or "E".
+  * The revised homework must be completed, meaning all parts should have your full written solutions.
+  * Homework marked with "M" is disqualified for revisions, but you can still use them as practice.
+  
+Here are the rules for homework revisions:
+
+  * Homework revisions are accepted within one week of the homework being returned to you, otherwise the grade is set.
+  * You have one chance to revise your homework.
+  
+### Project Phases
+
+Writing a scientific report/paper is essential for any student who wants to pursue a STEM career or STEM-related careers. Your project is a way for you to get exposure to the rigors of writing a paper that involves data exploration and statistical analysis.
+
+This course's main assessments is through a semester-long project and it will be divided into phases. The purpose of the project phases is to break the project into smaller tasks, allowing for incremental progress toward its completion.
+
+* **Phase 0: Group formation and data selection.** Each group should consist of 2-4 people. For people who want to form their own groups, please send a list of names for your group by the due date. The rest will be randomly assigned. Each group must choose a data set to analyze. Each group should have a unique data set. Final group formations will be announced.
+
+* **Phase 1: Study design, data exploration, and framing research questions.** Explore your chosen dataset. Your first project report document must include these three parts:
+    - *Dataset:* Put together your first data frame. What is it? Where does it come from? What is the description of each variable? What are the types of variables? What kind of sampling strategy (or data collection) was used?
+    - *Exploration:* Exploring the dataset involves creating plots such as scatterplots, bar plots, boxplots, histograms, etc. Once you see what you are interested in, pick plots relevant to your research questions.
+    - *Research questions:* Formulate your research question and include relevant background research.
+
+* **Phase 2: Hypothesis formulation, more data exploration, and testing out appropriate methods.** Focus on data exploration, test the methods discussed in class, and formulate a hypothesis with clear statements and appropriate mathematical symbols. Action items should address the feedback provided in the Phase 2 submission. Your second project report document must include these three parts:
+    - *More Exploration:* To create a hypothesis, you must explore more and consider different ways to look at your data. What other variables can you include in your analysis? What are your observations of the data?
+    - *Hypothesis Formulation:* Based on your research questions, formulate a hypothesis --or hypotheses. The hypothesis statements must be complete sentences with their corresponding mathematical notations.
+    - *Trying Out Statistical Methods:* Depending on the hypothesis, what statistical method can you apply to answer your research question (randomization, bootstrapping, etc.)? Are you using proportions, means, difference in proportions, difference in means, etc? What are your point estimates? What are your initial results/findings/observations?
+    
+* **Phase 3: Methods fine-tuning, and writing the interpretation and discussion of the results in the context of the data.** Implement the method described in Phase 3 and address the feedback comments. Your third project report document must include these three parts:
+    - *Performing the statistical analysis:* Rigorously perform the appropriate statistical method for your data.
+    - *Interpret the results and discuss your conclusions:* Write at least two paragraphs detailing the results of your analysis. What insights and conclusions can you write based on your results? How do your results support your hypothesis? Are your research questions answered or supported?
+
+* **Final Phase, Presentations, and Peer Review: Draft conclusions, compile the report into a cohesive scientific narrative, and participate in the peer review process.** Your final report and presentation must include the following:
+    - *Put your report together as one scientific narrative:*Your final report should contain these three parts below. Note that you already wrote most of these from Phases 2-4. You need to organize them in a more scientific narrative fashion.
+        * **Title.** Your final project report must have a descriptive title, and list all group members.
+        * **Introduction.** This section should include your background research, research questions, hypothesis statements, and data description.
+        * **Data Exploration.** This section should explore the data that leads to your question and hypotheses. Include details on how you wrangle your data or if you made additional computations.
+        * **Methods.** This section should include the processes you used for your statistical method.
+        * **Results and Discussions.** This section should include the results of your statistical analysis and discuss them in the context of your research question. You can still include figures and tables here.
+        * **Conclusions.** This is a summary of your argument or experiment/research, and it should be related to the introduction.
+    - *Create a 10-minute Presentation:* There will be a final presentation on the day of the "final exam". Your talk should highlight and be organized around the following points.
+        * **Short Title.** Include a short title of your report and list all group members.
+        * **Motivation.** What is the problem? Why should the audience tune in to this talk? Why is this an interesting problem?
+        * **Key Ideas.** What is your dataset? What statistical methods did you use? What are the strengths and weaknesses of the method you used? What are the results? What are your key conclusions?
+    - *Peer Review:* Complete the peer-review questionnaire on the day of the presentations, where you answer specific questions to review another group's project presentation.
+
+> The final project presentations are on:
+>
+>   * **Section A:** April 28, Tu 10:30 AM - 12:30 PM, Franz Hall 217
+
+### Project Assessments
+
+Project phase reports are marked using the general grading guide and will be returned with detailed feedback. Each phase will include the group's project report and an individual assessment worksheet.
+
+There will be no revisions for project phases because each phase is designed to include drafting and revising as part of the process. This semester-long project is intentionally structured to be iterative.
+
+##### Assessing Project Reports
+
+The project reports allows you demonstrate your understanding of the material in written form. This part will be evaluated on the details of your methodology and analysis.
+
+Reports will be graded on 3 components:
+
+| **Report** | **Description** |
+|:-----|:---------------|
+| **Methodology** | The appropriate or prescribed method should be applied correctly and consistently across similar problems with shown solid understanding of the underlying principles. |
+| **Reasoning** | The method should be explained in a clear and logical way with each key step justified and explained. |
+| **Writing** | The solution process should be written in a clear and concise way including key steps with appropriate mathematical notations along with complete and well represented graphs/diagrams. |
+
+##### Assessing Project Presentations
+
+The project presentations allows you to demonstrate your understanding of the materials as well as your ability to communicate your work.
+
+Presentations will be graded on 3 components:
+
+| **Presentation** | **Description** |
+|:-----|:---------------|
+| **Knowledge** | The mathematical definitions and procedures should be recalled accurately and applied appropriately and consistently. |
+| **Communication** | The underlying concepts should be explained clearly, concisely, and consistently using appropriate mathematical language. |
+| **Problem-solving** | The given problem should be critically identified, understood, and solved using the prescribed or unprescribed methods or strategies. |
+
+### Project Guidelines
+
+> Each group must submit a report together by the next project phase. The report must be written in `.Rmd` file and rendered as `.html` file.
+
+The final report must include all relevant R codes that generated all figures and statistical analysis. R codes can be also be included in the Appendix section of your report if you choose. The R Code must be properly documented or with comments.
+
+Here are some other rules regarding group formations:
+
+  * If a group must be disbanded for any reason, students need to discuss their disbandment to me - as soon as possible - for a detailed plan on how to move forward.
+  * If groups must be combined for any reason, the new group must inform me about the union as soon as possible, and their plans on moving forward.
+  * Group disbandment or union are allowed up to Phase 3 of the project. Special cases are considered.
+
+## **Academic Integrity**
+
+### The Honor Code Statement
+
+> I commit to upholding the code of academic integrity by demonstrating ethical and responsible academic practices and adhering to the principles of academic integrity.
+
+You are encouraged to utilize all resources available to you, including course materials, online references, and collaborative discussions with your classmates. However, you must adhere to the following principles:
+
+* **Follow the Academic Integrity Policy:** Ensure all work is your own or properly credited where collaboration or external resources are involved.
+* **Comply with the Course AI Policy:** Any use of AI tools must align with the course-specific AI guidelines provided. Misuse of AI will be considered a violation of academic integrity.
+* **Adhere to Referencing and Citation Guidelines:** Properly cite all external sources used in your work to give appropriate credit and avoid plagiarism.
+* **Uphold the Academic Honor Code:** I trust you to maintain the highest standards of honesty and integrity in your work.
+* **Take Ownership of Your Work:** You must contribute meaningfully and be prepared to explain and defend your work.
+
+### Code of Academic Integrity$^*$
+
+The University of Portland is a diverse academic community of learners and scholars who are dedicated to freely sharing ideas and engaging in respectful discussion of those ideas to discover truth. Such pursuits require each person, whether student or faculty, to present truthfully our own ideas and give credit to others for the ideas that they generate. Thus, cheating on exams, copying another student’s assignment, including homework, or using the work of others without proper citation are some examples of violating academic integrity. 
+
+Especially for written and oral assignments, students have an ethical responsibility to properly cite the authors of any books, articles, or other sources that they use. Students should expect to submit assignments to Turnitin, a database that ensures assignments are original work of the student submitting. Each discipline has guidelines for how to give appropriate credit, and instructors will communicate the specific guidelines for their discipline. The Clark Library also maintains a webpage that provides citation guidelines at [https://libguides.up.edu/cite](https://libguides.up.edu/cite){target="_blank_"}. 
+
+The misuse of AI to shortcut course learning outcomes will be treated as a violation of academic integrity comparable to plagiarism or cheating. Faculty are responsible for including a written “Course AI Policy” in their syllabi that clearly states what they consider appropriate and inappropriate uses of AI in the context of their courses. Students are responsible for using AI in ways that do not detract from the established learning outcomes of the course. All members of the scholarly community are responsible for demonstrating sound judgment in discerning when and how to utilize AI in their work, upholding standards of citation, originality, and integrity.
+
+### Course AI Policy
+
+The use of generative AI —such as Copilot, Gemini, or ChatGPT— is allowed in all of its capacity. However, students must use these tools ethically and responsibly. To use generative AI responsibly in this class, students should grasp underlying concepts, acknowledge AI's assistance, protect data privacy, verify information, and uphold academic honor code. AI should be seen as a learning aid, not a replacement for critical thinking.
+
+This AI policy applies only to this course. For other courses, please follow those professors’ AI policies, which may differ from this one.
+
+### Ethics of Information$^*$
+
+The University of Portland is a community dedicated to the investigation and discovery of processes for thinking ethically and encouraging the development of ethical reasoning in the formation of the whole person. Using information ethically, as an element in open and honest scholarly endeavors, involves moral reasoning to determine the right way to access, create, distribute, and employ information, including: considerations of intellectual property rights, fair use, information bias, censorship, and privacy. More information can be found in the Clark Library’s guide to the Ethical Use of Information at [libguides.up.edu/ethicaluse](https://libguides.up.edu/ethicaluse){target="_blank"}.
+
+## **Other Expectations**
+
+### Deadline Extensions
+
+If you need more time to submit an assignment, you may request an extension by following these steps:
+
+  * Communicate with me at least 12 hours before the deadline.
+  * Specify the exact day you plan to submit your work or the number of extra days you need.
+  * Please ensure that you adhere to the established timeline for submitting assignments, as it is important to maintain fairness and avoid over-reliance on extensions.
+
+Extensions for in-class assignments —such as worksheets— will only be granted if I decide to extend the deadline for the entire class.
+
+### Late Assignments
+
+Submitting a few hours late is usually not a major issue, as long as I receive your work before I begin marking and providing feedback. An extension is not required in such cases.
+
+You are expected to turn in all completed assignments "on time". Extenuating circumstances that may disallow you to turn in your work on time are understandable. Please let me know if you have missed the deadline way beyond its original posted date without prior communication regarding extensions. Because every assignment is an important aspect of your learning in this class, we will discuss when you will turn in the assignment as well as decide upon an acceptable consequence for your turning it in late. I am committed to successfully helping you learn from this course.
+
+### Attendance and Participation
+
+Class attendance is highly recommended and often tracked through assignments and general behavior. You are expected to actively participate in this class. Participation includes coming to class on time, being prepared, being willing to ask questions and share ideas, setting up study groups outside of class, attending tutoring and help hour sessions, posting helpful resources online, and contributing to the discussion channels. Group and individual presentation of ideas is a suggested component of participation.
+
+### Absences
+
+Generally, you are expected to attend all class sessions according to my direction. If you feel unwell, you should not attend class in person. Should I need to miss class, the course may be temporarily conducted remotely. Should I be unable to teach for an extended period of time, the mathematics department will find a substitute to continue the course.
+
+### Appointment Cancellations
+
+Please try to show-up to your scheduled appointments. You can cancel your appointments, but it is strongly recommended that you communicate this to me before your scheduled appointment. You can reschedule for a different day and time if necessary.
+
+### Incompletes
+
+An incomplete **I** will only be considered when the quality of your work is satisfactory (C- or better). For some essential reason the course has not been completed, an **I** is reserved for extenuating circumstances only. If this applies to you, please let me know as soon as possible to discuss next steps.
+
+### Withdrawal Procedures
+
+It is your responsibility to drop the course if you are no longer planning on attending the course or fulfilling the course requirements. In order to drop, you must use an Add/Drop form available at the Registrar's Office. If you do not properly withdraw from this course, you may receive an **F** for the course. A properly withdrawn student will receive a **W**. The last day to withdraw is **Monday, 4/13**.
+
+### Accessibility Statement$^*$
+
+The University of Portland strives to make its courses and services fully accessible to all students. Students are encouraged to discuss with their instructors what might be most helpful in enabling them to meet the learning goals of the course. Students who experience a disability are encouraged to use the services of the Office for Accessible Education Services (AES), located in the Shepard Academic Resource Center (503-943-8985). **If you have an AES Accommodation Plan**, you should meet with your instructor to discuss how to implement your plan in this class. Requests for alternate location for exams and/or extended exam time should, where possible, be made two weeks in advance of an exam, and must be made at least one week in advance of an exam. Also, if applicable, you should meet with your instructor to discuss emergency medical information or how best to ensure your safe evacuation from the building in case of fire or other emergency. All information that students provide regarding disability or accommodation is confidential. All students are responsible for completing the required coursework and are held to the same evaluation standards specified in the course syllabus.
+
+### Mental Health Statement$^*$
+
+Anyone can experience problems with their mental health that interfere with academic experiences and negatively impact daily life. If you or someone you know experiences mental health challenges at UP, please contact the University of Portland Counseling Center ([https://www.up.edu/counseling/](https://www.up.edu/counseling/){target="_Blank"})  in the upper level of Orrico Hall (down the hill from Franz Hall and near Mehling Hall) at 503-943-7134 or hcc@up.edu. Their services are free and confidential. In addition, mental health consultation and support is available through the Pilot Helpline by calling 503-943-7134 and pressing 3. All UP students also have access to teletherapy through BetterMynd. The University of Portland Campus Safety Department (503-943-4444) also has personnel trained to respond sensitively to mental health emergencies at all hours. Remember that getting help is a smart and courageous thing to do —for yourself, for those you care about, and for those who care about you. For more information on health and wellness resources at UP go to [www.linktr.ee/wellnessUP](www.linktr.ee/wellnessUP){target="_Blank"}.
+
+### Non-Violence Statement$^*$
+
+The University of Portland is committed to fostering a safe and respectful community free from all forms of violence. Violence of any kind, and in particular acts of power-based personal violence, are inconsistent with our mission. Together, all UP community members must take a stand against violence. Learn more about what interpersonal violence looks like, campus and community resources, UP’s prevention strategy, and what we as individuals can do to assist on the Green Dot website, [www.up.edu/greendot](https://www.up.edu/greendot){target="_blank"}. Further information and reporting options may be found on the Title IX website, [www.up.edu/titleix](https://www.up.edu/titleix){target="_blank"}.
+
+<br>
+
+# Materials
+
+> You are "required" to read the materials, and are strongly encouraged to actively participate in class discussions and complete the assignments efficiently to deepen your understanding and succeed in the course.
+
+## Class Readings and Presentations
+
+The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch.) on which it refers to a label in the Books \& Online Resources List. For example "Pg. 1-5 @speegle2021probability" refers to pages 1-5 of the textbook titled *Probability, Statistics, and Data: A Fresh Approach Using R*.
+
+| **Topic** | **Read** |
+|:---|:---|
+| Orientation | Syllabus |
+| Statistical Thinking | - |
+| R and R Studio | Ch. 1.1-1.2 @speegle2021probability |
+| RMarkdown | - |
+| Data Principles | Ch. 1.3-1.8 @speegle2021probability |
+| Basics of Data Processing | Ch. 6.1-6.7 @speegle2021probability |
+| Basics of Visualizations | Ch. 7.1 @speegle2021probability |
+| Exploring Numerical Data | Ch. 7.2-7.3 @speegle2021probability |
+| Exploring Categorical Data | Ch. 7.4, \& Ch. 10.1 @speegle2021probability |
+| Study Design | - |
+| Inference | - |
+| Random Variables | Ch. 2.1 @speegle2021probability |
+| Probability | - |
+| Expected Value | - |
+| Variance | - |
+| Random Sampling | Ch. 2.2 @speegle2021probability |
+| Law of Large Numbers | - |
+| Discrete Random Variables | Ch. 3.1-3.2 @speegle2021probability |
+| Probability Mass Functions | Ch. 3.5 @speegle2021probability |
+| Binomial Distribution | ch. 3.3 @speegle2021probability |
+| Geometric Distribution | ch. 3.4 @speegle2021probability |
+| Continuous Random Variables | ch. 4.1 @speegle2021probability |
+| Probability Density Functions | ch. 4.2-4.3 @speegle2021probability |
+| Normal Distribution | ch. 4.4 @speegle2021probability |
+| Exponential Distribution | ch. 4.5 @speegle2021probability |
+| Conditional Probability | ch. 2.3 @speegle2021probability |
+| Bayes' Theorem | ch. 2.4 @speegle2021probability |
+| Central Limit Theorem | ch. 5.1-5.4 @speegle2021probability |
+| Bootstrapping and Randomization | - |
+| Parameter Estimation | - |
+| Hypothesis Testing | - |
+| Decision Errors | - |
+| Inference for One Proportion | Ch. 10.2 @speegle2021probability |
+| Inference for Two Proportions | Ch. 10.2 @speegle2021probability |
+| Chi-Squared Test for Goodness of Fit | Ch. 10.3 @speegle2021probability |
+| Chi-Squared Tests for Independence | Ch. 10.4-10.5 @speegle2021probability |
+| Inference for One Mean | Ch. 8.1-8.3 @speegle2021probability |
+| Inference for Two Means | Ch. 8.6 @speegle2021probability |
+| Linear Regression | Ch. 11.1-11.2 @speegle2021probability |
+| Residual Analysis | Ch. 11.3-11.4 @speegle2021probability |
+| Inference for Linear Regression | Ch. 11.5 @speegle2021probability |
+| Hypothesis Testing for Linear Regression | - |
+| Inference for Many Means | Ch. 12.1-12.2 @speegle2021probability |
+| One-Way Analysis of Variance | Ch. 12.3-12.4 @speegle2021probability |
+| Multiple Linear Regression (Optional) | Ch. 13.1-12.3 @speegle2021probability |
+| Logistic Regression (Optional) | - |
+| Rank Based Tests (Optional) | Ch. 9.1-9.2 @speegle2021probability |
+| Power Calculations (Optional) | Ch. 8.7 \& Ch. 9.3-9.4 @speegle2021probability |
+
+## Books \& Online Resources Lists
+
+::: {#refs}
+:::
