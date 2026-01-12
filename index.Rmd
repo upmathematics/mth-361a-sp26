@@ -183,7 +183,7 @@ The following learning objectives are designed to build on one another, with som
 | **13** | Tu 4/7 | $\rightarrow$ Inference for Linear Regression<br>$\rightarrow$ Hypothesis Testing for Linear Regression |
 |  | Th 4/9 | $\rightarrow$ Inference for Many Means<br>$\rightarrow$ One-Way Analysis of Variance (ANOVA) |
 | **14** | Tu 4/14 | _Scholarship Day_ |
-|  | W 4/15 to F 4/17 | **Project Phase 3** |
+|  | Th 4/16 | **Project Phase 3** |
 | **15** | Tu 4/21 | $\rightarrow$ Multiple Linear Regression (Optional)<br>$\rightarrow$ Logistic Regression (Optional) |
 |  | Th 4/23 | $\rightarrow$ Rank Based Tests (Optional)<br>$\rightarrow$ Power Calculations (Optional) |
 | **16** | Tu 4/29 | **Final Project Presentations** |
