@@ -1,0 +1,207 @@
+---
+title: "Applied Statistics <br>Orientation"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Communicate highlights of the Syllabus**
+- **Activity: Introductions**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Course Information
+
+:::: {.column width=5%}
+::::
+
+:::: {.column width=45%}
+- **Number:** MTH-361
+- **Title:** Applied Statistics
+- **Section:** A
+- **Term:** Spring 2025
+- **Credits:** 3
+:::: 
+
+:::: {.column width=45%}
+- **Instructor:** Dr. Quijano
+- **Schedule:** Monday, Wednesday, Friday at 11:25 AM to 12:20 PM
+- **Location** Franz Hall 125
+::::
+
+:::: {.column width=5%}
+::::
+
+## About the Instructor
+
+### Dr. [Alex John Quijano](https://www.alexjohnquijano.com){target="_blank"}
+
+:::: {.column width=1%}
+::::
+
+:::: {.column width=40%}
+- **Office:** Buckley Center 279
+- **Email:** quijano@up.edu
+- **Hobbies and Interests:** Movies, anime, musicals, coffee 
+- **Other Facts:** Two cats (orange and black)
+::::
+
+:::: {.column width=57%}
+- **Education:** Applied Mathematics
+- **Profession**: Assistant Professor of Mathematics
+- **Teaching:** Probability and statistics, data science, linear algebra, calculus, differential equations
+- **Research:** Mathematical interdisciplinary research in data science, modeling of natural languages, social and biological systems
+::::
+
+:::: {.column width=1%}
+::::
+
+## Modes of Communication
+
+:::: {.column width=1%}
+::::
+
+:::: {.column width=48%}
+### **Teams**
+
+We will be using Teams as the main real-time communication tool for general announcements, question-answering discussions, and direct messages.
+
+> The Teams for this course is [MTH-361A-sp26](https://teams.microsoft.com/l/team/19%3ALujyzbarzFjlZszUD1znX1UgPPd7aRVSummQ1WtAzYM1%40thread.tacv2/conversations?groupId=08d5ebee-6e90-47f3-80b4-fadc91987b08&tenantId=ea8f3949-231c-40b6-a33f-56873af96f87){target="_blank"}. 
+::::
+
+:::: {.column width=48%}
+### **Class Website**
+
+The syllabus, tentative topics schedule, and other information are posted on the course website.
+
+> You can access the course website at [mth-361a-sp26](https://upmathematics.github.io/mth-361a-sp26/){target="_blank"}.
+
+*Note that the course website can be accessed in Teams.*
+::::
+
+:::: {.column width=1%}
+::::
+
+## Structure and Expectations
+
+:::: {.column width=5%}
+::::
+
+:::: {.column width=45%}
+### **Class Structure**
+
+  - Pre-reading
+  - Short lecture
+  - Worksheet activity
+  - Group presentations or discussions
+::::
+
+:::: {.column width=45%}
+### **Assignments**
+
+  - Worksheets
+  - Homework
+  - Project Phases
+::::
+
+:::: {.column width=5%}
+::::
+
+## Assignments
+
+### **Worksheets**
+
+The purpose of the worksheets is for in-class group work and activities.
+
+### **Homework**
+
+The purpose of the homework is to provide practice with problems, and it will include tasks that involve R.
+
+### **Project Phases**
+
+The purpose of the project phases is to break the semester-long project into smaller tasks, allowing for incremental progress toward its completion.
+
+## Submission Guidelines
+
+### **Moodle**
+
+We will be using the course [Moodle](https://learning.up.edu){target="_blank"} page for submitting assignments and giving feedback.
+
+> The Moodle for this course is [MTH-361A - sp26 - Applied Statistics I](https://learning.up.edu/course/view.php?id=44593){target="_blank"}. You are already listed in Moodle for this course using your UP account.
+
+## Resources
+
+### **Textbook**
+
+This course uses the following textbook - which is free to access - for reading and practice.
+
+```{r echo=FALSE}
+refs <- bibtex::read.bib("../../references.bib")
+```
+
+  * `r capture.output(print(refs["speegle2021probability"]))`
+  
+*Note that the textbook can be accessed in Teams.*
+  
+## Tools
+
+### **R**
+
+We will be using R, as a computational tool, for some assignments. These tools are free and open-source. 
+
+> We will use the [Posit Cloud](https://login.posit.cloud/login?redirect=%2F){target="_blank"} service, an online computing environment.
+
+*We will discuss more about this tool next time.*
+
+## Academic Support
+
+### **Help Hours**
+
+> Dr. Alex John Quijano
+> 
+> * 4:00 PM - 5:00 PM Mondays to Fridays, Buckley Center 279
+> * [One-to-One, Buckley Center 279](https://outlook.office.com/bookwithme/user/563068e7b8f84361b7e7eaf55bc932d8@up.edu/meetingtype/KXqoHwKuE0qdlfS1AiumEg2?bookingcode=31b921a7-10ad-4113-895c-50152bee77c0&anonymous&ismsaljsauthenabled&ep=mLinkFromTile){target="_blank"} <br>*Click on the link to sign-up for a 15-minute session.*
+
+My walk-in help hours start week 2.
+
+### **Math Resource Center**
+
+The [Math Resource Center](https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html){target="_blank"} offiers walk-in tutoring and appointment-based tutoring.
+
+## Activity: Introductions
+
+1. On a piece of paper:
+
+    * Write your name, year, and major.
+    * Explain:
+        - your background experience in computer programming.
+        - your anxieties and fears about computer programming.
+        - your hobbies.
+    * Write an encouraging message to yourself six weeks from now.
+    
+2. Pair with another student and share what you wrote.
+3. Submit your work.
+
+## References
+
+::: {#refs}
+:::
