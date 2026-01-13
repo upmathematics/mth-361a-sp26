@@ -160,17 +160,9 @@ The full course learning outcomes and objectives is in the [Syllabus](../../inde
 
 The full course learning outcomes and objectives is in the [Syllabus](../../index.html).
 
-## Activity: Reading and Writing Exercises
+## Activity
 
-**Scenario:** Researchers conducted a study to understand whether drinking coffee impacts productivity at work. They collected data on how much coffee people drink daily and how productive they feel during their workday. The study examined whether there is a consistent pattern between coffee consumption and productivity levels.
-
-**Discussion Questions:** Write your individual answers for the following questions on paper, then discuss them with your peers.
-
-1. What is the main focus of the study?
-2. How might coffee consumption affect productivity, based on your intuition?
-3. What could a strong relationship between coffee consumption and productivity suggest for coffee drinkers?
-4. What other factors (confounders) might influence both coffee consumption and productivity? How could these affect the study's conclusions?
-5. If the study finds a meaningful connection, what practical advice could it offer to workers?
+Worksheet 2
 
 ## References
 
