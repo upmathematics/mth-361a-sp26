@@ -5,7 +5,7 @@ author: "MTH-361A | Spring 2026 | University of Portland"
 output:
   slidy_presentation:
     font_adjustment: +5
-    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
     css: ../_style.css
 bibliography: ../../references.bib
 csl: ../../apa.csl
@@ -184,4 +184,4 @@ My walk-in help hours start week 2.
 
 ### **Math Resource Center**
 
-The [Math Resource Center](https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html){target="_blank"} offiers walk-in tutoring and appointment-based tutoring.
+The [Math Resource Center](https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html){target="_blank"} offers walk-in tutoring and appointment-based tutoring.
