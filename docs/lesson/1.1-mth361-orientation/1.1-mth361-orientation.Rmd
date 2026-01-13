@@ -1,5 +1,5 @@
 ---
-title: "Applied Statistics <br>Orientation"
+title: "Orientation"
 subtitle: "Applied Statistics"
 author: "MTH-361A | Spring 2026 | University of Portland"
 output:
@@ -23,7 +23,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 :::: {.column width=70%}
 - **Communicate highlights of the Syllabus**
-- **Activity: Introductions**
 ::::
 
 :::: {.column width=15%}
@@ -36,16 +35,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 :::: {.column width=45%}
 - **Number:** MTH-361
-- **Title:** Applied Statistics
+- **Title:** Applied Statistics I
 - **Section:** A
-- **Term:** Spring 2025
+- **Term:** Spring 2026
 - **Credits:** 3
 :::: 
 
 :::: {.column width=45%}
 - **Instructor:** Dr. Quijano
-- **Schedule:** Monday, Wednesday, Friday at 11:25 AM to 12:20 PM
-- **Location** Franz Hall 125
+- **Schedule:** TuTh 11:20 AM - 12:45 PM
+- **Location** Franz Hall 217
 ::::
 
 :::: {.column width=5%}
@@ -186,12 +185,3 @@ My walk-in help hours start week 2.
 ### **Math Resource Center**
 
 The [Math Resource Center](https://www.up.edu/learningcommons/tutoring-services/math-resource-center/index.html){target="_blank"} offiers walk-in tutoring and appointment-based tutoring.
-
-## Activity
-
-Worksheet 1
-
-## References
-
-::: {#refs}
-:::

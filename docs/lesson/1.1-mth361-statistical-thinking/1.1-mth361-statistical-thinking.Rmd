@@ -24,7 +24,6 @@ knitr::opts_chunk$set(echo = FALSE)
 :::: {.column width=70%}
 - **Introduce the concept of statistical thinking**
 - **Communicate the course learning outcomes**
-- **Activity: Reading and Writing Exercises**
 ::::
 
 :::: {.column width=15%}
@@ -75,7 +74,7 @@ The analysis anticipates:
 knitr::include_graphics("reported-crimes-per-1000- fy-2020-2021.png")
 ```
 
-## Example 1: Confounders
+## Example 1: Data Exploration
 
 *Follow-up question:* **What types of crimes are usually reported?**
 
@@ -159,12 +158,3 @@ The full course learning outcomes and objectives is in the [Syllabus](../../inde
 ::::
 
 The full course learning outcomes and objectives is in the [Syllabus](../../index.html).
-
-## Activity
-
-Worksheet 2
-
-## References
-
-::: {#refs}
-:::
