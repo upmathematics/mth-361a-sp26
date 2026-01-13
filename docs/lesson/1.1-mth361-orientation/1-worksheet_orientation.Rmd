@@ -33,22 +33,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Orientation
 
-1. On this paper:
-
-    * Write your name, year, and major.
-    \vfill
-    * Explain:
-        - your background experience in computer programming.
-    \vfill
-        - your anxieties and fears about computer programming.
-    \vfill
-        - your hobbies.
-    \vfill
-    * Write an encouraging message to yourself six weeks from now.
-    \vfill
-    
-2. Pair with another student and share what you wrote.
-3. Submit your work.
+1. Write your name, year, and major.
+\vfill
+2. Explain:
+    - your background experience in computer programming.
+\vfill
+    - your anxieties and fears about computer programming.
+\vfill
+    - your hobbies.
+\vfill
+3. Write an encouraging message to yourself six weeks from now.
+\vfill
 
 <!-- \newpage
 
