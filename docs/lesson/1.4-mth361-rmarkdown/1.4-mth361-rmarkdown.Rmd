@@ -170,7 +170,7 @@ $\star$ Understanding this difference is key for fixing majority of errors and u
 
 ### **Worksheets**
 
-In-class activities and worksheets must be submitted through Moodle as a single `.pdf` file.
+In-class activities and worksheets must be submitted through Moodle as a single `.pdf` file. If the worksheet requires you to use RMarkdown, then both `.Rmd` and `.html` files must be included into the submission.
 
 ### **Homework**
 
