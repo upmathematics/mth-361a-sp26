@@ -292,7 +292,7 @@ The ranking indicates the relative importance of each assignment: Rank 1 is the 
 > You need to submit all assignments online through Moodle.
 >   
 >   * Worksheets must be in a single `.pdf` file.
->   * Homework or Project Phase reports must be in both `.html` and `.Rmd` files.
+>   * Homework or Project Phase reports must be in both `.Rmd` and `.html` files.
 
 Your work must be labeled correctly and clearly written.
 
@@ -301,7 +301,7 @@ Your work must be labeled correctly and clearly written.
 
 ### Worksheets
 
-There will be worksheets every class day except for exam weeks. The purpose of the worksheets is for in-class group work and activities, and it will include instructions on how to use Python for ODEs.
+There will be worksheets every class day except for exam weeks. The purpose of the worksheets is for in-class group work and activities, and it will include instructions on how to use R for Statistics.
 
 > You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
 
@@ -309,7 +309,7 @@ Worksheets are marked mostly on completion, and partially on correctness. It wil
 
 ### Homeworks
 
-Homeworks are assigned every Tuesday, except for exam days. The purpose of the homework is to provide practice with problems, and it will include tasks that involve Python.
+Homeworks are assigned every Tuesday, except for exam days. The purpose of the homework is to provide practice with problems, and it will include tasks that involve R.
 
 > You must submit your homework individually by the prescribed deadline.
 
@@ -507,9 +507,9 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | **Topic** | **Read** |
 |:---|:---|
 | [Orientation](lesson/1.1-mth361-orientation/1.1-mth361-orientation.html){target="_blank"} | Syllabus |
-| [Statistical Thinking](lesson/1.1-mth361-statistical-thinking/1.1-mth361-statistical-thinking.html){target="_blank"} | - |
-| R and R Studio | Ch. 1.1-1.2 @speegle2021probability |
-| RMarkdown | - |
+| [Statistical Thinking](lesson/1.2-mth361-statistical-thinking/1.1-mth361-statistical-thinking.html){target="_blank"} | - |
+| [R and R Studio](lesson/1.2-mth361-statistical-thinking/1.3-mth361-r-and-r-studio.html){target="_blank"} | Ch. 1.1-1.2 @speegle2021probability |
+| [RMarkdown](lesson/1.2-mth361-statistical-thinking/1.4-mth361-rmarkdown.html){target="_blank"} | - |
 | Data Principles | Ch. 1.3-1.8 @speegle2021probability |
 | Basics of Data Processing | Ch. 6.1-6.7 @speegle2021probability |
 | Basics of Visualizations | Ch. 7.1 @speegle2021probability |

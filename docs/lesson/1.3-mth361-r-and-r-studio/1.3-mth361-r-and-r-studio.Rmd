@@ -1,0 +1,119 @@
+---
+title: "R and R Studio"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce R and R Studio**
+- **Introduce the Posit Cloud**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously...
+
+The guiding principle of applied statistics is statistical thinking.
+
+```{r statistical-thinking-1, echo=FALSE, fig.cap="Statistical Thinking in the Data Science Life Cycle", fig.align='center', out.width = '55%'}
+knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
+```
+
+## R as a Tool for Statistics
+
+### Why R?
+
+:::: {.column width=1%}
+::::
+
+:::: {.column width=48%}
+* **Open-source and Free:** Accessible to everyone.
+* **Designed for Statistics:** Built with statistical analysis in mind.
+::::
+
+:::: {.column width=48%}
+* **Extensive Libraries:** Thousands of packages available.
+* **Data Visualization:** Easy and powerful plotting capabilities.
+* **Active Community:** Help is just a forum post away.
+::::
+
+:::: {.column width=1%}
+::::
+
+## RStudio, a User-Friendly Interface
+
+### What is R Studio?
+
+:::: {.column width=1%}
+::::
+
+:::: {.column width=48%}
+**Integrated Development Environment (IDE):** Built specifically for R.
+
+**Cross-Platform:** Available on Windows, macOS, and Linux.
+::::
+
+:::: {.column width=48%}
+**User-Friendly:** Simplifies coding, debugging, and visualizations.
+
+**Enhanced Productivity:** Tools for managing projects, data, and outputs.
+::::
+
+:::: {.column width=1%}
+::::
+
+## Basic Parts of R Studio
+
+```{r rstudio-1, echo=FALSE, fig.cap="Basic Parts of R Studio", fig.align='center', out.width = '50%'}
+knitr::include_graphics("basic-parts-of-r-studio.png")
+```
+
+## Posit Cloud, a Cloud-Based Solution
+
+:::: {.column width=1%}
+::::
+
+:::: {.column width=48%}
+### What is Posit Cloud?
+* **Cloud-Based Platform:** Accessible from any device with an internet connection.
+* **Developed by Posit (formerly RStudio):** Tailored for statistics and data science.
+* **No Installation Needed:** Run R and RStudio directly in your browser.
+::::
+
+:::: {.column width=48%}
+### Why Use Posit Cloud?
+* **Convenience:** No installation required; access RStudio instantly through the internet.
+* **Consistency:** Same environment across devices.
+* **Collaboration:** Share projects with students and instructors easily.
+* **Cost-Effective:** Free tier available with premium options for advanced features.
+::::
+
+:::: {.column width=1%}
+::::
+
+## How Posit Cloud Works?
+
+```{r posit-cloud-network, echo=FALSE, fig.cap="Posit Cloud Computing", fig.align='center', out.width = '75%'}
+knitr::include_graphics("how-posit-cloud-works.png")
+```
+
+## Basic Parts of Posit Cloud
+
+```{r posit-cloud-1, echo=FALSE, fig.cap="Basic Parts of Posit Cloud", fig.align='center', out.width = '50%'}
+knitr::include_graphics("basic-parts-of-posit-cloud.png")
+```
