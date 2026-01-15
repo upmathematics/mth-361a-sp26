@@ -508,8 +508,8 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 |:---|:---|
 | [Orientation](lesson/1.1-mth361-orientation/1.1-mth361-orientation.html){target="_blank"} | Syllabus |
 | [Statistical Thinking](lesson/1.2-mth361-statistical-thinking/1.1-mth361-statistical-thinking.html){target="_blank"} | - |
-| [R and R Studio](lesson/1.2-mth361-statistical-thinking/1.3-mth361-r-and-r-studio.html){target="_blank"} | Ch. 1.1-1.2 @speegle2021probability |
-| [RMarkdown](lesson/1.2-mth361-statistical-thinking/1.4-mth361-rmarkdown.html){target="_blank"} | - |
+| [R and R Studio](lesson/1.3-mth361-r-and-r-studio/1.3-mth361-r-and-r-studio.html){target="_blank"} | Ch. 1.1-1.2 @speegle2021probability |
+| [RMarkdown](lesson/1.4-mth361-rmarkdown/1.4-mth361-rmarkdown.html){target="_blank"} | - |
 | Data Principles | Ch. 1.3-1.8 @speegle2021probability |
 | Basics of Data Processing | Ch. 6.1-6.7 @speegle2021probability |
 | Basics of Visualizations | Ch. 7.1 @speegle2021probability |
