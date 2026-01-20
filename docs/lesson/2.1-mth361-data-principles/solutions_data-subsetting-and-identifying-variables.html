@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="[name]" />
+<meta name="author" content="Solutions" />
 
 <meta name="date" content="2025-03-01" />
 
-<title>Modify a RMarkdown Document</title>
+<title>Data Sub-Setting and Identifying Variables</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,9 +350,10 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Modify a RMarkdown Document</h1>
+<h1 class="title toc-ignore">Data Sub-Setting and Identifying
+Variables</h1>
 <h3 class="subtitle">Applied Statistics</h3>
-<h4 class="author">[name]</h4>
+<h4 class="author"><span style="color:blue">Solutions</span></h4>
 <h4 class="date">2025-03-01</h4>
 
 </div>
@@ -388,62 +389,180 @@ necessary changes at the appropriate lines within the given code.</li>
 <code>.html</code> to Moodle.</li>
 </ul>
 </div>
+<div id="packages" class="section level1">
+<h1>Packages</h1>
+<p>The following R packages have already been loaded for you, so there’s
+no need to load them yourself—they will be used in the problem sets. If
+you need any additional packages, you can load them here as well.</p>
+<pre class="r"><code># load packages
+library(tidyverse)</code></pre>
+</div>
 <div id="collaborators" class="section level1">
 <h1>Collaborators</h1>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<p>“<span style="color:blue">Solutions</span>”</p>
 </div>
 </div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<p>Describe the five basic parts of an RMarkdown document. What are
-they? What are their functions?</p>
+<p>The following code chunk installs the <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">Palmer Penguins</a> package, which contains the
+<code>penguins</code> data set. The R code chunk has an option called
+<code>eval=FALSE</code>, which indicate that –when knitting– the code
+chunk will not run. Explain what happens after a knitting attempt if
+<code>eval=TRUE</code>.</p>
+<pre class="r"><code>install.packages(&quot;palmerpenguins&quot;)</code></pre>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<p>The running the above code chunk within the RMarkdown file, the code
+within the chunk is run using the console. When knitting the entire
+RMarkdown the said code chunk is displayed but not it was not
+executed.</p>
 </div>
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
-<p>Explain the similarities between running R commands on the console
-versus running R commands in the RMarkdown code chunks.</p>
+<p>Create a code chunk. In this chunk, load the
+<code>palmerpenguins</code> package. Are there any warning messages
+after loading the packages? If so, what does it say and what do you
+think it means?</p>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<pre class="r"><code>library(palmerpenguins)</code></pre>
+<pre><code>## Warning: package &#39;palmerpenguins&#39; was built under R version 4.4.2</code></pre>
+<p>When running the above code chunk with
+<code>library(palmerpenguins)</code>, there was some warning output
+message and it says “Warning: package ‘palmerpenguins’ was built under R
+version 4.4.2” and it means that the `palmerpenguins package was made
+using the older version of R.</p>
 </div>
 </div>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
-<p>When “knitting” an RMarkdown document, describe what happens in
-general. What does it create?</p>
+<p>Create another code chunk. In this chunk, show a preview of the
+<code>penguins</code> data frame. How many rows and columns are there in
+the <code>penguins</code> data set? Is the data frame a base R data
+frame or a tibble? Explain your reasoning.</p>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<pre class="r"><code>penguins</code></pre>
+<pre><code>## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # ℹ 334 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<p>There are 344 rows and 8 columns. The data frame is in the
+<code>tibble</code> format.</p>
 </div>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
-<p>The R code chunks in an RMarkdown document runs in two ways. Describe
-the difference on what happens to the R commands when “knitting” vs
-running the code blocks in the RMarkdown file.</p>
+<p>Statistical variables are classified into two main types: numerical
+and categorical. Numerical variables can be further divided into
+discrete and continuous subtypes, while categorical variables can be
+classified as nominal or ordinal.</p>
+<p>Each row of the <code>penguins</code> data set is an observation of a
+penguin. Use your output in the previous problem to answer the following
+question: What type of statistical variables are there in the columns of
+the data frame? Explain your reasoning.</p>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<ul>
+<li><code>species</code> | nominal categorical | The categories within
+this variable appears to have no discernible order.</li>
+<li><code>island</code> | nominal categorical | The same reasoning as
+the <code>species</code> variable.</li>
+<li><code>bill_length_mm</code> | continuous numerical | This is a
+measurable variable.</li>
+<li><code>bill_depth_mm</code> | continuous numerical | The same as
+<code>bill_length_mm</code>.</li>
+<li><code>flipper_length_mm</code> | continuous numerical | It appears
+to be discrete but this is a measurable variable.</li>
+<li><code>body_mass_g</code> | continuous numerical | The same reasoning
+as the <code>flipper_length_mm</code>.</li>
+<li><code>sex</code> | nominal categorical | The categories within this
+variable appears to have no discernible order.</li>
+<li><code>year</code> | discrete numerical or ordinal categorical | This
+appears to be a discrete numerical but it is a time-based variable. So,
+<code>year</code> can also be an ordinal variable. <dbl></li>
+</ul>
 </div>
 </div>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
-<p>Describe the levels of headers according to the “#” key.</p>
+<p>Subset the <code>penguins</code> data set using the following four
+cases. Each case should be a new tibble in a new R variable. Display the
+resulting tibbles using the <code>glimpse()</code> function.</p>
+<ul>
+<li>All rows with the “Adelie” species</li>
+<li>All rows in the year 2008</li>
+<li>All rows with bill length at least <span class="math inline">\(40\)</span> mm.</li>
+<li>All rows with the “Adelie” species in the year 2008, and with a bill
+length at least <span class="math inline">\(40\)</span> mm.</li>
+</ul>
+<p>Make sure to write your R code clearly in a code chunk and include
+comments explaining the purpose of each step.</p>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-6" class="section level2">
-<h2>Problem 6</h2>
-<p>On the upper left hand corner of this pane, there are two buttons
-“Source” and “Visual”. Describe your observations when clicking the
-button “Visual”. What are the differences and similarities between the
-two settings?</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
+<pre class="r"><code># All rows with the &quot;Adelie&quot; species
+sub1 &lt;- penguins[penguins$species == &quot;Adelie&quot;,]
+glimpse(sub1)</code></pre>
+<pre><code>## Rows: 152
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+<pre class="r"><code># All rows in the year 2008
+sub2 &lt;- penguins[penguins$year == 2008,]
+glimpse(sub2)</code></pre>
+<pre><code>## Rows: 114
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Biscoe, Biscoe, Biscoe, Biscoe, Biscoe, Biscoe, Bisc…
+## $ bill_length_mm    &lt;dbl&gt; 39.6, 40.1, 35.0, 42.0, 34.5, 41.4, 39.0, 40.6, 36.5…
+## $ bill_depth_mm     &lt;dbl&gt; 17.7, 18.9, 17.9, 19.5, 18.1, 18.6, 17.5, 18.8, 16.6…
+## $ flipper_length_mm &lt;int&gt; 186, 188, 190, 200, 187, 191, 186, 193, 181, 194, 18…
+## $ body_mass_g       &lt;int&gt; 3500, 4300, 3450, 4050, 2900, 3700, 3550, 3800, 2850…
+## $ sex               &lt;fct&gt; female, male, female, male, female, male, female, ma…
+## $ year              &lt;int&gt; 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008…</code></pre>
+<pre class="r"><code># All rows with bill length at least $40$ mm.
+sub3 &lt;- penguins[penguins$bill_length_mm &gt;= 40,]
+glimpse(sub3)</code></pre>
+<pre><code>## Rows: 244
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, NA, Adelie, Adelie, Adelie, Adelie, Adelie, …
+## $ island            &lt;fct&gt; Torgersen, NA, Torgersen, Torgersen, Torgersen, Torg…
+## $ bill_length_mm    &lt;dbl&gt; 40.3, NA, 42.0, 41.1, 42.5, 46.0, 40.6, 40.5, 40.5, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.0, NA, 20.2, 17.6, 20.7, 21.5, 18.6, 17.9, 18.9, …
+## $ flipper_length_mm &lt;int&gt; 195, NA, 190, 182, 197, 194, 183, 187, 180, 184, 180…
+## $ body_mass_g       &lt;int&gt; 3250, NA, 4250, 3200, 4500, 4200, 3550, 3200, 3950, …
+## $ sex               &lt;fct&gt; female, NA, NA, female, male, male, male, female, ma…
+## $ year              &lt;int&gt; 2007, NA, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …</code></pre>
+<pre class="r"><code># All rows with the &quot;Adelie&quot; species in the year 2008, and with a bill length at least $40$ mm.
+sub4 &lt;- sub1[sub1$year == 2008,]
+sub5 &lt;- sub4[sub4$bill_length_mm &gt;= 40,]
+glimpse(sub5)</code></pre>
+<pre><code>## Rows: 19
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Biscoe, Biscoe, Biscoe, Biscoe, Biscoe, Biscoe, Bisc…
+## $ bill_length_mm    &lt;dbl&gt; 40.1, 42.0, 41.4, 40.6, 41.3, 41.1, 41.6, 41.1, 41.8…
+## $ bill_depth_mm     &lt;dbl&gt; 18.9, 19.5, 18.6, 18.8, 21.1, 18.2, 18.0, 19.1, 19.4…
+## $ flipper_length_mm &lt;int&gt; 188, 200, 191, 193, 195, 192, 192, 188, 198, 197, 19…
+## $ body_mass_g       &lt;int&gt; 4300, 4050, 3700, 3800, 4400, 4050, 3950, 4100, 4450…
+## $ sex               &lt;fct&gt; male, male, male, male, male, male, male, male, male…
+## $ year              &lt;int&gt; 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008…</code></pre>
 </div>
 </div>
 </div>

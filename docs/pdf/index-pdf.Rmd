@@ -159,8 +159,8 @@ The following learning objectives are designed to build on one another, with som
 |:--:|:--:|:---------------|
 | **1** | Tu 1/13 | $\rightarrow$ Orientation<br>$\rightarrow$ Statistical Thinking |
 |  | Th 1/15 | $\rightarrow$ R and R Studio<br>$\rightarrow$ RMarkdown |
-| **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing<br>$\rightarrow$ Basics of Visualizations |
-|  | Th 1/22 | **Project Phase 0**<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
+| **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing |
+|  | Th 1/22 | **Project Phase 0**<br>$\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
 | **3** | Tu 1/27 | $\rightarrow$ Study Design<br>$\rightarrow$ Inference |
 |  | Th 1/29 | $\rightarrow$ Random Variables<br>$\rightarrow$ Probability |
 | **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
