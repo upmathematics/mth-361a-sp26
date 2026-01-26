@@ -159,13 +159,13 @@ The following learning objectives are designed to build on one another, with som
 | **1** | Tu 1/13 | $\rightarrow$ Orientation<br>$\rightarrow$ Statistical Thinking |
 |  | Th 1/15 | $\rightarrow$ R and R Studio<br>$\rightarrow$ RMarkdown |
 | **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing |
-|  | Th 1/22 | **Project Phase 0**<br>$\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
+|  | Th 1/22 | $\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
 | **3** | Tu 1/27 | $\rightarrow$ Study Design<br>$\rightarrow$ Inference |
 |  | Th 1/29 | $\rightarrow$ Random Variables<br>$\rightarrow$ Probability |
 | **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
 |  | Th 2/5 | $\rightarrow$ Random Sampling<br>$\rightarrow$ Law of Large Numbers |
 | **5** | Tu 2/10 | $\rightarrow$ Discrete Random Variables<br>$\rightarrow$ Probability Mass Functions |
-|  | Th 2/12 | **Project Phase 1** |
+|  | Th 2/12 | **Project Phase 0 & 1** |
 | **6** | Tu 2/17 | $\rightarrow$ Binomial Distribution<br>$\rightarrow$ Geometric Distribution |
 |  | Th 2/19 | $\rightarrow$Continuous Random Variables<br>$\rightarrow$ Probability Density Functions |
 | **7** | Tu 2/24 | $\rightarrow$ Normal Distribution<br>$\rightarrow$ Exponential Distribution |
@@ -514,7 +514,8 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Basics of Data Processing](lesson/2.2-mth361-basics-of-data-processing/2.2-mth361-basics-of-data-processing.html){target="_blank"} | Ch. 6.1-6.7 @speegle2021probability |
 | Basics of Visualizations | Ch. 7.1 @speegle2021probability |
 | Exploring Numerical Data | Ch. 7.2-7.3 @speegle2021probability |
-| Exploring Categorical Data | Ch. 7.4, \& Ch. 10.1 @speegle2021probability |
+| Advanced Visualizations | Ch. 7.4 @speegle2021probability |
+| Exploring Categorical Data | Ch. 10.1 @speegle2021probability |
 | Study Design | - |
 | Inference | - |
 | Random Variables | Ch. 2.1 @speegle2021probability |
