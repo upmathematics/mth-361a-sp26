@@ -1,0 +1,295 @@
+---
+title: "Basics of Visualizations"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Know the basics of visualizing data**
+- **Introduce the language of the `ggplot2` package**
+::::
+
+:::: {.column width=15%}
+::::
+
+## `tidyverse` Core Packages for Data Visualizations
+
+:::: {.column width=40%}
+`tidyverse` is a collection of packages suited for data processing and visualization.
+
+```{r tidyverse-hex-2, echo=FALSE, fig.cap="", fig.align='center', out.width = '50%'}
+knitr::include_graphics("tidyverse.png")
+```
+::::
+
+:::: {.column width=59%}
+Core packages specifically for data visualizations:
+
+:::: {.column width=20%}
+```{r ggplot2-hex, echo=FALSE, fig.cap="", fig.align='left', out.width = '100%'}
+knitr::include_graphics("ggplot2.png")
+```
+::::
+
+:::: {.column width=78%}
+* `ggplot2` is a system for creating graphics, where you provide the data, specify how to map variables to plots, and it handles the details.
+::::
+
+::: {style="color: red"}
+$\star$ Make sure that you load the `tidyverse` package before you use any functions in `ggplot2`.
+:::
+
+```{r echo=TRUE, eval=FALSE}
+library(tidyverse)
+```
+::::
+
+## Data Visualization Using `ggplot2`
+
+:::: {.column width=49%}
+**What is `ggplot2`?**
+
+* **Overview:**
+    - `ggplot2` is a powerful R package designed for data visualizations.
+    - It is part of the `tidyverse` ecosystem.
+    
+* **Key Features:**
+    - Intuitive grammar for graphics.
+    - Intuitive syntax with layering using the operator `+`.
+::::
+
+:::: {.column width=50%}
+**Why use `ggplot2`?**
+
+* **Ease of Use:** Clear, human-readable code.
+* **Efficiency:** Built-in functions optimized for performance.
+* **Consistency:** Works seamlessly with other `tidyverse` packages such as `dplyr` for data wrangling.
+* **Data Frames and Beyond:** Works with data frames, tibbles, and databases.
+::::
+
+## The Grammar for Graphics
+
+**What is the Grammar of Graphics?** 
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+* The Grammar of Graphics is a systematic approach to building visualizations by breaking down graphs into fundamental components.
+* The `ggplot2` package in R is based on this framework, allowing for a highly customizable and layered approach to data visualization.
+::::
+
+:::: {.column width=15%}
+::::
+
+## Key Components of `ggplot2`
+
+:::: {.column width=49%}
+* **Data:** The dataset being visualized in tibble form.
+
+* **Aesthetics (aes):** The mapping of data variables to visual properties like position, color, size, and shape.
+
+* **Geometries (geom):** The type of plot (e.g., points, lines, bars) that represents the data.
+
+* **Facets:** Splitting data into multiple panels for comparison.
+:::
+
+:::: {.column width=50%}
+* **Statistics (stat):** Computations applied to the data before plotting (e.g., smoothing, binning).
+
+* **Coordinates (coord):** The system defining how data is mapped onto the plot (e.g., Cartesian, polar).
+
+* **Themes:** Controls the overall appearance of the plot, such as background color, grid lines, and fonts.
+:::
+
+## Example: `iris` Data Set Scatter Plots
+
+:::: {.column width=49%}
+**Convert dataframe into `tibble`**
+
+```{r echo=TRUE}
+# define dataframe as tibble
+iris_tibble <- tibble(iris)
+```
+
+**Plotting `iris` lengths**
+
+```{r echo=TRUE, eval=TRUE, fig.align='center', out.width='80%', fig.width=3, fig.height=2}
+# establish data and variables
+ggplot(
+    # dataframe
+    iris_tibble,
+    # aesthetics
+    aes(
+      # x-axis using a numerical variable
+      x = Sepal.Length,
+      # y-axis using a numerical variable
+      y = Petal.Length
+      )
+    ) +
+  # draw scatter plot
+  geom_point()
+```
+::::
+
+:::: {.column width=50%}
+**Layered Approach**
+
+* **Base layer:** `ggplot(data, aes(...))` defines the dataset and variables.
+* **Geometric layers:** `+ geom_*()` specifies the type of plot.
+* **Other layers:** `+ facet_*(), + coord_*(), + theme_*()` enhance the visualization.
+
+::: {style="color: red"}
+$\star$ Note that the `+` operator here is used to "add" a layer, not adding numbers.
+:::
+::::
+
+## Aesthetics
+
+The `aes()` function maps data variables to visual properties like position, color, size, and shape.
+
+:::: {.column width=49%}
+**Plotting `iris` lengths by species**
+
+```{r echo=TRUE, eval=TRUE, fig.align='center', out.width='80%', fig.width=4, fig.height=2}
+# establish data and variables
+ggplot(
+    # dataframe
+    iris_tibble,
+    # aesthetics
+    aes(
+      # x-axis using a numerical variable
+      x = Sepal.Length,
+      # y-axis using a numerical variable
+      y = Petal.Length,
+      # color each point using a categorical variable
+      color = Species
+      )
+    ) +
+  # draw scatter plot
+  geom_point()
+```
+::::
+
+:::: {.column width=50%}
+**Common Aesthetics Mappings**
+
+* **`x` and `y`:** Map variables to the horizontal and vertical axes.
+* **`color`:** Assign colors to different categories.
+* **`size`:** Control the size of points or lines based on a variable.
+* **`shape`:** Change the shape of points according to a categorical variable.
+* **`fill`:** Fill color of geometric objects of different categories.
+
+::: {style="color: red"}
+$\star$ Note that the `aes()` function is called within the `ggplot()` function as the second argument.
+:::
+::::
+
+## Layering
+
+Using the `+` operator allows us to add layers to the plot, which is used for customizing the plot or adding more information.
+
+:::: {.column width=49%}
+**Plotting `iris` lengths by species with regression lines**
+
+```{r echo=TRUE, eval=TRUE, fig.align='center', out.width='100%', fig.width=4, fig.height=2}
+# establish data and variables
+ggplot(
+    # dataframe
+    iris_tibble,
+    # aesthetics
+    aes(
+      # x-axis using a numerical variable
+      x = Sepal.Length,
+      # y-axis using a numerical variable
+      y = Petal.Length,
+      # color each point using a categorical variable
+      color = Species,
+      # color each point using a categorical variable
+      group = Species
+      )
+    ) +
+  # draw scatter plot
+  geom_point() + 
+  # add regression lines
+  geom_smooth(
+    # define model
+    method = 'lm', formula='y~x',
+    # define color
+    color = "black"
+    )
+```
+::::
+
+:::: {.column width=50%}
+**Layering to add more information**
+
+* This example used the function `geom_smooth()`
+* `geom_smooth()` fits a regression line to each group, then adds this line as a layer on the plot.
+
+::: {style="color: red"}
+$\star$ **Key Idea:** All subsequent layers will inherit all information of the `aes()` variables defined in the `ggplot()` function.
+:::
+::::
+
+## Common Geometries for Numerical Variables
+
+| **Geom** | **Function** |
+|:---|:------|
+| `geom_point()` | Scatter plot for visualizing relationships between two numerical variables. |
+| `geom_line()` | Line plot for trends over time or continuous sequences. |
+| `geom_histogram()` | Histogram for visualizing the distribution of a single numerical variable. |
+| `geom_dotplot()` | Shows each dot representing one observation in a distribution. |
+| `geom_boxplot()` | Box plot for showing distributions and detecting outliers. |
+
+::: {style="color: red"}
+$\star$ Be careful when defining variables in `aes()`. For example, `geom_histogram()` only requires an x-axis variable, as it plots the distribution of a single numerical variable.
+:::
+
+## Example: `iris` Data Set Histogram
+
+**Plotting the distribution of `iris` sepal lengths by species**
+
+```{r echo=TRUE, eval=TRUE, fig.align='center', fig.width=4, fig.height=2, out.width='80%'}
+# establish data and variables
+ggplot(
+    # dataframe
+    iris_tibble,
+    # aesthetics
+    aes(
+      # x-axis using a numerical variable
+      x = Sepal.Length,
+      # fill bars using a categorical variable
+      fill = Species
+      )
+    ) +
+  # draw histogram
+  geom_histogram(
+    # define number of bins
+    bins=10
+    )
+```
+
+::: {style="color: red"}
+$\star$ The `bins` parameter in the `geom_histogram()` function allows you to adjust the number of bins, affecting how the data is visualized.
+:::

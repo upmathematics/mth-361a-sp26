@@ -1,0 +1,565 @@
+---
+title: "Exploring Numerical Data"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(kableExtra)
+library(sn)
+data(COL)
+set.seed(42)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Know the basics of visualizing numerical data**
+- **Develop an understanding of different types of visualizing numerical data**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Basics of Exploring Numerical Data
+
+:::: {.column width=49%}
+**Variables**
+
+* Types of Data: Continuous vs Discrete
+* Descriptive Statistics: Measures of center (mean, median, mode) and spread (range, variance, standard deviation, IQR)
+::::
+
+:::: {.column width=50%}
+**Visualization Techniques**
+
+* Dotplots: Understanding frequency distributions
+* Histograms: Viewing shapes of distributions
+* Boxplots: Detecting outliers and spread
+* Scatterplots: Identifying relationships between variables
+::::
+
+## Scatterplots
+
+:::: {.column width=50%}
+**Scatterplots** are useful for visualizing the relationship between *two numerical variables*.
+
+*Example:*
+
+* The variables `Sepal.Length` and `Petal.Length` in the `iris` data set appears to have a positive association, meaning as `Sepal.Length` increases, `Petal.Length` also increases.
+::::
+
+:::: {.column width=49%}
+```{r}
+# define dataframe as tibble
+iris_tibble <- tibble(iris)
+```
+
+```{r fig.align='center', out.width='100%', fig.width=4,fig.height=2}
+# establish data and variables
+ggplot(iris_tibble, 
+       aes(x = Sepal.Length, 
+           y = Petal.Length,
+           color = Species)) +
+  # draw scatter plot
+  geom_point() + 
+  # add theme layer
+  theme_grey()
+```
+::::
+
+## Dot Plots
+
+**Dot plots** are useful for visualizing one numerical variable. Darker colors represent areas where there are more observations.
+
+```{r dot-plot-gpa, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '100%', fig.height=3}
+d = read.csv("gpa.csv")
+gpa = d$gpa[d$gpa <= 4]
+gpa = gpa[!is.na(gpa)]
+openintro::dotPlot(gpa, pch = 19, col = COL[1,4], xlab = "GPA", xlim = c(2.5,4), ylab = "")
+```
+
+## Dot Plots and the Mean
+
+```{r dot-plot-gpa-mean, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '100%', fig.height=3}
+openintro::dotPlot(gpa, pch = 19, col = COL[1,4], xlab = "GPA", xlim = c(2.5,4), ylab = "")
+M <- mean(d$gpa[d$gpa <= 4], na.rm = TRUE)
+polygon(M + c(-2,2,0)*0.01, c(0.25, 0.25, 0.5), border=COL[4], col=COL[4])
+```
+
+The **mean**, also called the **average** (marked with a triangle in the above plot), is one way to measure the center of a distribution of data. **The mean GPA is 3.59.**
+
+## Histograms
+
+**Histograms** provide a view of the *data density*. Higher bars represent where the data are relatively more common.
+
+:::: {.column width=50%}
+* Histograms are especially convenient for describing the **shape** of the data distribution.
+* The chosen **bin width** or **number of bins** can alter the story the histogram is telling.
+::::
+
+:::: {.column width=49%}
+```{r histogram-gpa, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '100%'}
+d = read.csv("extracurr_hrs.csv")
+extracurr_hrs = d$extracurr_hrs[!is.na(d$extracurr_hrs)]
+
+histPlot(extracurr_hrs, col = COL[1], xlab = "Hours / week spent on extracurricular activities", ylab = "")
+```
+::::
+
+## Bin Width of Histograms
+
+Which one(s) of these histograms are useful? Which reveal too much about the data? Which hide too much?
+
+```{r binwidth-histogram-gpa, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '80%', fig.height=5}
+par(mfrow=c(2,2))
+histPlot(extracurr_hrs, col = COL[1], xlab = "Hours / week spent on extracurricular activities", ylab = "", breaks = 2)
+histPlot(extracurr_hrs, col = COL[1], xlab = "Hours / week spent on extracurricular activities", ylab = "", breaks = 10)
+histPlot(extracurr_hrs, col = COL[1], xlab = "Hours / week spent on extracurricular activities", ylab = "", breaks = 20)
+histPlot(extracurr_hrs, col = COL[1], xlab = "Hours / week spent on extracurricular activities", ylab = "", breaks = 30)
+```
+
+## Distribution Shapes: Modality
+
+Does the histogram have a single prominent peak (**unimodal**), several prominent peaks (**bimodal/multimodal**), or no apparent peaks (**uniform**)?
+
+```{r modality, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '80%', fig.height=2}
+set.seed(51)
+x1 <- rchisq(65, 6)
+x2 <- c(rchisq(22, 5.8), rnorm(40, 16.5, 2))
+x3 <- c(rchisq(20, 3), rnorm(35, 12), rnorm(42, 18, 1.5))
+x4 <- runif(100,0,20)
+
+par(mfrow=c(1,4), mar=c(1.9, 2, 1, 2), mgp=c(2.4, 0.7, 0))
+
+histPlot(x1, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+
+histPlot(x2, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+
+histPlot(x3, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+
+histPlot(x4, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+```
+
+::: {style="color: red;"}
+$\star$ In order to determine modality, step back and imagine a smooth curve over the histogram --imagine that the bars are wooden blocks and you drop a limp spaghetti over them, the shape the spaghetti would take could be viewed as a smooth curve.
+:::
+
+## Distribution Shapes: Skewness
+
+Is the histogram **right skewed**, **left skewed**, or **symmetric**?
+
+```{r skewness, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE,  fig.align='center', out.width = '80%', fig.height=2}
+set.seed(234)
+x1 <- rchisq(65, 3)
+x2 <- c(runif(20, 0,10), rnorm(100, 16.5, 2))
+x3 <- rnorm(100, 35, 12)
+
+par(mfrow=c(1,3), mar=c(1.9, 2, 1, 2), mgp=c(2.4, 0.7, 0))
+
+histPlot(x1, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+
+histPlot(x2, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+
+histPlot(x3, axes=FALSE, xlab='', ylab='', col=COL[1])
+axis(1)
+axis(2)
+```
+
+::: {style="color: red;"}
+$\star$ Histograms are said to be skewed to the side of the long tail.
+:::
+
+## Commonly Observed Distribution Shapes
+
+```{r shape-distributions, echo=FALSE, eval=TRUE, fig.cap="", fig.align='center', out.width = '90%'}
+knitr::include_graphics("shapes.png")
+```
+
+## Measures of Central Tendency
+
+The **measures of central tendency** describe the central or typical value of a dataset, summarizing its distribution. The following are the common measures of central tendency:
+
+* **Mean:** The arithmetic average of all data points, calculated as the sum of all values divided by the total number of values.
+* **Median:** The middle value of an ordered dataset. If there is an even number of observations, the median is the average of the two middle values.
+* **Mode:** The most frequently occurring value(s) in a dataset. A dataset may have one mode (unimodal), multiple modes (multimodal), or no mode if all values occur with equal frequency.
+
+## Skewness and Measures Central Tendency (1/3)
+
+**Mode** $<$ **Median** $<$ **Mean**
+
+:::: {.column width=60%}
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE, fig.align='center', out.width='100%', fig.width=4, fig.height=3}
+N <- 10000
+x_rs <- tibble(x = rsn(N, 0, 1, 5))
+x_rs_mean <- mean(x_rs$x)
+x_rs_median <- median(x_rs$x)
+ggplot(x_rs,aes(x=x)) + 
+  geom_histogram(bins=30,fill= COL[1,1]) + 
+  geom_vline(aes(xintercept = x_rs_mean, color="mean"),lwd=1) + 
+  geom_vline(aes(xintercept = x_rs_median, color="median"),lwd=1) + 
+  geom_vline(aes(xintercept = 1/2, color="mode"),lwd=1) + 
+  ggtitle("Right Skew Distribution") + 
+  scale_color_manual(name = "", values = c(median="blue",mean="red",mode="black")) + 
+  theme_minimal()
+```
+::::
+
+:::: {.column width=39%}
+* If the distribution of data is **skewed to the right**, the **mode is less than the median, which is less than the mean**.
+::::
+
+## Skewness and Measures Central Tendency (2/3)
+
+**Mean** $<$ **Median** $<$ **Mode**
+
+:::: {.column width=60%}
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE, fig.align='center', out.width='100%', fig.width=4, fig.height=3}
+N <- 10000
+x_ls <- tibble(x = rsn(N, 0, 1, -5))
+x_ls_mean <- mean(x_ls$x)
+x_ls_median <- median(x_ls$x)
+ggplot(x_ls,aes(x=x)) + 
+  geom_histogram(bins=30,fill= COL[1,1]) + 
+  geom_vline(aes(xintercept = x_ls_mean, color="mean"),lwd=1) + 
+  geom_vline(aes(xintercept = x_ls_median, color="median"),lwd=1) + 
+  geom_vline(aes(xintercept = -0.35, color="mode"),lwd=1) + 
+  ggtitle("Left Skew Distribution") + 
+  scale_color_manual(name = "", values = c(median="blue",mean="red",mode="black")) + 
+  theme_minimal()
+```
+::::
+
+:::: {.column width=39%}
+* If the distribution of data is **skewed to the left**, the **mean is less than the median, which is less than the mode**.
+::::
+
+## Skewness and Measures Central Tendency (3/3)
+
+**Mean** $=$ **Median** $=$ **Mode**
+
+:::: {.column width=60%}
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE, fig.align='center', out.width='100%', fig.width=4, fig.height=3}
+N <- 10000
+x_s <- tibble(x = rsn(N, 0, 1, 0))
+x_s_mean <- mean(x_s$x)
+x_s_median <- median(x_s$x)
+ggplot(x_s,aes(x=x)) + 
+  geom_histogram(bins=30,fill= COL[1,1]) + 
+  geom_vline(aes(xintercept = x_s_mean, color="mean"),lwd=1) + 
+  geom_vline(aes(xintercept = x_s_median, color="median"),lwd=1) + 
+  geom_vline(aes(xintercept = 0, color="mode"),lwd=1) + 
+  ggtitle("Symmetric Distribution") + 
+  scale_color_manual(name = "", values = c(median="blue",mean="red",mode="black")) + 
+  theme_minimal()
+```
+::::
+
+:::: {.column width=39%}
+* If the distribution of data is **symmetric**, the **mean is roughly equal to the median, which is roughly equal to the mode**.
+::::
+
+## Measures of Dispersion (Spread)
+
+The **measures of dispersion** describes the variability of a numerical data. It is a way to quantify the uncertainty of a distribution. The following are the common measures of dispersion:
+
+* **Variance:** The average squared deviation from the mean.
+* **Standard Deviation:** The square root of the variance, providing a measure of spread in the same units as the data.
+* **Range:** The difference between the maximum and minimum values.
+* **Interquartile Range (IQR):** The difference between the 75th and 25th percentiles, capturing the spread of the middle 50\% of the data.
+
+## Making Sense of the Variance
+
+**Common variance interpretations:**
+
+* **Zero Variance:** All values are the same.
+* **Low Variance:** Data points are close to the mean (consistent data).
+* **High Variance:** Data points are spread out (greater variability).
+
+**Example:** Order the following distributions from low to high variance.
+
+```{r echo=FALSE, eval=TRUE}
+N <- 1000
+mean <- 0
+vars <- c(1^2,1.5^2,2^2,2.5^2)
+
+samples <- tibble(
+  point = seq(1,N),
+  A = rnorm(N,mean,vars[4]),
+  B = rnorm(N,mean,vars[1]),
+  C = rnorm(N,mean,vars[3]),
+  D = rnorm(N,mean,vars[2])
+  ) |> 
+  pivot_longer(-c(point),
+               names_to = "sample",
+               values_to = "x")
+```
+
+```{r eval=TRUE, echo=FALSE, fig.height=2, fig.width=8, message=FALSE, warning=FALSE, out.width='100%'}
+ggplot(samples,aes(x=x,fill=sample)) + 
+  geom_histogram(bins=30, fill = COL[1,1]) + 
+  facet_grid(cols = vars(sample), scales="fixed") + 
+  theme(legend.position="none") + 
+  theme_minimal()
+```
+
+The above distributions are ordered from lowest to highest variance as follows: B, D, C, and A.
+
+## Making Sense of the Standard Deviation
+
+**Variance** gives a broader measure of spread, while **standard deviation** provides a more practical understanding of dispersion. 
+
+**Example:** Suppose we analyze the annual salaries of employees in two different companies:
+
+:::: {.column width=60%}
+| Company | $\overline{x}$ | $s^2$ | $s$ |
+|:---|:---|:---|:---|
+| A | \$55K | \$62.5K | \$7.906K |
+| B | \$130K | \$2250K | \$47.434K |
+::::
+
+:::: {.column width=39%}
+* Even though Company B has higher salaries on average, its standard deviation is much larger, suggesting greater salary inequality.
+::::
+
+::: {style="color: red;"}
+$\star$ Standard deviation helps compare the spread of different distributions of the same units, which is directly interpretable as the typical deviation from the mean.
+:::
+
+## Box Plots
+
+The box in a **box plot** represents the middle 50% of the data, and the thick line in the box is the median.
+
+:::: {.column width=50%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.cap="Box Plot of Study Hours", fig.width=4,fig.height=2, fig.align='center'}
+d <- read.csv("study_hours.csv") |> 
+  drop_na()
+
+ggplot(d, aes(x = study_hours)) + 
+  geom_boxplot(fill = COL[1,1]) + 
+  xlab("# of study hours / week") + 
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+  
+```
+::::
+
+:::: {.column width=49%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.cap="Histogram of Study Hours", fig.width=4,fig.height=2, fig.align='center'}
+ggplot(d, aes(x=study_hours)) + 
+  geom_histogram(binwidth = 5, boundary=-0.5, fill = COL[1,1]) + 
+  xlab("# of study hours / week") + 
+  theme_minimal()
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Box plots and histograms visualize numerical data, with histograms showing distribution shape, while box plots summarize spread and outliers, making them better for comparisons.
+:::
+
+## Anatomy of Box Plots
+
+:::: {.column width=55%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.width=6,fig.height=5, fig.align='center'}
+study_hours <- d$study_hours[!is.na(d$study_hours)]
+
+par(mar=c(0.8,4,0,1), mgp=c(2.8, 0.7, 0), las=1)
+
+boxPlot(study_hours, col = COL[1,3], ylab = "# of study hours / week", axes=FALSE, xlim = c(0,3.5), pch = 20)
+axis(2)
+
+arrows(2,1, 1.40,min(study_hours)-0.5, length=0.08)
+text(2,1,'lower whisker', pos=4)
+
+arrows(2, 8, 1.40, quantile(study_hours, 0.25), length=0.08)
+text(2,8,expression(Q[1]~~'(first quartile)'), pos=4)
+
+m <- median(study_hours)
+arrows(2, m, 1.40, m, length=0.08)
+text(2,m,'median', pos=4)
+
+q <- quantile(study_hours, 0.75)
+arrows(2, q, 1.40, q, length=0.08)
+text(2,q,expression(Q[3]~~'(third quartile)'), pos=4)
+
+arrows(2, 35, 1.40, 35, length=0.08)
+text(2,35,'max whisker reach\n& upper whisker', pos=4)
+
+arrows(2, 47, 1.40, 45, length=0.08)
+arrows(2, 47, 1.40, 49, length=0.08)
+text(2,47,'suspected outliers', pos=4)
+
+points(rep(0.4, 99), rev(sort(study_hours))[1:99], cex=rep(1.5, 27), col=rep(COL[1,3], 99), pch=rep(20, 99))
+points(rep(0.4, 99), sort(study_hours)[1:99], cex=rep(1, 27), col=rep(COL[2], 99), pch=rep(1, 99))
+```
+::::
+
+:::: {.column width=44%}
+**Main Parts:**
+
+* **Box** 
+    - Defined by the quartiles $Q_1$, $Q_2$ (median), and $Q_3$.
+    - The IQR defines the length of the Box.
+* **Whiskers**
+    - Lower whisker is defined as $Q_1 - 1.5 \times \text{IQR}$.
+    - Upper whisker is defined as $Q_3 + 1.5 \times \text{IQR}$.
+* **Outliers**
+    - Data points that are placed beyond the whiskers.
+::::
+
+## Computing the Whiskers
+
+**Whiskers** of a box plot can extend up to $1.5 \times IQR$ away from the quartiles. The $1.5 \times \text{IQR}$ is arbitrary, and is considered an academic standard and the default in plotting box plots.
+
+**Example:** Suppose that $Q_1 = 10$ and $Q_3 = 20$.
+
+$$\text{IQR} = 20 - 10 = 10$$
+$$\text{max upper whisker reach} = 20 + 1.5 \times 10 = 35$$
+$$\text{max lower whisker reach} = 10 - 1.5 \times 10 = -5$$
+
+::: {style="color: red;"}
+$\star$ A potential **outlier** is defined as an observation beyond the maximum reach of the whiskers. It is an observation that appears extreme relative to the rest of the data.
+:::
+
+## More Boxplot and Dot Plot Examples
+
+**Example:** The boxplot and stacked dot plot of the data set $7,1,2,4,6,3,2,7$ is shown below.
+
+:::: {.column width=50%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.cap="Box Plot", fig.width=4,fig.height=2, fig.align='center'}
+d <- tibble(x=c(7,1,2,4,6,3,2,7))
+
+ggplot(d, aes(x = x)) + 
+  geom_boxplot(fill = COL[1,1]) + 
+  xlab("x") + 
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+```
+::::
+
+:::: {.column width=49%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.cap="Stacked Dot Plot", fig.width=4,fig.height=2, fig.align='center'}
+ggplot(d, aes(x=x)) + 
+  geom_dotplot(binwidth = 0.25, fill = COL[1,1], color = "white") + 
+  xlab("x") + 
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+```
+::::
+
+::: {style="color: red;"}
+$\star$ A dot plot is used instead of a histogram for convenience with the small discrete numbered dataset. The box plot shows no potential outliers, as all data points fall within the whiskers.
+:::
+
+## Why Outliers are Important?
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+* Identify extreme skew in the distribution.
+* Identify data collection and entry errors.
+* Provide insight into interesting features of the data.
+::::
+
+:::: {.column width=15%}
+::::
+
+## Case Study 1
+
+How would sample statistics such as mean, median, SD, and IQR of household income be affected if the largest value was replaced with $10 million? What if the smallest value was replaced with \$10 million?
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='80%', fig.width=4,fig.height=2, fig.align='center'}
+d <- read.csv("house_income.csv") |> 
+  drop_na() |> 
+  filter(house_income < 4000000)
+
+ggplot(d, aes(x=house_income)) + 
+  geom_histogram(bins = 20, boundary=-0.5, fill = COL[1,1], color = "white") + 
+  xlab("Annual Household Income") + 
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+```
+
+## Case Study 1: Extreme Observations
+
+```{r echo=FALSE, eval=TRUE}
+d <- read.csv("house_income.csv") |> 
+  drop_na() |> 
+  filter(house_income < 4000000) |> 
+  mutate(data = rep("original",n()))
+d_max10 <- d |> 
+  mutate(house_income=ifelse(house_income==max(house_income),10000000,house_income)) |> 
+  mutate(data = rep("replace largest with $10M",n()))
+d_min10 <- d |> 
+  mutate(house_income=ifelse(house_income==min(house_income),10000000,house_income)) |> 
+  mutate(data = rep("replace smallest with $10M",n()))
+d_all <- rbind(d,d_max10,d_min10)
+d_all_summaries <- d_all |> 
+  group_by(data) |> 
+  summarise(
+    `$\\overline{x}$` = mean(house_income),
+    `$s$` = sd(house_income),
+    Median = median(house_income),
+    IQR = IQR(house_income)
+  ) |> 
+  mutate(`$\\overline{x}$` = format(`$\\overline{x}$`,big.mark=",",scientific=FALSE),
+         `$s$` = format(`$s$`,big.mark=",",scientific=FALSE),
+         Median = format(Median,big.mark=",",scientific=FALSE),
+         IQR = format(IQR,big.mark=",",scientific=FALSE))
+```
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, fig.align='center'}
+kable(d_all_summaries)
+```
+
+::: {style="color: red;"}
+$\star$ The table shows that shifting specific values to the extreme significantly affects the mean but not the median, indicating the mean's sensitivity to extreme observations. Similarly, the standard deviation is affected, while the IQR remains the same.
+:::
+
+## Robust Statistics
+
+Median and IQR are more robust to skewness and outliers than mean and SD. Therefore,
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+* for skewed distributions it is often more helpful to use median and IQR to describe the center and spread
+* for symmetric distributions it is often more helpful to use the mean and SD to describe the center and spread
+::::
+
+:::: {.column width=15%}
+::::
