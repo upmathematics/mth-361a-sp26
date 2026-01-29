@@ -32,6 +32,7 @@ set.seed(42)
 :::: {.column width=70%}
 - **Know the basics of visualizing numerical data**
 - **Develop an understanding of different types of visualizing numerical data**
+- **Learn how to combine the `tidyverse` verbs and `ggplot2` geometries to visualize numerical and categorical data effectively**
 ::::
 
 :::: {.column width=15%}
@@ -496,7 +497,7 @@ $\star$ A dot plot is used instead of a histogram for convenience with the small
 :::: {.column width=15%}
 ::::
 
-## Case Study 1
+## Household Income
 
 How would sample statistics such as mean, median, SD, and IQR of household income be affected if the largest value was replaced with $10 million? What if the smallest value was replaced with \$10 million?
 
@@ -513,7 +514,7 @@ ggplot(d, aes(x=house_income)) +
         axis.ticks.y=element_blank())
 ```
 
-## Case Study 1: Extreme Observations
+## Extreme Observations
 
 ```{r echo=FALSE, eval=TRUE}
 d <- read.csv("house_income.csv") |> 

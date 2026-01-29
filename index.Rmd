@@ -514,7 +514,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Basics of Data Processing](lesson/2.2-mth361-basics-of-data-processing/2.2-mth361-basics-of-data-processing.html){target="_blank"} | Ch. 6.1-6.7 @speegle2021probability |
 | [Basics of Visualizations](lesson/2.3-mth361-basics-of-visualizations/2.3-mth361-basics-of-visualizations.html){target="_blank"} | Ch. 7.1 @speegle2021probability |
 | [Exploring Numerical Data](lesson/2.4-mth361-exploring-numerical-data/2.4-mth361-exploring-numerical-data.html){target="_blank"} | Ch. 7.2-7.3 @speegle2021probability |
-| Exploring Categorical Data | Ch. 7.4 & Ch. 10.1 @speegle2021probability |
+| [Exploring Categorical Data](lesson/2.5-mth361-exploring-categorical-data/2.5-mth361-exploring-categorical-data.html){target="_blank"} | Ch. 7.4 & Ch. 10.1 @speegle2021probability |
 | Study Design | - |
 | Inference | - |
 | Random Variables | Ch. 2.1 @speegle2021probability |
