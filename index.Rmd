@@ -160,7 +160,7 @@ The following learning objectives are designed to build on one another, with som
 |  | Th 1/15 | $\rightarrow$ R and R Studio<br>$\rightarrow$ RMarkdown |
 | **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing |
 |  | Th 1/22 | $\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
-| **3** | Tu 1/27 | $\rightarrow$ Study Design<br>$\rightarrow$ Inference |
+| **3** | Tu 1/27 | $\rightarrow$ Study Design and Inference |
 |  | Th 1/29 | $\rightarrow$ Random Variables<br>$\rightarrow$ Probability |
 | **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
 |  | Th 2/5 | $\rightarrow$ Random Sampling<br>$\rightarrow$ Law of Large Numbers |
@@ -196,10 +196,18 @@ The following learning objectives are designed to build on one another, with som
 
 > Dr. Alex John Quijano
 > 
-> * Walk-in Monday to Friday at 4:00 PM - 5:00 PM, Buckley Center 279
+> * Walk-in Monday to Friday at 4:00 PM, Buckley Center 279
 > * [One-to-One, Buckley Center 279](https://outlook.office.com/bookwithme/user/563068e7b8f84361b7e7eaf55bc932d8@up.edu/meetingtype/KXqoHwKuE0qdlfS1AiumEg2?bookingcode=31b921a7-10ad-4113-895c-50152bee77c0&anonymous&ismsaljsauthenabled&ep=mLinkFromTile){target="_blank"} <br>*Click on the link to sign-up for a 15-minute session.*
 
-My walk-in and by-appointment help hours begin in Week 2. If you need more than 15 minutes, you can book at most two consecutive sessions.
+My walk-in and by-appointment help hours begin in Week 2. If you need more than 15 minutes for a one-to-one help hour by-appointment, you can book at most two consecutive sessions.
+
+If no one show up in the first 30 minutes of my walk-in help hours, the walk-in help hours will end.
+
+*Amendment 1: Modified the sentence "If you need more than 15 minutes, you can book at most two consecutive sessions." to " If you need more than 15 minutes for a one-to-one help hour by-appointment, you can book at most two consecutive sessions."*
+
+*Amendment 2: Added the sentence "If no one show up in the first 30 minutes of my walk-in help hours, the walk-in help hours will end."*
+
+*Amendment 3: Changed the walk-in help hours from "4:00 PM - 5:00 PM" to just a starting time of "4:00 PM".*
 
 ### The Learning Commons$^*$
 
@@ -515,8 +523,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Basics of Visualizations](lesson/2.3-mth361-basics-of-visualizations/2.3-mth361-basics-of-visualizations.html){target="_blank"} | Ch. 7.1 @speegle2021probability |
 | [Exploring Numerical Data](lesson/2.4-mth361-exploring-numerical-data/2.4-mth361-exploring-numerical-data.html){target="_blank"} | Ch. 7.2-7.3 @speegle2021probability |
 | [Exploring Categorical Data](lesson/2.5-mth361-exploring-categorical-data/2.5-mth361-exploring-categorical-data.html){target="_blank"} | Ch. 7.4 & Ch. 10.1 @speegle2021probability |
-| Study Design | - |
-| Inference | - |
+| [Study Design and Inference](lesson/3.1-mth361-study-design-and-inference/3.1-mth361-study-design-and-inference.html){target="_blank"} | - |
 | Random Variables | Ch. 2.1 @speegle2021probability |
 | Probability | - |
 | Expected Value | - |
