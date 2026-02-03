@@ -31,7 +31,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Relationship Among Variables
 
-**Does there appear to be a relationship between the hours of study per week and the GPA of a student?**
+**Research Question:** Does there appear to be a relationship between the hours of study per week and the GPA of a student?
 
 ```{r gpa-vs-study-hours, echo=FALSE, fig.align='center', fig.cap="", message=FALSE, warning=FALSE, out.width='60%'}
 library(openintro)
@@ -326,7 +326,7 @@ $\star$ Observational studies find patterns, while experimental studies test cau
 
 ## Smoking and Lung Cancer
 
-**Is there a relationship between smoking and lung cancer?**
+**Research Question:** Is there a relationship between smoking and lung cancer?
 
 :::: {.column width=49%}
 **Study Design:**
@@ -367,7 +367,7 @@ $\star$ Case-Control looks at data in the past, Cohort follows the data, and Cro
 | _Limitations_ | Cannot establish causality, relies on recall bias. | Expensive, time-consuming, and prone to participant attrition. | Cannot determine causality, only associations. |
 
 ::: {style="color: red;"}
-$\star$ **Key Similarities:** The limitation of observational studies is that it can not determine causality, only associations.
+$\star$ The limitation of observational studies is that it can not determine causality, only associations.
 :::
 
 ## Prospective vs Retrospective Observational Studies
@@ -383,7 +383,7 @@ $\star$ Prospective means present and future data and retrospective means the pa
 
 ## Hypertension and Stroke Incidence
 
-**Is there a relationship between hypertension and stroke incidence in an older population?**
+**Research Question:** Is there a relationship between hypertension and stroke incidence in an older population?
 
 :::: {.column width=49%}
 **Study Design:**
@@ -406,7 +406,7 @@ $\star$ This is an example of a retrospective cohort Study because the data is i
 
 ## Energy Gels
 
-**Does energy gels make a person run faster?**
+**Research Question:** Does energy gels make a person run faster?
 
 :::: {.column width=49%}
 **Study Design:**
@@ -428,7 +428,7 @@ $\star$ This is an example of an experimental study because the design involves 
 
 ## Blocking
 
-**Does energy gels make a person run faster?** Since it is suspected that energy gels might affect pro and amateur athletes differently, we <span style="color:blue">**block**</span> for pro status.
+Since it is suspected that energy gels might affect pro and amateur athletes differently, we <span style="color:blue">**block**</span> for pro status.
 
 :::: {.column width=49%}
 **Study Design:**
