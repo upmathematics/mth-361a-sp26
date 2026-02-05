@@ -161,7 +161,7 @@ The following learning objectives are designed to build on one another, with som
 | **2** | Tu 1/20 | $\rightarrow$ Data Principles<br>$\rightarrow$ Basics of Data Processing |
 |  | Th 1/22 | $\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
 | **3** | Tu 1/27 | $\rightarrow$ Study Design and Inference |
-|  | Th 1/29 | $\rightarrow$ Random Variables<br>$\rightarrow$ Probability |
+|  | Th 1/29 | $\rightarrow$ Random Variables and Probability |
 | **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
 |  | Th 2/5 | $\rightarrow$ Random Sampling<br>$\rightarrow$ Law of Large Numbers |
 | **5** | Tu 2/10 | $\rightarrow$ Discrete Random Variables<br>$\rightarrow$ Probability Mass Functions |
@@ -524,8 +524,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Exploring Numerical Data](lesson/2.4-mth361-exploring-numerical-data/2.4-mth361-exploring-numerical-data.html){target="_blank"} | Ch. 7.2-7.3 @speegle2021probability |
 | [Exploring Categorical Data](lesson/2.5-mth361-exploring-categorical-data/2.5-mth361-exploring-categorical-data.html){target="_blank"} | Ch. 7.4 & Ch. 10.1 @speegle2021probability |
 | [Study Design and Inference](lesson/3.1-mth361-study-design-and-inference/3.1-mth361-study-design-and-inference.html){target="_blank"} | - |
-| Random Variables | Ch. 2.1 @speegle2021probability |
-| Probability | - |
+| [Random Variables and Probability](lesson/3.2-mth361-random-variables-and-probability/3.2-mth361-random-variables-and-probability.html){target="_blank"} | Ch. 2.1 @speegle2021probability |
 | Expected Value | - |
 | Variance | - |
 | Random Sampling | Ch. 2.2 @speegle2021probability |
