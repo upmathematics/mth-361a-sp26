@@ -565,3 +565,82 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 
 ::: {#refs}
 :::
+
+# Project 
+
+## Data Sets
+
+> Each group must select one dataset (or multiple related datasets) from the list below for their project. If you would like to include additional datasets that are not on the list but would be helpful for your project, please contact the instructor for further discussion. Keep in mind that each group should choose a unique dataset.
+
+The following datasets have been specifically selected for you to choose from, as they meet the requirements of the project assignment.
+
+### Probability, Statistics, and Data: A Fresh Approach Using R
+
+The data sets in this list are used in the textbook, *Probability, Statistics, and Data: A Fresh Approach Using R* @speegle2021probability.
+
+To access the data sets, make sure you install the `fosdata` R package.
+
+```{r echo=TRUE, eval=FALSE}
+# install.packages("remotes")  # if needed
+remotes::install_github("speegled/fosdata")
+```
+
+Then, make sure to load the `fosdata` package to call and use the data sets.
+
+```{r echo=TRUE, eval=FALSE}
+# load the `fosdata` package
+library(fosdata)
+```
+
+**Here are the list of data sets --with their data frame variables-- you can choose from the `fosdata` package:**
+
+* Visual and accelerometer data on workouts | `accelerometer`
+* The Bechdel test | `bechdel`
+* Social Media Engagement of Particle Physicists | `cern`
+* Gray haired chimpanzees | `chimps`
+* Conversational Dominance and Psychopathy | `conversation`
+* New York Times COVID 19 | `covid`
+* Gender and race data from Google Android Panel survey | `gender`
+* Housing in King County | `houses`
+* US Presidential Election Data 2000-2016 | `pres_election`
+* Electric vehicle charging sessions | `ecars`
+
+### Openintro: Statistics
+
+The data sets in this list are used in the textbook, *Openintro: Statistics* @diez2012openintro.
+
+To access the data sets, make sure you install the `openintro` R package.
+
+```{r echo=TRUE, eval=FALSE}
+install.packages("openintro")
+```
+
+Then, make sure to load the `fosdata` package to call and use the data sets.
+
+```{r echo=TRUE, eval=FALSE}
+# load the `openintro` package
+library(openintro)
+```
+
+**Here are the list of data sets --with their data frame variables-- you can choose from the `openintro` package:**
+
+* Housing prices in Ames, Iowa | `ames`
+* US Military Demographics | `military`
+* Flights Data | `nycflights`
+* Sale prices of houses in Duke Forest, Durham, NC | `duke_forest`
+* Aircraft-Wildlife Collisions | `birds`
+
+<br>
+
+**Note: If you choose a dataset that was used in a previous iteration of this course, your statistical analysis must be sufficiently different to meet the project requirements. Please discuss with me what would count as "sufficiently different." The report and presentation from the group that previously used the same dataset will be provided.**
+
+## Spring 2025 Groups and Chosen Data Sets
+
+| **Name**^[Group names are inspired by *Avatar: The Last Airbender* and *Legend of Korra* seasons.] | **Water** | **Earth** | **Fire** | **Air** | **Spirits** | **Change** |
+|:---|:---|:---|:---|:---|:---|:---|
+| **Members** | GraceD<br>IhlaraW | RuthS<br>EduardoG | KalynaB<br>JacqulynneS | MaiaS<br>SydneyL | CalvinP<br>GabeM | HassanE<br>JohnA |
+| **Data Set** | `conversation` | `military` | `bechdel` | `gender` | `chimps` | `pres_election` |
+
+## Spring 2026 Groups and Chosen Data Sets
+
+[TBD]
