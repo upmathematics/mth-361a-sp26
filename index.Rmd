@@ -162,18 +162,18 @@ The following learning objectives are designed to build on one another, with som
 |  | Th 1/22 | $\rightarrow$ Basics of Visualizations<br>$\rightarrow$ Exploring Numerical Data<br>$\rightarrow$ Exploring Categorical Data |
 | **3** | Tu 1/27 | $\rightarrow$ Study Design and Inference |
 |  | Th 1/29 | $\rightarrow$ Random Variables and Probability |
-| **4** | Tu 2/3 | $\rightarrow$ Expected Value<br>$\rightarrow$ Variance |
-|  | Th 2/5 | $\rightarrow$ Random Sampling<br>$\rightarrow$ Law of Large Numbers |
-| **5** | Tu 2/10 | $\rightarrow$ Discrete Random Variables<br>$\rightarrow$ Probability Mass Functions |
+| **4** | Tu 2/3 | $\rightarrow$ Expected Value and Variance<br>$\rightarrow$ Random Sampling and Law of Large Numbers |
+|  | Th 2/5 | $\rightarrow$ Discrete Random Variables and Probability Mass Functions |
+| **5** | Tu 2/10 | $\rightarrow$ Geometric and Binomial Distributions |
 |  | Th 2/12 | **Project Phase 0 & 1** |
-| **6** | Tu 2/17 | $\rightarrow$ Binomial Distribution<br>$\rightarrow$ Geometric Distribution |
-|  | Th 2/19 | $\rightarrow$Continuous Random Variables<br>$\rightarrow$ Probability Density Functions |
-| **7** | Tu 2/24 | $\rightarrow$ Normal Distribution<br>$\rightarrow$ Exponential Distribution |
-|  | Th 2/26 | $\rightarrow$Conditional Probability<br>$\rightarrow$ Bayes' Theorem |
+| **6** | Tu 2/17 | $\rightarrow$Continuous Random Variables and Probability Density Functions |
+|  | Th 2/19 | $\rightarrow$ Normal and Exponential Distributions |
+| **7** | Tu 2/24 | $\rightarrow$Conditional Probability and Bayes' Theorem |
+|  | Th 2/26 | $\rightarrow$ Central Limit Theorem<br>$\rightarrow$ Bootstrapping and Randomization |
 | **8** | Tu 3/3 | _Spring Vacation_ |
 |  | Th 3/5 | _Spring Vacation_ |
-| **9** | Tu 3/10 | $\rightarrow$ Central Limit Theorem<br>$\rightarrow$ Bootstrapping and Randomization |
-|  | Th 3/12 | $\rightarrow$ Parameter Estimation<br>$\rightarrow$ Hypothesis Testing |
+| **9** | Tu 3/10 | $\rightarrow$ Parameter Estimation |
+|  | Th 3/12 | $\rightarrow$ Hypothesis Testing |
 | **10** | Tu 3/17 | $\rightarrow$ Decision Errors |
 |  | Th 3/19 | **Project Phase 2** |
 | **11** | Tu 3/24 | $\rightarrow$ Inference for One Proportion<br>$\rightarrow$ Inference for Two Proportions |
@@ -525,20 +525,13 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Exploring Categorical Data](lesson/2.5-mth361-exploring-categorical-data/2.5-mth361-exploring-categorical-data.html){target="_blank"} | Ch. 7.4 & Ch. 10.1 @speegle2021probability |
 | [Study Design and Inference](lesson/3.1-mth361-study-design-and-inference/3.1-mth361-study-design-and-inference.html){target="_blank"} | - |
 | [Random Variables and Probability](lesson/3.2-mth361-random-variables-and-probability/3.2-mth361-random-variables-and-probability.html){target="_blank"} | Ch. 2.1 @speegle2021probability |
-| Expected Value | - |
-| Variance | - |
-| Random Sampling | Ch. 2.2 @speegle2021probability |
-| Law of Large Numbers | - |
-| Discrete Random Variables | Ch. 3.1-3.2 @speegle2021probability |
-| Probability Mass Functions | Ch. 3.5 @speegle2021probability |
-| Binomial Distribution | Ch. 3.3 @speegle2021probability |
-| Geometric Distribution | Ch. 3.4 @speegle2021probability |
-| Continuous Random Variables | Ch. 4.1 @speegle2021probability |
-| Probability Density Functions | Ch. 4.2-4.3 @speegle2021probability |
-| Normal Distribution | Ch. 4.4 @speegle2021probability |
-| Exponential Distribution | Ch. 4.5 @speegle2021probability |
-| Conditional Probability | Ch. 2.3 @speegle2021probability |
-| Bayes' Theorem | Ch. 2.4 @speegle2021probability |
+| Expected Value and Variance | - |
+| Random Sampling and Law of Large Numbers | Ch. 2.2 @speegle2021probability |
+| Discrete Random Variables and Probability Mass Functions | Ch. 3.1-3.2 \& Ch. 3.5 @speegle2021probability |
+| Geometric and Binomial Distribution | Ch. 3.3-3.4 @speegle2021probability |
+| Continuous Random Variables and Probability Density Functions | Ch. 4.1-4.3 @speegle2021probability |
+| Normal and Exponential Distributions | Ch. 4.4-4.5 @speegle2021probability |
+| Conditional Probability and Bayes' Theorem | Ch. 2.3-2.4 @speegle2021probability |
 | Central Limit Theorem | Ch. 5.1-5.4 @speegle2021probability |
 | Bootstrapping and Randomization | - |
 | Parameter Estimation | - |
