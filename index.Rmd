@@ -643,4 +643,7 @@ library(openintro)
 
 ## Spring 2026 Groups and Chosen Data Sets
 
-[TBD]
+| **Name**^[Group names are inspired by *Starwars* rebel alliance Starfighter Squadrons.] | **Blue** | **Green** | **Yellow** | **Purple** | **Teal** | **Red** |
+|:---|:---|:---|:---|:---|:---|:---|
+| **Members** | JulieK<br>JoP | EfeA<br>HungNV | JosephK | AlyA<br>KatR | KerolynnE<br>CassieT | JuanC<br>MorganS |
+| **Data Set** | `chimps` | `covid` | `duke_forest` | `conversation` | `birds` | `bechdel` |
