@@ -67,7 +67,7 @@ $\star$ An r.v. with binary outcome is called the **Bernoulli R.V.** with a prob
 
 A **Bernoulli r.v.** represents a single experiment with two possible outcomes: "success" ($X=1$) with probability $p$ and failure ($X=0$) with probability $1-p$. We typically define an r.v. using $\sim$ along with the name and its parameter: $$X \sim \text{Bern}(p)$$
 
-The **Bernoulli distribution** is a **probability mass function** that computes the probability of the Bernoulli r.v..
+The **Bernoulli distribution** is a **probability mass function** (PMF) that computes the probability of the Bernoulli r.v..
 
 $$
 P(X = x) = 
@@ -129,7 +129,7 @@ $$
 $$
 
 ::: {style="color: red;"}
-$\star$ The expected value of a Bernoulli random variable is simply its success probability $p$.
+$\star$ The expected value of a Bernoulli r.v. is simply its success probability $p$.
 :::
 
 ## Properties of the Expected Value
@@ -144,7 +144,7 @@ Let $X$ be a discrete or continuous r.v.. The following properties are true and 
 | _Expectation_ | $\displaystyle \text{E}(\text{E}(X)) = \text{E}(X)$
 
 ::: {style="color: red;"}
-$\star$ The expected value of a r.v. is always constant but the interpretation depends on context --*we will discuss more on this later*.
+$\star$ The expected value of an r.v. is always constant but the interpretation depends on context.
 :::
 
 ## Raw Moments for the Discrete R.V.
@@ -158,7 +158,7 @@ The **$k$-th raw moment** of a discrete random variable $X$ is given by $$\text{
 
 ## The Variance for the Discrete R.V.
 
-The **variance** of a r.v. $X$ measures the spread of $X$ around its expected value.
+The **variance** of an r.v. $X$ measures the spread of $X$ around its expected value.
 
 **Discrete or Continuous R.V.**
 
