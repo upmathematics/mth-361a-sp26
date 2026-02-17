@@ -9,7 +9,6 @@ output:
     css: ../_style.css
 bibliography: ../../references.bib
 csl: ../../apa.csl
-nocite: '@*'
 ---
 
 ```{r setup, include=FALSE}
