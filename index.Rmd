@@ -526,7 +526,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Study Design and Inference](lesson/3.1-mth361-study-design-and-inference/3.1-mth361-study-design-and-inference.html){target="_blank"} | - |
 | [Random Variables and Probability](lesson/3.2-mth361-random-variables-and-probability/3.2-mth361-random-variables-and-probability.html){target="_blank"} | Ch. 2.1 @speegle2021probability |
 | [Expected Value and Variance](lesson/4.1-mth361-expected-value-and-variance/4.1-mth361-expected-value-and-variance.html){target="_blank"} | - |
-| Random Sampling and Law of Large Numbers | Ch. 2.2 @speegle2021probability |
+| [Random Sampling and Law of Large Numbers](lesson/4.2-mth361-random-sampling-and-law-of-large-numbers/4.2-mth361-random-sampling-and-law-of-large-numbers.html){target="_blank"} | Ch. 2.2 @speegle2021probability |
 | Discrete Random Variables and Probability Mass Functions | Ch. 3.1-3.2 \& Ch. 3.5 @speegle2021probability |
 | Geometric and Binomial Distribution | Ch. 3.3-3.4 @speegle2021probability |
 | Continuous Random Variables and Probability Density Functions | Ch. 4.1-4.3 @speegle2021probability |
