@@ -273,9 +273,9 @@ $$
 **Variance**
 $$
 \begin{aligned}
-\text{Var}(x) & = p(1-p) \\ 
+\text{Var}(X) & = p(1-p) \\ 
   & = 0.12(1-0.12) \\
-\text{Var}(x) & = 0.1056
+\text{Var}(X) & = 0.1056
 \end{aligned}
 $$
 ::::

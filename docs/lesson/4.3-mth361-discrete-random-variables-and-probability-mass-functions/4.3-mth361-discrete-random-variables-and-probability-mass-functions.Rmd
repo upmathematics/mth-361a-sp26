@@ -1,0 +1,256 @@
+---
+title: "Discrete Random Variabes & <br>Probability Mass Functions"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Develop an understanding of sampling with and without replacement**
+- **Introduce the binomial and geometric random variables**
+- **Know how to compute probabilities of the binomial and geometric random variables**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Sampling with Replacement
+
+The **sampling with replacement** is a sampling method where each selected item is returned to the population before the next selection.
+
+:::: {.column width=50%}
+**Key Characteristics:**
+
+* *Independent Trials:* Each draw does not affect the next.
+* *Same Probability:* Every item has the same chance of being selected each time.
+* *Allows Repetition:* The same item can be chosen multiple times.
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+* Drawing a card from a deck, recording its value, and putting it back before drawing again.
+* Rolling a die multiple times, where each roll does not influence the next.
+::::
+
+## Sampling without Replacement
+
+The **sampling without replacement** is a sampling method where each selected item is not returned to the population before the next selection.
+
+:::: {.column width=50%}
+**Key Characteristics:**
+
+* *Dependent Trials:* Each draw changes the population.
+* *Changing Probability:* The chance of selecting an item increases or decreases based on previous event.
+* *No Repetition:* Once an item is chosen, it cannot be selected again.
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+* Drawing a card from a deck without returning it, meaning the next draw is from a smaller set.
+* Drawing items from jars without return it before drawing the next item.
+::::
+
+## Independent and Identically Distributed
+
+A sequence of r.v.s $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d.)** if:
+
+* *Identically distributed:* Each $X_i$ for $i \in \left\{1,2,\cdots, n\right\}$ follows the same probability distribution.
+* *Independence:* The r.v.s do not influence each other.
+
+:::: {.column width=50%}
+**Examples:**
+
+* Tossing a fair coin multiple times
+* Rolling a fair die multiple times
+::::
+
+:::: {.column width=49%}
+**Why is i.i.d. Important?**
+
+* Forms the foundation of probability and statistics (e.g., Law of Large Numbers and Central Limit Theorem).
+::::
+
+## Multiple Bernoulli Trials
+
+A sequence of **multiple Bernoulli trials** consists i.i.d. Bernoulli r.v.s where each follows a Bernoulli distribution with "success" probability $p$.
+
+* This leads to important distributions:
+  - Geometric Distribution (number of trials until the first success)
+  - Binomial Distribution (number of "success" outcomes in a fixed number of trials)
+
+::: {style="color: red;"}
+$\star$ Trials are independent (i.e., one outcome does not affect the next).
+:::
+
+## The Geometric R.V.
+
+A **geometric r.v.** is a discrete r.v. that represents the number of Bernoulli trials until the first "success" where each trial is independent, with a fixed "success" probability $p$: $$X \sim \text{Geom}(p)$$
+
+:::: {.column width=50%}
+**Sample Space:**
+
+\[
+\begin{aligned}
+1 & \longrightarrow 0 \text{ fail until success} \\
+0,1 & \longrightarrow 1 \text{ fail until success} \\
+0,0,1 & \longrightarrow 2 \text{ fail until success} \\
+ & \vdots \\
+0,0,0,\cdots,1 & \longrightarrow k \text{ fail until success} \\
+\end{aligned}
+\]
+::::
+
+:::: {.column width=49%}
+**Probabilities:**
+
+\[
+\begin{aligned}
+1 & \longrightarrow (1-p)^0 p \\
+0,1 & \longrightarrow (1-p)^1 p \\
+0,0,1 & \longrightarrow (1-p)^2 p \\
+ & \vdots \\
+0,0,0,\cdots,1 & \longrightarrow (1-p)^k p \\
+\end{aligned}
+\]
+::::
+
+::: {style="color: red;"}
+$\star$ The geometric random variable counts the number of "failures" before a "success" and can also be viewed as counting the number of trials including the first "success."
+:::
+
+## The Geometric R.V.: PMF
+
+The geometric r.v. $X \sim \text{Geom}(p)$ has infinite possible outcomes (or infinite sized sample space) where $p$ is the "success" probability.
+
+The PMF of the geometric r.v. can be written in two ways: 
+
+* *k "failures" until "success":* $$P(X=k) = (1-p)^k p, \ k = 0,1,2, \cdots$$
+* *k trials including 1st "success":* $$P(X=k) = (1-p)^{k-1} p, \ k = 1,2, \cdots$$
+
+::: {style="color: red;"}
+$\star$ The geometric random variable models a situation where samples are taken with replacement, and the number of failures until the first success is counted.
+:::
+
+## The Geometric R.V.: Examples
+
+* *What is the probability of "success" on the 6th trial with $p=0.50$? $$P(X=5) = (1-0.50)^5 (0.50) \approx 0.016$$ because there are 5 "failures" before the 6th trial.*
+
+* *What is the probability that the first "success" occurs before the 6th trial, given $p=0.50$?*
+$$
+\begin{aligned}
+P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\ 
+           & = \sum_{i=0}^5 (1-0.50)^{i} (0.50) \\ 
+P(X \le 5) & \approx 0.984 \\
+\end{aligned}
+$$
+because we need to count five or fewer "failures" before a "success" occurs.
+
+## The Binomial R.V.
+
+A **binomial r.v.** is a discrete r.v. representing the number of "success" in $n$ independent Bernoulli trials, each with "success" probability $p$: $$X \sim \text{Binom}(n,p)$$
+
+:::: {.column width=50%}
+**Sample Space:**
+
+Suppose $n = 3$.
+
+\[
+\begin{aligned}
+0,0,0 & \longrightarrow 3 \text{ fail and } 0 \text{ success} \\
+0,0,1 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+0,1,0 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+0,1,1 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,0,0 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+1,0,1 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,1,0 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,1,1 & \longrightarrow 0 \text{ fail and } 3 \text{ success} \\
+\end{aligned}
+\]
+::::
+
+:::: {.column width=49%}
+**Probabilities:**
+
+Suppose $n = 3$.
+\[
+\begin{aligned}
+0,0,0 & \longrightarrow (1-p)^3 p^0 \\
+0,0,1 & \longrightarrow (1-p)^2 p^1 \\
+0,1,0 & \longrightarrow (1-p)^2 p^1 \\
+1,0,0 & \longrightarrow (1-p)^2 p^1 \\
+0,1,1 & \longrightarrow (1-p)^1 p^2 \\
+1,0,1 & \longrightarrow (1-p)^1 p^2 \\
+1,1,0 & \longrightarrow (1-p)^1 p^2 \\
+1,1,1 & \longrightarrow (1-p)^0 p^3
+\end{aligned}
+\]
+::::
+
+::: {style="color: red;"}
+$\star$ The binomial random variable counts the number of "successes" in $n$ independent Bernoulli trials, where each trial has a "success" probability $p$.
+:::
+
+## Counting the Number of Combinations
+
+:::: {.column width=49%}
+**Permutations**
+
+An arrangement of objects in a specific order. For $n$ objects, we pick $k$ objects to permute with **number of permutations** given by $$_n P_k = \frac{n!}{(n-k)!}.$$
+::::
+
+:::: {.column width=50%}
+**Combinations**
+
+A selection of objects where order does not matter. For $n$ objects, we pick $k$ objects to combine with **number of combinations** given by $$_n C_k = \binom{n}{k} = \frac{n!}{k!(n-k)!}.$$
+::::
+
+## The Binomial Coefficient
+
+The **binomial coefficient**, denoted as $\binom{n}{k}$ represents the number of ways to choose $k$ objects from a set of $n$ objects without regard to order. It is given by the formula: $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+Expanding binomial expressions using the **Binomial Theorem**: $$(x+y)^n = \sum_{k=0}^n \binom{n}{k} y^k x^{n-k}$$
+
+If we let $x=1-p$ and $y=p$ (Bernoulli PMF), then $$(1-p+p)^n = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} = 1.$$
+
+::: {style="color: red;"}
+$\star$ Since $p$ is the "success" probability and the Binomial Theorem reduces to $1$, then this satisfies the probability axioms.
+:::
+
+## The Binomial R.V.: PMF
+
+The binomial r.v. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n$$ where $p$ is the "success" probability. The term $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient.
+
+::: {style="color: red;"}
+$\star$ The binomial random variable models a situation where samples are taken with replacement, and the number of successes is counted within a finite number of trials.
+:::
+
+## The Binomial R.V.: Examples
+
+* *What is the probability of getting 4 "success" in 10 trials with $p=0.50$?* $$P(X=4) =\binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \approx 0.205$$
+
+* *What is the probability of getting at most 4 "success" in 10 trials with $p=0.50$?*
+$$
+\begin{aligned}
+P(X \le 4) & = \sum_{i=0}^4 P(X = i) \\ 
+           & = \sum_{i=0}^4 \binom{10}{i} (0.50)^i (1-0.50)^{10-i} \\
+P(X \le 4) & \approx 0.377 \\
+\end{aligned}
+$$
+because we need to count four or fewer "success" in 10 trials.
