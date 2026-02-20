@@ -4,7 +4,7 @@ subtitle: "Applied Statistics"
 author: "MTH-361A | Spring 2026 | University of Portland"
 output:
   slidy_presentation:
-    font_adjustment: +5
+    font_adjustment: +2
     footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
     css: ../_style.css
 ---

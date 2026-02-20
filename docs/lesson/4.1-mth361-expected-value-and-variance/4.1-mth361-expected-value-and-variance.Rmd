@@ -7,8 +7,6 @@ output:
     font_adjustment: +2
     footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
     css: ../_style.css
-bibliography: ../../references.bib
-csl: ../../apa.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -205,7 +203,7 @@ $$
 $\star$ The variance of a Bernoulli random variable is simply the product of the "success" and "failure" probabilities.
 :::
 
-## Why The Bernoulli R.V. Matters
+## Why the Bernoulli R.V. Matters?
 
 The Bernoulli R.V. models key scenarios used in:
 

@@ -7,8 +7,6 @@ output:
     font_adjustment: +2
     footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
     css: ../_style.css
-bibliography: ../../references.bib
-csl: ../../apa.csl
 ---
 
 ```{r setup, include=FALSE}

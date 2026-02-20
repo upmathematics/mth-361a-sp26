@@ -578,13 +578,15 @@ and the number of failures until the first success is counted.</p>
 <h1>The Geometric R.V.: Examples</h1>
 <ul>
 <li><p><em>What is the probability of “success” on the 6th trial with
-<span class="math inline">\(p=0.50\)</span>? <span class="math display">\[P(X=5) = (1-0.50)^5 (0.50) \approx 0.016\]</span>
-because there are 5 “failures” before the 6th trial.</em></p></li>
+<span class="math inline">\(p=\frac{1}{2}\)</span>? <span class="math display">\[P(X=5) = \left(1-\frac{1}{2}\right)^5
+\left(\frac{1}{2}\right) \approx 0.016\]</span> because there are 5
+“failures” before the 6th trial.</em></p></li>
 <li><p><em>What is the probability that the first “success” occurs
-before the 6th trial, given <span class="math inline">\(p=0.50\)</span>?</em> <span class="math display">\[
+before the 6th trial, given <span class="math inline">\(p=\frac{1}{2}\)</span>?</em> <span class="math display">\[
 \begin{aligned}
 P(X \le 5) &amp; = \sum_{i=0}^5 P(X = i) \\
-         &amp; = \sum_{i=0}^5 (1-0.50)^{i} (0.50) \\
+         &amp; = \sum_{i=0}^5 \left(1-\frac{1}{2}\right)^{i}
+\left(\frac{1}{2}\right) \\
 P(X \le 5) &amp; \approx 0.984 \\
 \end{aligned}
 \]</span> because we need to count five or fewer “failures” before a
@@ -592,7 +594,7 @@ P(X \le 5) &amp; \approx 0.984 \\
 </ul>
 </div>
 <div id="why-the-geometric-r.v.-matters" class="slide section level2">
-<h1>Why The Geometric R.V. Matters</h1>
+<h1>Why the Geometric R.V. Matters?</h1>
 <p>The Geometric R.V. models key scenarios used in:</p>
 <div class="column" style="width:15%;">
 
@@ -720,7 +722,7 @@ this satisfies the probability axioms.</p>
 <p>The binomial r.v. <span class="math inline">\(X \sim
 \text{Binom}(n,p)\)</span> has finite possible outcomes with PMF given
 by <span class="math display">\[P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \
-k = 0,1,2,3, \cdots, n\]</span> where <span class="math inline">\(p\)</span> is the “success” probability. The term
+k = 0,1,2, \cdots, n\]</span> where <span class="math inline">\(p\)</span> is the “success” probability. The term
 <span class="math inline">\(\binom{n}{k} = \frac{n!}{k! (n-k)!}\)</span>
 is the binomial coefficient.</p>
 <div style="color: red;">
@@ -734,13 +736,15 @@ trials.</p>
 <h1>The Binomial R.V.: Examples</h1>
 <ul>
 <li><p><em>What is the probability of getting 4 “success” in 10 trials
-with <span class="math inline">\(p=0.50\)</span>?</em> <span class="math display">\[P(X=4) =\binom{10}{4} (0.50)^4 (1-0.50)^{n-k}
-\approx 0.205\]</span></p></li>
+with <span class="math inline">\(p=\frac{1}{2}\)</span>?</em> <span class="math display">\[P(X=4) =\binom{10}{4} \left(\frac{1}{2}\right)^4
+\left(1-\frac{1}{2}\right)^{n-k} \approx 0.205\]</span></p></li>
 <li><p><em>What is the probability of getting at most 4 “success” in 10
-trials with <span class="math inline">\(p=0.50\)</span>?</em> <span class="math display">\[
+trials with <span class="math inline">\(p=\frac{1}{2}\)</span>?</em>
+<span class="math display">\[
 \begin{aligned}
 P(X \le 4) &amp; = \sum_{i=0}^4 P(X = i) \\
-         &amp; = \sum_{i=0}^4 \binom{10}{i} (0.50)^i (1-0.50)^{10-i} \\
+         &amp; = \sum_{i=0}^4 \binom{10}{i} \left(\frac{1}{2}\right)^i
+\left(1-\frac{1}{2}\right)^{10-i} \\
 P(X \le 4) &amp; \approx 0.377 \\
 \end{aligned}
 \]</span> because we need to count four or fewer “success” in 10
@@ -748,7 +752,7 @@ trials.</p></li>
 </ul>
 </div>
 <div id="why-the-binomial-r.v.-matters" class="slide section level2">
-<h1>Why The Binomial R.V. Matters</h1>
+<h1>Why the Binomial R.V. Matters?</h1>
 <p>The Binomial R.V. models key scenarios used in:</p>
 <div class="column" style="width:15%;">
 

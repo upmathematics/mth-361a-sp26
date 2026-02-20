@@ -7,8 +7,6 @@ output:
     font_adjustment: +2
     footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
     css: ../_style.css
-bibliography: ../../references.bib
-csl: ../../apa.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -257,7 +255,7 @@ In general,
 \]
 
 ::: {style="color: red;"}
-$\star$ The Geometric r.v. is at its most uncertain if $p \to 0$, meaning that if the probability of success is very low, then expected number of "failures" increases.
+$\star$ The Geometric r.v. is at its most uncertain if $p \to 0$, meaning that if the probability of "success" is very low, then expected number of "failures" increases.
 :::
 
 ## Simulating the Geometric Distribution
@@ -349,7 +347,7 @@ $\star$ In comparison with the Geometric PMF, the Binomial PMF has a finitely si
 Let $p=\frac{1}{2}$ be the "success" probability and $n=10$ the number of trials.
 
 * $\displaystyle X \sim \text{Binom}(p)$
-* $\displaystyle P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \quad \text{for } k = 0,1,2,3, \cdots, n$
+* $\displaystyle P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \quad \text{for } k = 0,1,2, \cdots, n$
 
 **Relevant R Functions:**
 
@@ -398,7 +396,7 @@ p1
 *What is the probability of getting 4 "success" in 10 trials with $p=\frac{1}{2}$?*
 $$
 \begin{aligned}
-P(X=4) & = \binom{10}{4} (0.50)^4 (1-0.50)^{10-4} \\ 
+P(X=4) & = \binom{10}{4} \left(\frac{1}{2}\right)^4 \left(1-\frac{1}{2}\right)^{10-4} \\ 
        & = 210 \left(\frac{1}{2}\right)^4 \left(1-\frac{1}{2}\right)^{6} \\
 P(X=4) & \approx 0.205
 \end{aligned}
@@ -509,7 +507,7 @@ $\star$ The law of large numbers still can be used to interpret the expected val
 Let $p=\frac{1}{2}$ be the success probability and $n=10$ the number of trials.
 
 * $\displaystyle X \sim \text{Binom}\left(\frac{1}{2}\right)$
-* $\displaystyle P(X=k) = \binom{10}{k} \left(\frac{1}{2}\right)^k \left(1-\frac{1}{2}\right)^{10-k} \quad \text{for } k = 0,1,2,3, \cdots, 10$
+* $\displaystyle P(X=k) = \binom{10}{k} \left(\frac{1}{2}\right)^k \left(1-\frac{1}{2}\right)^{10-k} \quad \text{for } k = 0,1,2, \cdots, 10$
 * $\displaystyle \text{E}(X) = 5$
 
 In general,
@@ -601,7 +599,7 @@ mean(samples) # compute sample mean
 | *Description* | "success" or "failure" outcome in 1 independent trial | Number of "failure" independent trials before a "success" | Number of "success" in $n$ independent trials |
 | *Sampling* | - | With replacement | With replacement |
 | *Parameters* | $p \longrightarrow$ probability of "success" | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
-| *PMF*<br>$P(X=k)$ | $p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $(1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2,3, \cdots, n$ |
+| *PMF*<br>$P(X=k)$ | $p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $(1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2, \cdots, n$ |
 | *Expected Value*<br>$\text{E}(X)$ | $p$ | $\frac{1-p}{p}$ | $np$ |
 | *Variance*<br>$\text{Var}(X)$ | $p(1-p)$ | $\frac{1-p}{p^2}$ | $np(1-p)$ |
 | $P(X = k)$ | `dbinom(1,p)` | `dgeom(p)` | `dbinom(n,p)` |
@@ -612,3 +610,8 @@ mean(samples) # compute sample mean
 ::: {style="color: red;"}
 $\star$ The basis for both Geometric and Binomial r.v. is the independent Bernoulli trials but with different counting methodology of "successes".
 :::
+
+## Why the Geometric and Binomial Distributions are Usefull?
+
+
+

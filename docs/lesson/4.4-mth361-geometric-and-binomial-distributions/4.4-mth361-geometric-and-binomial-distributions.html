@@ -695,7 +695,7 @@ k = 0,1,2, \cdots\)</span></li>
 <div style="color: red;">
 <p><span class="math inline">\(\star\)</span> The Geometric r.v. is at
 its most uncertain if <span class="math inline">\(p \to 0\)</span>,
-meaning that if the probability of success is very low, then expected
+meaning that if the probability of “success” is very low, then expected
 number of “failures” increases.</p>
 </div>
 </div>
@@ -741,7 +741,7 @@ number of trials.</p>
 <li><span class="math inline">\(\displaystyle X \sim
 \text{Binom}(p)\)</span></li>
 <li><span class="math inline">\(\displaystyle P(X=k) = \binom{n}{k} p^k
-(1-p)^{n-k} \quad \text{for } k = 0,1,2,3, \cdots, n\)</span></li>
+(1-p)^{n-k} \quad \text{for } k = 0,1,2, \cdots, n\)</span></li>
 </ul>
 <p><strong>Relevant R Functions:</strong></p>
 <ul>
@@ -772,7 +772,8 @@ Bernoulli PMF.</p>
 <p><em>What is the probability of getting 4 “success” in 10 trials with
 <span class="math inline">\(p=\frac{1}{2}\)</span>?</em> <span class="math display">\[
 \begin{aligned}
-P(X=4) &amp; = \binom{10}{4} (0.50)^4 (1-0.50)^{10-4} \\
+P(X=4) &amp; = \binom{10}{4} \left(\frac{1}{2}\right)^4
+\left(1-\frac{1}{2}\right)^{10-4} \\
        &amp; = 210 \left(\frac{1}{2}\right)^4
 \left(1-\frac{1}{2}\right)^{6} \\
 P(X=4) &amp; \approx 0.205
@@ -841,7 +842,7 @@ trials.</p>
 \text{Binom}\left(\frac{1}{2}\right)\)</span></li>
 <li><span class="math inline">\(\displaystyle P(X=k) = \binom{10}{k}
 \left(\frac{1}{2}\right)^k \left(1-\frac{1}{2}\right)^{10-k} \quad
-\text{for } k = 0,1,2,3, \cdots, 10\)</span></li>
+\text{for } k = 0,1,2, \cdots, 10\)</span></li>
 <li><span class="math inline">\(\displaystyle \text{E}(X) =
 5\)</span></li>
 </ul>
@@ -954,7 +955,7 @@ p\)</span><br><span class="math inline">\(\text{for }
 k=0,1,2,\cdots\)</span></td>
 <td align="center"><span class="math inline">\(\binom{n}{k} p^k
 (1-p)^{n-k}\)</span><br><span class="math inline">\(\text{for } k =
-0,1,2,3, \cdots, n\)</span></td>
+0,1,2, \cdots, n\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left"><em>Expected Value</em><br><span class="math inline">\(\text{E}(X)\)</span></td>
@@ -1000,6 +1001,9 @@ k=0,1,2,\cdots\)</span></td>
 Geometric and Binomial r.v. is the independent Bernoulli trials but with
 different counting methodology of “successes”.</p>
 </div>
+</div>
+<div id="why-the-geometric-and-binomial-distributions-are-usefull" class="slide section level2">
+<h1>Why the Geometric and Binomial Distributions are Usefull?</h1>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
