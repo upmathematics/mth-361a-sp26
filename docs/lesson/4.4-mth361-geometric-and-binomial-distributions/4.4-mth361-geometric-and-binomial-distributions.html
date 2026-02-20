@@ -902,75 +902,96 @@ to the expectation due to the law of large numbers.</p>
 <pre><code>## [1] 5.07</code></pre>
 </div>
 </div>
-<div id="geometric-vs-binomial-distribution-summary" class="slide section level2">
-<h1>Geometric vs Binomial Distribution Summary</h1>
-<table>
+<div id="bernoulli-geometric-and-binomial-distribution-summary" class="slide section level2">
+<h1>Bernoulli, Geometric, and Binomial Distribution Summary</h1>
+<table style="width:100%;">
 <colgroup>
-<col width="21%" />
-<col width="42%" />
-<col width="36%" />
+<col width="14%" />
+<col width="28%" />
+<col width="28%" />
+<col width="28%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left"><span class="math inline">\(X\)</span></th>
+<th align="center"><strong>Bernoulli</strong></th>
 <th align="center"><strong>Geometric</strong></th>
-<th align="left"><strong>Binomial</strong></th>
+<th align="center"><strong>Binomial</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left"><em>Description</em></td>
-<td align="center">Number of “fail” independent trials before a
+<td align="center">“success” or “failure” outcome in 1 independent
+trial</td>
+<td align="center">Number of “failure” independent trials before a
 “success”</td>
-<td align="left">Number of “success” in <span class="math inline">\(n\)</span> independent trials</td>
+<td align="center">Number of “success” in <span class="math inline">\(n\)</span> independent trials</td>
 </tr>
 <tr class="even">
 <td align="left"><em>Sampling</em></td>
+<td align="center">-</td>
 <td align="center">With replacement</td>
-<td align="left">With replacement</td>
+<td align="center">With replacement</td>
 </tr>
 <tr class="odd">
 <td align="left"><em>Parameters</em></td>
 <td align="center"><span class="math inline">\(p
 \longrightarrow\)</span> probability of “success”</td>
-<td align="left"><span class="math inline">\(n \longrightarrow\)</span>
-number of trials<br><span class="math inline">\(p
+<td align="center"><span class="math inline">\(p
 \longrightarrow\)</span> probability of “success”</td>
+<td align="center"><span class="math inline">\(n
+\longrightarrow\)</span> number of trials<br><span class="math inline">\(p \longrightarrow\)</span> probability of
+“success”</td>
 </tr>
 <tr class="even">
-<td align="left"><em>PMF</em></td>
-<td align="center"><span class="math inline">\(P(X=k) = (1-p)^k
-p\)</span> <br><span class="math inline">\(\text{for }
+<td align="left"><em>PMF</em><br><span class="math inline">\(P(X=k)\)</span></td>
+<td align="center"><span class="math inline">\(p^k
+(1-p)^{1-k}\)</span><br><span class="math inline">\(\text{for } k =
+0,1\)</span></td>
+<td align="center"><span class="math inline">\((1-p)^k
+p\)</span><br><span class="math inline">\(\text{for }
 k=0,1,2,\cdots\)</span></td>
-<td align="left"><span class="math inline">\(P(X=k) = \binom{n}{k} p^k
-(1-p)^{n-k}\)</span> <br><span class="math inline">\(\text{for } k =
+<td align="center"><span class="math inline">\(\binom{n}{k} p^k
+(1-p)^{n-k}\)</span><br><span class="math inline">\(\text{for } k =
 0,1,2,3, \cdots, n\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(\text{E}(X)\)</span></td>
+<td align="left"><em>Expected Value</em><br><span class="math inline">\(\text{E}(X)\)</span></td>
+<td align="center"><span class="math inline">\(p\)</span></td>
 <td align="center"><span class="math inline">\(\frac{1-p}{p}\)</span></td>
-<td align="left"><span class="math inline">\(np\)</span></td>
+<td align="center"><span class="math inline">\(np\)</span></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(\text{Var}(X)\)</span></td>
+<td align="left"><em>Variance</em><br><span class="math inline">\(\text{Var}(X)\)</span></td>
+<td align="center"><span class="math inline">\(p(1-p)\)</span></td>
 <td align="center"><span class="math inline">\(\frac{1-p}{p^2}\)</span></td>
-<td align="left"><span class="math inline">\(np(1-p)\)</span></td>
+<td align="center"><span class="math inline">\(np(1-p)\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left"><span class="math inline">\(P(X = k)\)</span></td>
+<td align="center"><code>dbinom(1,p)</code></td>
 <td align="center"><code>dgeom(p)</code></td>
-<td align="left"><code>dbinom(n,p)</code></td>
+<td align="center"><code>dbinom(n,p)</code></td>
 </tr>
 <tr class="even">
 <td align="left"><span class="math inline">\(P(X \le k)\)</span></td>
+<td align="center"><code>pbinom(1,p)</code></td>
 <td align="center"><code>pgeom(p)</code></td>
-<td align="left"><code>pbinom(n,p)</code></td>
+<td align="center"><code>pbinom(n,p)</code></td>
 </tr>
 <tr class="odd">
+<td align="left"><span class="math inline">\(k\)</span></td>
+<td align="center"><code>qbinom(P,1,p)</code></td>
+<td align="center"><code>qgeom(P,p)</code></td>
+<td align="center"><code>qbinom(P,n,p)</code></td>
+</tr>
+<tr class="even">
 <td align="left"><span class="math inline">\(N\)</span>
 <em>Simulations</em></td>
+<td align="center"><code>rbinom(N,1,p)</code></td>
 <td align="center"><code>rgeom(N,p)</code></td>
-<td align="left"><code>rbinom(N,n,p)</code></td>
+<td align="center"><code>rbinom(N,n,p)</code></td>
 </tr>
 </tbody>
 </table>

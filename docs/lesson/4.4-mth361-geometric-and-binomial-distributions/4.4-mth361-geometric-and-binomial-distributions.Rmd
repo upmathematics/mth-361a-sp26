@@ -594,19 +594,20 @@ mean(samples) # compute sample mean
 ```
 ::::
 
-## Geometric vs Binomial Distribution Summary
+## Bernoulli, Geometric, and Binomial Distribution Summary
 
-| $X$ | **Geometric** | **Binomial** |
-|:---|:------:|:------|
-| *Description* | Number of "fail" independent trials before a "success" | Number of "success" in $n$ independent trials |
-| *Sampling* | With replacement | With replacement |
-| *Parameters* | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
-| *PMF* | $P(X=k) = (1-p)^k p$ <br>$\text{for } k=0,1,2,\cdots$ | $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$ <br>$\text{for } k = 0,1,2,3, \cdots, n$ |
-| $\text{E}(X)$ | $\frac{1-p}{p}$ | $np$ |
-| $\text{Var}(X)$ | $\frac{1-p}{p^2}$ | $np(1-p)$ |
-| $P(X = k)$ | `dgeom(p)` | `dbinom(n,p)` |
-| $P(X \le k)$ | `pgeom(p)` | `pbinom(n,p)` |
-| $N$ *Simulations* | `rgeom(N,p)` | `rbinom(N,n,p)` |
+| $X$ | **Bernoulli** | **Geometric** | **Binomial** |
+|:---|:------:|:------:|:------:|
+| *Description* | "success" or "failure" outcome in 1 independent trial | Number of "failure" independent trials before a "success" | Number of "success" in $n$ independent trials |
+| *Sampling* | - | With replacement | With replacement |
+| *Parameters* | $p \longrightarrow$ probability of "success" | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
+| *PMF*<br>$P(X=k)$ | $p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $(1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2,3, \cdots, n$ |
+| *Expected Value*<br>$\text{E}(X)$ | $p$ | $\frac{1-p}{p}$ | $np$ |
+| *Variance*<br>$\text{Var}(X)$ | $p(1-p)$ | $\frac{1-p}{p^2}$ | $np(1-p)$ |
+| $P(X = k)$ | `dbinom(1,p)` | `dgeom(p)` | `dbinom(n,p)` |
+| $P(X \le k)$ | `pbinom(1,p)` | `pgeom(p)` | `pbinom(n,p)` |
+| $k$ | `qbinom(P,1,p)` | `qgeom(P,p)` | `qbinom(P,n,p)` |
+| $N$ *Simulations* | `rbinom(N,1,p)` | `rgeom(N,p)` | `rbinom(N,n,p)` |
 
 ::: {style="color: red;"}
 $\star$ The basis for both Geometric and Binomial r.v. is the independent Bernoulli trials but with different counting methodology of "successes".

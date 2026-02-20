@@ -162,6 +162,46 @@ P(X \le 5) & \approx 0.984 \\
 $$
 because we need to count five or fewer "failures" before a "success" occurs.
 
+## Why The Geometric R.V. Matters
+
+The Geometric R.V. models key scenarios used in:
+
+:::: {.column width=15%}
+::::
+ 
+:::: {.column width=70%}
+* *Medical trials*: Estimating the number of contacts a person has with an infected individual before they themselves become infected.
+* *Quality control*: Finding the number of items inspected before encountering the first defective product.
+* *Finance*: Analyzing the number of insurance claims made before a large loss occurs.
+* *Machine learning*: Optimizing how many iterations are necessary before a model fits into a given data set.
+* $\cdots$ etcetera
+::::
+
+:::: {.column width=15%}
+::::
+
+::: {style="color: red;"}
+$\star$ It is the baseline of modeling the number of independent Bernoulli trials needed to achieve the first "success".
+:::
+
+## Disease Transmission
+
+Suppose a scientist is estimating the number of contacts a person can have before they get infected with a contagious disease. Each contact is independent and each person encountered is unique.
+
+Define the random variable:
+
+$$
+X = \text{the number of contacts before infection}
+$$
+
+Assume the probability of infection is $p = 0.01$.
+
+Then, $$X \sim \text{Geom}(0.01).$$
+
+::: {style="color: red;"}
+$\star$ This is a Geometric r.v. because it is counting the number contacts without infection ("failures") before a contact with infection ("success") under multiple independent Bernoulli trials.
+:::
+
 ## The Binomial R.V.
 
 A **binomial r.v.** is a discrete r.v. representing the number of "success" in $n$ independent Bernoulli trials, each with "success" probability $p$: $$X \sim \text{Binom}(n,p)$$
@@ -254,3 +294,43 @@ P(X \le 4) & \approx 0.377 \\
 \end{aligned}
 $$
 because we need to count four or fewer "success" in 10 trials.
+
+## Why The Binomial R.V. Matters
+
+The Binomial R.V. models key scenarios used in:
+
+:::: {.column width=15%}
+::::
+ 
+:::: {.column width=70%}
+* *Medical trials*: Testing a new vaccine on $200$ participants, where each participant either develops immunity (success) or does not (failure).
+* *Quality control*: Randomly selecting $200$ microchips from a large batch and counting the number of defective microchips.
+* *Finance*: Counting the number of "up" days of a stock over the next $200$ days.
+* *Machine learning*: Identifying $200$ independent emails whether they are spam or not.
+* $\cdots$ etcetera
+::::
+
+:::: {.column width=15%}
+::::
+
+::: {style="color: red;"}
+$\star$ It is the baseline for modeling number of "success" outcomes in a fixed number of independent trials.
+:::
+
+## Disease Prevalence
+
+Suppose a scientist is estimating the number of infected individuals within a population. They take $200$ individuals as a random sample and count how many have the infection. Each individual is independently sampled and unique.
+
+Define the random variable:
+
+$$
+X = \text{the number of infected in a sample of 200 individuals}
+$$
+
+Assume that the probability of infection is known to be $p = 0.01$.
+
+Then, $$X \sim \text{Binom}(200,0.01).$$
+
+::: {style="color: red;"}
+$\star$ This is a Binomial r.v. because it is counting the number of infected ("success") in a fixed number of independent Bernoulli trials.
+:::

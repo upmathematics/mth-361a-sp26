@@ -660,24 +660,25 @@ Bernoulli random variable is simply the product of the “success” and
 </div>
 <div id="why-the-bernoulli-r.v.-matters" class="slide section level2">
 <h1>Why The Bernoulli R.V. Matters</h1>
-<p>The Bernoulli R.B. models key scenerios used in:</p>
+<p>The Bernoulli R.V. models key scenarios used in:</p>
 <div class="column" style="width:15%;">
 
 </div>
 <div class="column" style="width:70%;">
 <ul>
-<li>A/B testing</li>
-<li>Medical trials (success/failure)</li>
-<li>Quality control (defective/not defective)</li>
-<li>Machine learning (binary classification)</li>
-<li>Finance (default/no default)</li>
+<li><em>Medical trials</em>: success or failure of clinical trials</li>
+<li><em>Quality control</em>: defective or not defective product</li>
+<li><em>Finance</em>: default or no default of a loan</li>
+<li><em>Machine learning</em>: building a binary classification
+model</li>
+<li><span class="math inline">\(\cdots\)</span> etcetera</li>
 </ul>
 </div>
 <div class="column" style="width:15%;">
 
 </div>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> It is the foundation of
+<p><span class="math inline">\(\star\)</span> It is the baseline of
 binary data modeling.</p>
 </div>
 </div>
@@ -692,8 +693,9 @@ X = \begin{cases}
 0  &amp; \text{ if the test is negative}
 \end{cases}
 \]</span></p>
-<p>Assume the probability that the test is positive is <span class="math inline">\(p = 0.12\)</span>. Then, <span class="math inline">\(\displaystyle X \sim
-\text{Bern}(0.12)\)</span>.</p>
+<p>Assume the probability that the test is positive is <span class="math inline">\(p = 0.12\)</span>.</p>
+<p>Then, <span class="math display">\[X \sim
+\text{Bern}(0.12).\]</span></p>
 <p>PMF: <span class="math display">\[
 \begin{aligned}
 P(X=1) &amp; = 0.12 \\
@@ -701,9 +703,9 @@ P(X=0) &amp; = 0.88
 \end{aligned}
 \]</span></p>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> This is a Bernoulli random
-variable because there are exactly two possible outcomes, with a set
-“positive” test probability <span class="math inline">\(p\)</span>.</p>
+<p><span class="math inline">\(\star\)</span> This is a Bernoulli r.v.
+because there are exactly two possible outcomes, with a set “positive”
+test probability <span class="math inline">\(p\)</span>.</p>
 </div>
 </div>
 <div id="expected-positive-results" class="slide section level2">
@@ -734,6 +736,9 @@ individuals tested will receive a positive result.</li>
 <li>Over many trials, the average test outcome is <span class="math inline">\(0.12\)</span>.</li>
 <li>The variance of <span class="math inline">\(0.1056\)</span>
 indicates less uncertainty.</li>
+<li>This statement refers only to the test result, not whether the
+individual actually has the disease, since the test’s accuracy is
+unknown.</li>
 </ul>
 </div>
 <div style="color: red;">

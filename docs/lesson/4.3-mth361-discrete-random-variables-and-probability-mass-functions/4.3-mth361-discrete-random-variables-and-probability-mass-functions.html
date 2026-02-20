@@ -591,6 +591,55 @@ P(X \le 5) &amp; \approx 0.984 \\
 “success” occurs.</p></li>
 </ul>
 </div>
+<div id="why-the-geometric-r.v.-matters" class="slide section level2">
+<h1>Why The Geometric R.V. Matters</h1>
+<p>The Geometric R.V. models key scenarios used in:</p>
+<div class="column" style="width:15%;">
+
+</div>
+<div class="column" style="width:70%;">
+<ul>
+<li><em>Medical trials</em>: Estimating the number of contacts a person
+has with an infected individual before they themselves become
+infected.</li>
+<li><em>Quality control</em>: Finding the number of items inspected
+before encountering the first defective product.</li>
+<li><em>Finance</em>: Analyzing the number of insurance claims made
+before a large loss occurs.</li>
+<li><em>Machine learning</em>: Optimizing how many iterations are
+necessary before a model fits into a given data set.</li>
+<li><span class="math inline">\(\cdots\)</span> etcetera</li>
+</ul>
+</div>
+<div class="column" style="width:15%;">
+
+</div>
+<div style="color: red;">
+<p><span class="math inline">\(\star\)</span> It is the baseline of
+modeling the number of independent Bernoulli trials needed to achieve
+the first “success”.</p>
+</div>
+</div>
+<div id="disease-transmission" class="slide section level2">
+<h1>Disease Transmission</h1>
+<p>Suppose a scientist is estimating the number of contacts a person can
+have before they get infected with a contagious disease. Each contact is
+independent and each person encountered is unique.</p>
+<p>Define the random variable:</p>
+<p><span class="math display">\[
+X = \text{the number of contacts before infection}
+\]</span></p>
+<p>Assume the probability of infection is <span class="math inline">\(p
+= 0.01\)</span>.</p>
+<p>Then, <span class="math display">\[X \sim
+\text{Geom}(0.01).\]</span></p>
+<div style="color: red;">
+<p><span class="math inline">\(\star\)</span> This is a Geometric r.v.
+because it is counting the number contacts without infection
+(“failures”) before a contact with infection (“success”) under multiple
+independent Bernoulli trials.</p>
+</div>
+</div>
 <div id="the-binomial-r.v." class="slide section level2">
 <h1>The Binomial R.V.</h1>
 <p>A <strong>binomial r.v.</strong> is a discrete r.v. representing the
@@ -697,6 +746,53 @@ P(X \le 4) &amp; \approx 0.377 \\
 \]</span> because we need to count four or fewer “success” in 10
 trials.</p></li>
 </ul>
+</div>
+<div id="why-the-binomial-r.v.-matters" class="slide section level2">
+<h1>Why The Binomial R.V. Matters</h1>
+<p>The Binomial R.V. models key scenarios used in:</p>
+<div class="column" style="width:15%;">
+
+</div>
+<div class="column" style="width:70%;">
+<ul>
+<li><em>Medical trials</em>: Testing a new vaccine on <span class="math inline">\(200\)</span> participants, where each participant
+either develops immunity (success) or does not (failure).</li>
+<li><em>Quality control</em>: Randomly selecting <span class="math inline">\(200\)</span> microchips from a large batch and
+counting the number of defective microchips.</li>
+<li><em>Finance</em>: Counting the number of “up” days of a stock over
+the next <span class="math inline">\(200\)</span> days.</li>
+<li><em>Machine learning</em>: Identifying <span class="math inline">\(200\)</span> independent emails whether they are
+spam or not.</li>
+<li><span class="math inline">\(\cdots\)</span> etcetera</li>
+</ul>
+</div>
+<div class="column" style="width:15%;">
+
+</div>
+<div style="color: red;">
+<p><span class="math inline">\(\star\)</span> It is the baseline for
+modeling number of “success” outcomes in a fixed number of independent
+trials.</p>
+</div>
+</div>
+<div id="disease-prevalence" class="slide section level2">
+<h1>Disease Prevalence</h1>
+<p>Suppose a scientist is estimating the number of infected individuals
+within a population. They take <span class="math inline">\(200\)</span>
+individuals as a random sample and count how many have the infection.
+Each individual is independently sampled and unique.</p>
+<p>Define the random variable:</p>
+<p><span class="math display">\[
+X = \text{the number of infected in a sample of 200 individuals}
+\]</span></p>
+<p>Assume that the probability of infection is known to be <span class="math inline">\(p = 0.01\)</span>.</p>
+<p>Then, <span class="math display">\[X \sim
+\text{Binom}(200,0.01).\]</span></p>
+<div style="color: red;">
+<p><span class="math inline">\(\star\)</span> This is a Binomial r.v.
+because it is counting the number of infected (“success”) in a fixed
+number of independent Bernoulli trials.</p>
+</div>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
