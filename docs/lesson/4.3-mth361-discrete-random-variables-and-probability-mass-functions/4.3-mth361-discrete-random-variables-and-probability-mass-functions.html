@@ -410,10 +410,10 @@ MTH-361A | Spring 2026 | University of Portland
 </div>
 <div class="column" style="width:70%;">
 <ul>
-<li><strong>Develop an understanding of sampling with and without
-replacement</strong></li>
-<li><strong>Introduce the binomial and geometric random
-variables</strong></li>
+<li><strong>Develop an understanding of the geometric random
+variable</strong></li>
+<li><strong>Develop an understanding of the binomial random
+variable</strong></li>
 <li><strong>Know how to compute probabilities of the binomial and
 geometric random variables</strong></li>
 </ul>
@@ -422,67 +422,16 @@ geometric random variables</strong></li>
 
 </div>
 </div>
-<div id="sampling-with-replacement" class="slide section level2">
-<h1>Sampling with Replacement</h1>
-<p>The <strong>sampling with replacement</strong> is a sampling method
-where each selected item is returned to the population before the next
-selection.</p>
-<div class="column" style="width:50%;">
-<p><strong>Key Characteristics:</strong></p>
-<ul>
-<li><em>Independent Trials:</em> Each draw does not affect the
-next.</li>
-<li><em>Same Probability:</em> Every item has the same chance of being
-selected each time.</li>
-<li><em>Allows Repetition:</em> The same item can be chosen multiple
-times.</li>
-</ul>
-</div>
-<div class="column" style="width:49%;">
-<p><strong>Example:</strong></p>
-<ul>
-<li>Drawing a card from a deck, recording its value, and putting it back
-before drawing again.</li>
-<li>Rolling a die multiple times, where each roll does not influence the
-next.</li>
-</ul>
-</div>
-</div>
-<div id="sampling-without-replacement" class="slide section level2">
-<h1>Sampling without Replacement</h1>
-<p>The <strong>sampling without replacement</strong> is a sampling
-method where each selected item is not returned to the population before
-the next selection.</p>
-<div class="column" style="width:50%;">
-<p><strong>Key Characteristics:</strong></p>
-<ul>
-<li><em>Dependent Trials:</em> Each draw changes the population.</li>
-<li><em>Changing Probability:</em> The chance of selecting an item
-increases or decreases based on previous event.</li>
-<li><em>No Repetition:</em> Once an item is chosen, it cannot be
-selected again.</li>
-</ul>
-</div>
-<div class="column" style="width:49%;">
-<p><strong>Example:</strong></p>
-<ul>
-<li>Drawing a card from a deck without returning it, meaning the next
-draw is from a smaller set.</li>
-<li>Drawing items from jars without return it before drawing the next
-item.</li>
-</ul>
-</div>
-</div>
 <div id="independent-and-identically-distributed" class="slide section level2">
 <h1>Independent and Identically Distributed</h1>
-<p>A sequence of r.v.s <span class="math inline">\(X_1, X_2, \cdots,
-X_n\)</span> is <strong>independent and identically distributed
-(i.i.d.)</strong> if:</p>
+<p>A sequence of random variables <span class="math inline">\(X_1, X_2,
+\cdots, X_n\)</span> is <strong>independent and identically distributed
+(i.i.d)</strong> if:</p>
 <ul>
-<li><em>Identically distributed:</em> Each <span class="math inline">\(X_i\)</span> for <span class="math inline">\(i \in
-\left\{1,2,\cdots, n\right\}\)</span> follows the same probability
-distribution.</li>
-<li><em>Independence:</em> The r.v.s do not influence each other.</li>
+<li><em>Identically distributed:</em> Each <span class="math inline">\(X_i\)</span> follows the same probability
+distribution</li>
+<li><em>Independence:</em> The random variables do not influence each
+other</li>
 </ul>
 <div class="column" style="width:50%;">
 <p><strong>Examples:</strong></p>
@@ -495,7 +444,7 @@ distribution.</li>
 <p><strong>Why is i.i.d. Important?</strong></p>
 <ul>
 <li>Forms the foundation of probability and statistics (e.g., Law of
-Large Numbers and Central Limit Theorem).</li>
+Large Numbers, Central Limit Theorem).</li>
 </ul>
 </div>
 </div>

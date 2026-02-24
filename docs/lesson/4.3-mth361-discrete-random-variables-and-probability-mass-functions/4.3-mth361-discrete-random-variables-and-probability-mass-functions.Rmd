@@ -19,58 +19,20 @@ knitr::opts_chunk$set(echo = FALSE)
 ::::
 
 :::: {.column width=70%}
-- **Develop an understanding of sampling with and without replacement**
-- **Introduce the binomial and geometric random variables**
+- **Develop an understanding of the geometric random variable**
+- **Develop an understanding of the binomial random variable**
 - **Know how to compute probabilities of the binomial and geometric random variables**
 ::::
 
 :::: {.column width=15%}
 ::::
 
-## Sampling with Replacement
-
-The **sampling with replacement** is a sampling method where each selected item is returned to the population before the next selection.
-
-:::: {.column width=50%}
-**Key Characteristics:**
-
-* *Independent Trials:* Each draw does not affect the next.
-* *Same Probability:* Every item has the same chance of being selected each time.
-* *Allows Repetition:* The same item can be chosen multiple times.
-::::
-
-:::: {.column width=49%}
-**Example:**
-
-* Drawing a card from a deck, recording its value, and putting it back before drawing again.
-* Rolling a die multiple times, where each roll does not influence the next.
-::::
-
-## Sampling without Replacement
-
-The **sampling without replacement** is a sampling method where each selected item is not returned to the population before the next selection.
-
-:::: {.column width=50%}
-**Key Characteristics:**
-
-* *Dependent Trials:* Each draw changes the population.
-* *Changing Probability:* The chance of selecting an item increases or decreases based on previous event.
-* *No Repetition:* Once an item is chosen, it cannot be selected again.
-::::
-
-:::: {.column width=49%}
-**Example:**
-
-* Drawing a card from a deck without returning it, meaning the next draw is from a smaller set.
-* Drawing items from jars without return it before drawing the next item.
-::::
-
 ## Independent and Identically Distributed
 
-A sequence of r.v.s $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d.)** if:
+A sequence of random variables $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d)** if:
 
-* *Identically distributed:* Each $X_i$ for $i \in \left\{1,2,\cdots, n\right\}$ follows the same probability distribution.
-* *Independence:* The r.v.s do not influence each other.
+* *Identically distributed:* Each $X_i$ follows the same probability distribution
+* *Independence:* The random variables do not influence each other
 
 :::: {.column width=50%}
 **Examples:**
@@ -82,7 +44,7 @@ A sequence of r.v.s $X_1, X_2, \cdots, X_n$ is **independent and identically dis
 :::: {.column width=49%}
 **Why is i.i.d. Important?**
 
-* Forms the foundation of probability and statistics (e.g., Law of Large Numbers and Central Limit Theorem).
+* Forms the foundation of probability and statistics (e.g., Law of Large Numbers, Central Limit Theorem).
 ::::
 
 ## Multiple Bernoulli Trials

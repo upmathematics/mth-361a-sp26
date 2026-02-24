@@ -8,7 +8,7 @@
   <meta name="author" content="MTH-361A | Spring 2026 | University of Portland" />
   <meta name="copyright" content="| MTH-361A Spring 2026 | &lt;a href=&#39;../../index.html&#39;&gt;Back to the Course Website&lt;/a&gt;" />
   <meta name="font-size-adjustment" content="2" />
-  <title>Binomial and Geometric Distributions</title>
+  <title>Geometric and Binomial Distributions</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -524,7 +524,7 @@ list-style-type: none;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Binomial and Geometric Distributions</h1>
+  <h1 class="title">Geometric and Binomial Distributions</h1>
   <h1 class="subtitle">Applied Statistics</h1>
   <p class="author">
 MTH-361A | Spring 2026 | University of Portland
@@ -537,8 +537,10 @@ MTH-361A | Spring 2026 | University of Portland
 </div>
 <div class="column" style="width:70%;">
 <ul>
-<li><strong>Develop and understanding of the binomial and geometric
-distributions</strong></li>
+<li><strong>Develop and understanding of the geometric
+distribution</strong></li>
+<li><strong>Develop and understanding of the binomial
+distribution</strong></li>
 <li><strong>Know how to compute geometric and binomial probabilities
 using R</strong></li>
 <li><strong>Introduce how to simulate binomial and geometric random
@@ -930,12 +932,6 @@ trial</td>
 <td align="center">Number of “success” in <span class="math inline">\(n\)</span> independent trials</td>
 </tr>
 <tr class="even">
-<td align="left"><em>Sampling</em></td>
-<td align="center">-</td>
-<td align="center">With replacement</td>
-<td align="center">With replacement</td>
-</tr>
-<tr class="odd">
 <td align="left"><em>Parameters</em></td>
 <td align="center"><span class="math inline">\(p
 \longrightarrow\)</span> probability of “success”</td>
@@ -945,7 +941,7 @@ trial</td>
 \longrightarrow\)</span> number of trials<br><span class="math inline">\(p \longrightarrow\)</span> probability of
 “success”</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><em>PMF</em><br><span class="math inline">\(P(X=k)\)</span></td>
 <td align="center"><span class="math inline">\(p^k
 (1-p)^{1-k}\)</span><br><span class="math inline">\(\text{for } k =
@@ -957,37 +953,37 @@ k=0,1,2,\cdots\)</span></td>
 (1-p)^{n-k}\)</span><br><span class="math inline">\(\text{for } k =
 0,1,2, \cdots, n\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><em>Expected Value</em><br><span class="math inline">\(\text{E}(X)\)</span></td>
 <td align="center"><span class="math inline">\(p\)</span></td>
 <td align="center"><span class="math inline">\(\frac{1-p}{p}\)</span></td>
 <td align="center"><span class="math inline">\(np\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><em>Variance</em><br><span class="math inline">\(\text{Var}(X)\)</span></td>
 <td align="center"><span class="math inline">\(p(1-p)\)</span></td>
 <td align="center"><span class="math inline">\(\frac{1-p}{p^2}\)</span></td>
 <td align="center"><span class="math inline">\(np(1-p)\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><span class="math inline">\(P(X = k)\)</span></td>
 <td align="center"><code>dbinom(1,p)</code></td>
 <td align="center"><code>dgeom(p)</code></td>
 <td align="center"><code>dbinom(n,p)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><span class="math inline">\(P(X \le k)\)</span></td>
 <td align="center"><code>pbinom(1,p)</code></td>
 <td align="center"><code>pgeom(p)</code></td>
 <td align="center"><code>pbinom(n,p)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><span class="math inline">\(k\)</span></td>
 <td align="center"><code>qbinom(P,1,p)</code></td>
 <td align="center"><code>qgeom(P,p)</code></td>
 <td align="center"><code>qbinom(P,n,p)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><span class="math inline">\(N\)</span>
 <em>Simulations</em></td>
 <td align="center"><code>rbinom(N,1,p)</code></td>
@@ -1001,9 +997,6 @@ k=0,1,2,\cdots\)</span></td>
 Geometric and Binomial r.v. is the independent Bernoulli trials but with
 different counting methodology of “successes”.</p>
 </div>
-</div>
-<div id="why-the-geometric-and-binomial-distributions-are-usefull" class="slide section level2">
-<h1>Why the Geometric and Binomial Distributions are Usefull?</h1>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

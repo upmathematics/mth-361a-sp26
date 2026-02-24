@@ -1,5 +1,5 @@
 ---
-title: "Binomial and Geometric Distributions"
+title: "Geometric and Binomial Distributions"
 subtitle: "Applied Statistics"
 author: "MTH-361A | Spring 2026 | University of Portland"
 output:
@@ -28,7 +28,8 @@ seed <- 42
 ::::
 
 :::: {.column width=70%}
-- **Develop and understanding of the binomial and geometric distributions**
+- **Develop and understanding of the geometric distribution**
+- **Develop and understanding of the binomial distribution**
 - **Know how to compute geometric and binomial probabilities using R**
 - **Introduce how to simulate binomial and geometric random sampling in R**
 ::::
@@ -597,7 +598,6 @@ mean(samples) # compute sample mean
 | $X$ | **Bernoulli** | **Geometric** | **Binomial** |
 |:---|:------:|:------:|:------:|
 | *Description* | "success" or "failure" outcome in 1 independent trial | Number of "failure" independent trials before a "success" | Number of "success" in $n$ independent trials |
-| *Sampling* | - | With replacement | With replacement |
 | *Parameters* | $p \longrightarrow$ probability of "success" | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
 | *PMF*<br>$P(X=k)$ | $p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $(1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2, \cdots, n$ |
 | *Expected Value*<br>$\text{E}(X)$ | $p$ | $\frac{1-p}{p}$ | $np$ |
@@ -610,8 +610,3 @@ mean(samples) # compute sample mean
 ::: {style="color: red;"}
 $\star$ The basis for both Geometric and Binomial r.v. is the independent Bernoulli trials but with different counting methodology of "successes".
 :::
-
-## Why the Geometric and Binomial Distributions are Usefull?
-
-
-
