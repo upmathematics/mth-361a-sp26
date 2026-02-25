@@ -424,14 +424,13 @@ geometric random variables</strong></li>
 </div>
 <div id="independent-and-identically-distributed" class="slide section level2">
 <h1>Independent and Identically Distributed</h1>
-<p>A sequence of random variables <span class="math inline">\(X_1, X_2,
-\cdots, X_n\)</span> is <strong>independent and identically distributed
+<p>A sequence of r.v.s <span class="math inline">\(X_1, X_2, \cdots,
+X_n\)</span> is <strong>independent and identically distributed
 (i.i.d)</strong> if:</p>
 <ul>
 <li><em>Identically distributed:</em> Each <span class="math inline">\(X_i\)</span> follows the same probability
 distribution</li>
-<li><em>Independence:</em> The random variables do not influence each
-other</li>
+<li><em>Independence:</em> The r.v.s do not influence each other</li>
 </ul>
 <div class="column" style="width:50%;">
 <p><strong>Examples:</strong></p>
@@ -498,10 +497,9 @@ trial is independent, with a fixed “success” probability <span class="math i
 \]</span></p>
 </div>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> The geometric random
-variable counts the number of “failures” before a “success” and can also
-be viewed as counting the number of trials including the first
-“success.”</p>
+<p><span class="math inline">\(\star\)</span> The geometric r.v. counts
+the number of “failures” before a “success” and can also be viewed as
+counting the number of trials including the first “success.”</p>
 </div>
 </div>
 <div id="the-geometric-r.v.-pmf" class="slide section level2">
@@ -518,9 +516,9 @@ sized sample space) where <span class="math inline">\(p\)</span> is the
 \cdots\]</span></li>
 </ul>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> The geometric random
-variable models a situation where samples are taken with replacement,
-and the number of failures until the first success is counted.</p>
+<p><span class="math inline">\(\star\)</span> The geometric r.v. models
+a situation where samples are taken with replacement, and the number of
+failures until the first success is counted.</p>
 </div>
 </div>
 <div id="the-geometric-r.v.-examples" class="slide section level2">
@@ -551,14 +549,13 @@ P(X \le 5) &amp; \approx 0.984 \\
 <div class="column" style="width:70%;">
 <ul>
 <li><em>Medical trials</em>: Estimating the number of contacts a person
-has with an infected individual before they themselves become
-infected.</li>
-<li><em>Quality control</em>: Finding the number of items inspected
-before encountering the first defective product.</li>
+has before they become infected.</li>
+<li><em>Quality control</em>: Finding the number of products inspected
+before detecting a defective product.</li>
 <li><em>Finance</em>: Analyzing the number of insurance claims made
 before a large loss occurs.</li>
 <li><em>Machine learning</em>: Optimizing how many iterations are
-necessary before a model fits into a given data set.</li>
+necessary before a model fits into data.</li>
 <li><span class="math inline">\(\cdots\)</span> etcetera</li>
 </ul>
 </div>
@@ -567,7 +564,7 @@ necessary before a model fits into a given data set.</li>
 </div>
 <div style="color: red;">
 <p><span class="math inline">\(\star\)</span> It is the baseline of
-modeling the number of independent Bernoulli trials needed to achieve
+modeling the number of independent Bernoulli trials needed to observe
 the first “success”.</p>
 </div>
 </div>
@@ -576,7 +573,7 @@ the first “success”.</p>
 <p>Suppose a scientist is estimating the number of contacts a person can
 have before they get infected with a contagious disease. Each contact is
 independent and each person encountered is unique.</p>
-<p>Define the random variable:</p>
+<p>Define the r.v.:</p>
 <p><span class="math display">\[
 X = \text{the number of contacts before infection}
 \]</span></p>
@@ -588,7 +585,7 @@ X = \text{the number of contacts before infection}
 <p><span class="math inline">\(\star\)</span> This is a Geometric r.v.
 because it is counting the number contacts without infection
 (“failures”) before a contact with infection (“success”) under multiple
-independent Bernoulli trials.</p>
+independent contacts (trials).</p>
 </div>
 </div>
 <div id="the-binomial-r.v." class="slide section level2">
@@ -629,9 +626,10 @@ independent Bernoulli trials, each with “success” probability <span class="m
 \]</span></p>
 </div>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> The binomial random
-variable counts the number of “successes” in <span class="math inline">\(n\)</span> independent Bernoulli trials, where
-each trial has a “success” probability <span class="math inline">\(p\)</span>.</p>
+<p><span class="math inline">\(\star\)</span> The binomial r.v. counts
+the number of “successes” in <span class="math inline">\(n\)</span>
+independent Bernoulli trials, where each trial has a “success”
+probability <span class="math inline">\(p\)</span>.</p>
 </div>
 </div>
 <div id="counting-the-number-of-combinations" class="slide section level2">
@@ -675,10 +673,9 @@ k = 0,1,2, \cdots, n\]</span> where <span class="math inline">\(p\)</span> is th
 <span class="math inline">\(\binom{n}{k} = \frac{n!}{k! (n-k)!}\)</span>
 is the binomial coefficient.</p>
 <div style="color: red;">
-<p><span class="math inline">\(\star\)</span> The binomial random
-variable models a situation where samples are taken with replacement,
-and the number of successes is counted within a finite number of
-trials.</p>
+<p><span class="math inline">\(\star\)</span> The binomial r.v. models a
+situation where samples are taken with replacement, and the number of
+successes is counted within a finite number of trials.</p>
 </div>
 </div>
 <div id="the-binomial-r.v.-examples" class="slide section level2">
@@ -709,13 +706,14 @@ trials.</p></li>
 <div class="column" style="width:70%;">
 <ul>
 <li><em>Medical trials</em>: Testing a new vaccine on <span class="math inline">\(200\)</span> participants, where each participant
-either develops immunity (success) or does not (failure).</li>
-<li><em>Quality control</em>: Randomly selecting <span class="math inline">\(200\)</span> microchips from a large batch and
-counting the number of defective microchips.</li>
+either develops immunity or does not.</li>
+<li><em>Quality control</em>: Selecting <span class="math inline">\(200\)</span> products from a large batch and
+counting the number of defective products.</li>
 <li><em>Finance</em>: Counting the number of “up” days of a stock over
 the next <span class="math inline">\(200\)</span> days.</li>
-<li><em>Machine learning</em>: Identifying <span class="math inline">\(200\)</span> independent emails whether they are
-spam or not.</li>
+<li><em>Machine learning</em>: Identifying an email whether they are
+spam or not in <span class="math inline">\(200\)</span> independent
+emails.</li>
 <li><span class="math inline">\(\cdots\)</span> etcetera</li>
 </ul>
 </div>
@@ -734,7 +732,7 @@ trials.</p>
 within a population. They take <span class="math inline">\(200\)</span>
 individuals as a random sample and count how many have the infection.
 Each individual is independently sampled and unique.</p>
-<p>Define the random variable:</p>
+<p>Define the r.v.:</p>
 <p><span class="math display">\[
 X = \text{the number of infected in a sample of 200 individuals}
 \]</span></p>
@@ -744,7 +742,7 @@ X = \text{the number of infected in a sample of 200 individuals}
 <div style="color: red;">
 <p><span class="math inline">\(\star\)</span> This is a Binomial r.v.
 because it is counting the number of infected (“success”) in a fixed
-number of independent Bernoulli trials.</p>
+number of individuals (trials).</p>
 </div>
 </div>
 

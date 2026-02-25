@@ -29,10 +29,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Independent and Identically Distributed
 
-A sequence of random variables $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d)** if:
+A sequence of r.v.s $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d)** if:
 
 * *Identically distributed:* Each $X_i$ follows the same probability distribution
-* *Independence:* The random variables do not influence each other
+* *Independence:* The r.v.s do not influence each other
 
 :::: {.column width=50%}
 **Examples:**
@@ -92,7 +92,7 @@ A **geometric r.v.** is a discrete r.v. that represents the number of Bernoulli 
 ::::
 
 ::: {style="color: red;"}
-$\star$ The geometric random variable counts the number of "failures" before a "success" and can also be viewed as counting the number of trials including the first "success."
+$\star$ The geometric r.v. counts the number of "failures" before a "success" and can also be viewed as counting the number of trials including the first "success."
 :::
 
 ## The Geometric R.V.: PMF
@@ -105,7 +105,7 @@ The PMF of the geometric r.v. can be written in two ways:
 * *k trials including 1st "success":* $$P(X=k) = (1-p)^{k-1} p, \ k = 1,2, \cdots$$
 
 ::: {style="color: red;"}
-$\star$ The geometric random variable models a situation where samples are taken with replacement, and the number of failures until the first success is counted.
+$\star$ The geometric r.v. models a situation where samples are taken with replacement, and the number of failures until the first success is counted.
 :::
 
 ## The Geometric R.V.: Examples
@@ -130,10 +130,10 @@ The Geometric R.V. models key scenarios used in:
 ::::
  
 :::: {.column width=70%}
-* *Medical trials*: Estimating the number of contacts a person has with an infected individual before they themselves become infected.
-* *Quality control*: Finding the number of items inspected before encountering the first defective product.
+* *Medical trials*: Estimating the number of contacts a person has before they become infected.
+* *Quality control*: Finding the number of products inspected before detecting a defective product.
 * *Finance*: Analyzing the number of insurance claims made before a large loss occurs.
-* *Machine learning*: Optimizing how many iterations are necessary before a model fits into a given data set.
+* *Machine learning*: Optimizing how many iterations are necessary before a model fits into data.
 * $\cdots$ etcetera
 ::::
 
@@ -141,14 +141,14 @@ The Geometric R.V. models key scenarios used in:
 ::::
 
 ::: {style="color: red;"}
-$\star$ It is the baseline of modeling the number of independent Bernoulli trials needed to achieve the first "success".
+$\star$ It is the baseline of modeling the number of independent Bernoulli trials needed to observe the first "success".
 :::
 
 ## Disease Transmission
 
 Suppose a scientist is estimating the number of contacts a person can have before they get infected with a contagious disease. Each contact is independent and each person encountered is unique.
 
-Define the random variable:
+Define the r.v.:
 
 $$
 X = \text{the number of contacts before infection}
@@ -159,7 +159,7 @@ Assume the probability of infection is $p = 0.01$.
 Then, $$X \sim \text{Geom}(0.01).$$
 
 ::: {style="color: red;"}
-$\star$ This is a Geometric r.v. because it is counting the number contacts without infection ("failures") before a contact with infection ("success") under multiple independent Bernoulli trials.
+$\star$ This is a Geometric r.v. because it is counting the number contacts without infection ("failures") before a contact with infection ("success") under multiple independent contacts (trials).
 :::
 
 ## The Binomial R.V.
@@ -204,7 +204,7 @@ Suppose $n = 3$.
 ::::
 
 ::: {style="color: red;"}
-$\star$ The binomial random variable counts the number of "successes" in $n$ independent Bernoulli trials, where each trial has a "success" probability $p$.
+$\star$ The binomial r.v. counts the number of "successes" in $n$ independent Bernoulli trials, where each trial has a "success" probability $p$.
 :::
 
 ## Counting the Number of Combinations
@@ -238,7 +238,7 @@ $\star$ Since $p$ is the "success" probability and the Binomial Theorem reduces 
 The binomial r.v. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2, \cdots, n$$ where $p$ is the "success" probability. The term $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient.
 
 ::: {style="color: red;"}
-$\star$ The binomial random variable models a situation where samples are taken with replacement, and the number of successes is counted within a finite number of trials.
+$\star$ The binomial r.v. models a situation where samples are taken with replacement, and the number of successes is counted within a finite number of trials.
 :::
 
 ## The Binomial R.V.: Examples
@@ -263,10 +263,10 @@ The Binomial R.V. models key scenarios used in:
 ::::
  
 :::: {.column width=70%}
-* *Medical trials*: Testing a new vaccine on $200$ participants, where each participant either develops immunity (success) or does not (failure).
-* *Quality control*: Randomly selecting $200$ microchips from a large batch and counting the number of defective microchips.
+* *Medical trials*: Testing a new vaccine on $200$ participants, where each participant either develops immunity or does not.
+* *Quality control*: Selecting $200$ products from a large batch and counting the number of defective products.
 * *Finance*: Counting the number of "up" days of a stock over the next $200$ days.
-* *Machine learning*: Identifying $200$ independent emails whether they are spam or not.
+* *Machine learning*: Identifying an email whether they are spam or not in $200$ independent emails.
 * $\cdots$ etcetera
 ::::
 
@@ -281,7 +281,7 @@ $\star$ It is the baseline for modeling number of "success" outcomes in a fixed 
 
 Suppose a scientist is estimating the number of infected individuals within a population. They take $200$ individuals as a random sample and count how many have the infection. Each individual is independently sampled and unique.
 
-Define the random variable:
+Define the r.v.:
 
 $$
 X = \text{the number of infected in a sample of 200 individuals}
@@ -292,5 +292,5 @@ Assume that the probability of infection is known to be $p = 0.01$.
 Then, $$X \sim \text{Binom}(200,0.01).$$
 
 ::: {style="color: red;"}
-$\star$ This is a Binomial r.v. because it is counting the number of infected ("success") in a fixed number of independent Bernoulli trials.
+$\star$ This is a Binomial r.v. because it is counting the number of infected ("success") in a fixed number of individuals (trials).
 :::
