@@ -262,7 +262,7 @@ Two events, $A$ and $B$, are **independent** if the **occurrence of one does not
 If the event $B$ is **dependent** on $A$, then $$P(A \cap B) \ne P(A)P(B)$$
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** Independent events is when one event happening does not affect the other. Disjoint events is when one event happening prevents the other.
+$\star$ Independent events is when one event happening does not affect the other. Disjoint events is when one event happening prevents the other.
 :::
 
 ## Coin Flips
@@ -277,10 +277,6 @@ Suppose we conduct an experiment of flipping fair coins in sequence and record t
   - $P(H \cap T) = P(H)P(T) = \left( \frac{1}{2} \right) \left( \frac{1}{2} \right) = \left( \frac{1}{4} \right)$
   - $P(T \cap H) = P(T)P(H) = \left( \frac{1}{2} \right) \left( \frac{1}{2} \right) = \left( \frac{1}{4} \right)$
   - $P(T \cap T) = P(T)P(T) = \left( \frac{1}{2} \right) \left( \frac{1}{2} \right) = \left( \frac{1}{4} \right)$
-  
-::: {style="color: blue;"}
-$\dagger$ How many possible outcomes are there for three coins and what are the probabilities? 
-:::
 
 ## Disjoint and Joint Events
 
@@ -300,7 +296,7 @@ The **union** of two events, $A$ and $B$, is the **event that at least one of th
 If $A$ and $B$ are disjoint, then $$P(A \cup B) = P(A) + P(B)$$
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** The probability of the union is the sum of individual probabilities minus their intersection (to avoid double-counting).
+$\star$ The probability of the union is the sum of individual probabilities minus their intersection (to avoid double-counting).
 :::
 
 ## Joint vs Disjoint Venn Diagram
@@ -321,10 +317,6 @@ Suppose we conduct an experiment of drawing specific characteristics of a card f
     - $P(A) = \frac{4}{52}$, $P(B) = \frac{13}{52}$, and 
     - $P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52}$
 
-::: {style="color: blue;"}
-$\dagger$ Can you compute the probability of drawing a face card (Ace, Jack, Queen, King) or a Diamond?
-:::
-
 ## Dice Rolls
 
 Suppose we conduct an experiment of rolling two six-sided dice and sum the outcomes.
@@ -334,10 +326,6 @@ Suppose we conduct an experiment of rolling two six-sided dice and sum the outco
 * Let $B$ be the event of the 2nd dice.
 * The outcome we are interested in is the sum of $A$ and $B$. So, the sample space has 36 total possible outcomes.
     - The probability of getting a sum of 3 is $$\begin{aligned} P(3) & = P(1 \cap 2) + P(2 \cap 1) \\ & = P(1)P(2) + P(2)P(1) \\ & = \left( \frac{1}{6} \right) \left( \frac{1}{6} \right) + \left( \frac{1}{6} \right) \left( \frac{1}{6} \right) \\ & = 2 \times \left( \frac{1}{6} \right) \left( \frac{1}{6} \right) \\ & = \frac{2}{36} \end{aligned}$$ because of independence and joint events.
-
-::: {style="color: blue;"}
-$\dagger$ Can you compute the probability of rolling a sum of 4?
-:::
 
 ## Basic Probability Rules
 
@@ -368,7 +356,7 @@ In other words, a random variable is **a function that maps the sample space int
 * *Continuous Random Variable:* Takes on any value of outcomes in an interval
 
 ::: {style="color: red;"}
-$\star$ R.V. provides a way to assign numerical values to outcomes in a sample space, allowing us to analyze and compute probabilities in a structured manner
+$\star$ R.v.s provides a way to assign numerical values to outcomes in a sample space, allowing us to analyze and compute probabilities in a structured manner
 :::
 
 ## Probability Functions
@@ -383,7 +371,7 @@ In other words, a probability function **maps the r.v. into the the real numbers
 * *Probability Density Functions (PDF):* PDFs are for continuous random variables
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** We can define a probability function directly from the sample space, but using a random variable makes it explicit what outcomes we want to compute probabilities for in a given scenario.
+$\star$ We can define a probability function directly from the sample space, but using a random variable makes it explicit what outcomes we want to compute probabilities for in a given scenario.
 :::
 
 ## Flipping One Coin R.V.

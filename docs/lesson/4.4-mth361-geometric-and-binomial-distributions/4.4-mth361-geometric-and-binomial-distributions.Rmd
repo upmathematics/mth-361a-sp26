@@ -37,10 +37,10 @@ seed <- 42
 :::: {.column width=15%}
 ::::
 
-## Visualizing the Geometric Distribution
+## Visualizing the Geometric Distribution (1/2)
 
 :::: {.column width=50%}
-**Geometric Distribution**
+**Geometric Probability Mass Function (PMF)**
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
 # set parameters, outcomes, and probabilities
@@ -64,12 +64,12 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ Note that the geometric distribution shown here is when we count the number of "failures" before a "success". The geometric r.v. has infinitely sized sample space. The plot of the PMF only shows the first $10$ possible outcomes.
+$\star$ The geometric r.v. has infinitely sized sample space. The plot of the geometric PMF only shows the first $11$ possible outcomes.
 :::
 ::::
 
 :::: {.column width=49%}
-**Geometric R.V.:**
+**Geometric R.V. and PMF:**
 
 Let $p$ be the "success" probability.
 
@@ -78,13 +78,56 @@ Let $p$ be the "success" probability.
 
 **Relevant R Functions:**
 
-* `dgeom` $\leftarrow$ PMF $P(X=k)$
-* `pgeom` $\leftarrow$ CDF $P(X \le k) = \sum_{i=0}^k P(X=i)$
-* `qgeom` $\leftarrow$ Inverse CDF
+* `dgeom` $\leftarrow$ PMF
 * `rgeom` $\leftarrow$ random sampling simulation
 ::::
 
-## Geometric Probabilities (1/2)
+## Visualizing the Geometric Distribution (2/2)
+
+:::: {.column width=50%}
+**Geometric Cumulative Distribution Function (CDF)**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+geom_cdf <- pgeom(x_outcomes,p) # function `pgeom()` is the Geometric CDF 
+df <- tibble(k=x_outcomes, cdf=geom_cdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=cdf)) + 
+  geom_point(size=3,color="black") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=cdf), 
+                   color="black") + 
+  ggtitle(paste("Geometric CDF (p=",p,")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ The CDF, in general, computes the cumulative probability of a given PMF.
+:::
+::::
+
+:::: {.column width=49%}
+**Geometric PMF and CDF:**
+
+Let $p$ be the "success" probability.
+
+* $\displaystyle P(X=k) = \left(1-p\right)^k p \quad \text{for } k = 0,1,2, \cdots$
+* $\displaystyle P(X \le k) = \sum_{i=0}^k P(X=i) \quad \text{for } k = 0,1,2, \cdots$
+
+**Relevant R Functions:**
+
+* `pgeom` $\leftarrow$ CDF
+* `qgeom` $\leftarrow$ Inverse CDF
+::::
+
+## Geometric Probabilities (1/3)
 
 :::: {.column width=50%}
 **Geometric Distribution**
@@ -112,7 +155,7 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ Note that the `dgeom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ number of "failures" before a "success" using the Geometric PMF.
+$\star$ The `dgeom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ number of "failures" before a "success" using the Geometric PMF.
 :::
 ::::
 
@@ -134,7 +177,7 @@ dgeom(3,1/2)
 ```
 ::::
 
-## Geometric Probabilities (2/2)
+## Geometric Probabilities (2/3)
 
 :::: {.column width=50%}
 **Geometric Distribution**
@@ -162,7 +205,7 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ Note that the `pgeom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ number of failures" before a "success" using the Geometric PMF.
+$\star$ The `pgeom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ number of failures" before a "success" using the Geometric PMF.
 :::
 ::::
 
@@ -172,8 +215,8 @@ $\star$ Note that the `pgeom()` function computes the probability $P(X \le k)$, 
 *What is the probability that the first "success" occurs before the 4th trial, given $p = \frac{1}{2}$?*
 $$
 \begin{aligned}
-P(X \le 3) & = \sum_{k=0}^3 P(X = k) \\ 
-           & = \sum_{k=0}^3 \left(1-\frac{1}{2}\right)^{k} \left(\frac{1}{2}\right) \\ 
+P(X \le 3) & = \sum_{i=0}^3 P(X = i) \\ 
+           & = \sum_{i=0}^3 \left(1-\frac{1}{2}\right)^{i} \left(\frac{1}{2}\right) \\ 
 P(X \le 3) & \approx 0.938 \\
 \end{aligned}
 $$
@@ -182,6 +225,59 @@ $$
 
 ```{r echo=TRUE, eval=TRUE}
 pgeom(3,1/2)
+```
+::::
+
+## Geometric Probabilities (3/3)
+
+:::: {.column width=50%}
+**Geometric Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+geom_pmf <- dgeom(x_outcomes,p) # function `dgeom()` is the Geometric PMF 
+df <- tibble(k=x_outcomes, pmf=geom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="blue") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="blue") + 
+  gghighlight(k>=4,unhighlighted_colour = "black") + 
+  ggtitle(paste("Geometric PMF (p=",p,")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Since $k$ is the number of "failures" before a "success" occurs, the probability of that "success" occurs at least on the fifth trial is $P(X \ge 4)$. Then, we use the complement rule.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability that "success" occurs at least on the fifth trial, given $p = \frac{1}{2}$?*
+$$
+\begin{aligned}
+P(X \ge 4) & = 1 - P(X \le 3) \\
+           & = 1 - \sum_{i=0}^3 P(X = i) \\ 
+           & = 1 - \sum_{i=0}^3 \left(1-\frac{1}{2}\right)^{i} \left(\frac{1}{2}\right) \\ 
+           & \approx 1 - 0.938 \\
+P(X \ge 4) & \approx 0.063 \\
+\end{aligned}
+$$
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+1-pgeom(3,1/2)
 ```
 ::::
 
@@ -310,10 +406,10 @@ mean(samples) # compute sample mean
 ```
 ::::
 
-## Visualizing the Binomial Distribution
+## Visualizing the Binomial Distribution (1/2)
 
 :::: {.column width=50%}
-**Binomial Distribution**
+**Binomial Probability Mass Function (PMF)**
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
 # set parameters, outcomes, and probabilities
@@ -343,7 +439,7 @@ $\star$ In comparison with the Geometric PMF, the Binomial PMF has a finitely si
 ::::
 
 :::: {.column width=49%}
-**Binomial R.V.**
+**Binomial R.V. and PMF**
 
 Let $p=\frac{1}{2}$ be the "success" probability and $n=10$ the number of trials.
 
@@ -352,9 +448,7 @@ Let $p=\frac{1}{2}$ be the "success" probability and $n=10$ the number of trials
 
 **Relevant R Functions:**
 
-* `dbinom` $\leftarrow$ PMF $P(X=k)$
-* `pbinom` $\leftarrow$ CDF $P(X \le k) = \sum_{i=0}^k P(X=i)$
-* `qbinom` $\leftarrow$ Inverse CDF
+* `dbinom` $\leftarrow$ PMF
 * `rbinom` $\leftarrow$ random sampling simulation
 
 ::: {style="color: blue;"}
@@ -362,7 +456,53 @@ $\star$ If you set $n=1$, the Binomial PMF reduces to the Bernoulli PMF.
 :::
 ::::
 
-## Binomial Probabilities (1/2)
+## Visualizing the Binomial Distribution (2/2)
+
+:::: {.column width=50%}
+**Binomial Cumulative Distribution Function (CDF)**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+n <- 10 # number of trials
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,n,1) # set outcome from 0 to n
+binom_cdf <- pbinom(x_outcomes,n,p) # function `pbinom()` is the Binomial CDF 
+df <- tibble(k=x_outcomes, cdf=binom_cdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=cdf)) + 
+  geom_point(size=3,color="black") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=cdf), 
+                   color="black") + 
+  ggtitle(paste("Binomial CDF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Since the Binomial r.v. has finitely sized sample space, then $P(X \le n) = 1$.
+:::
+::::
+
+:::: {.column width=49%}
+**Binomial PMF and CDF:**
+
+Let $p=\frac{1}{2}$ be the "success" probability and $n=10$ the number of trials.
+
+* $\displaystyle P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \quad \text{for } k = 0,1,2, \cdots, n$
+* $\displaystyle P(X \le k) = \sum_{i=0}^k P(X=i) \quad \text{for } k = 0,1,2, \cdots, n$
+
+**Relevant R Functions:**
+
+* `pbinom` $\leftarrow$ CDF
+* `qbinom` $\leftarrow$ Inverse CDF
+::::
+
+## Binomial Probabilities (1/3)
 
 :::: {.column width=50%}
 **Binomial Distribution**
@@ -411,10 +551,10 @@ dbinom(4,10,1/2)
 ::::
 
 ::: {style="color: red;"}
-$\star$ Note that the `dbinom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ using the Binomial PMF.
+$\star$ The `dbinom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ using the Binomial PMF.
 :::
 
-## Binomial Probabilities (2/2)
+## Binomial Probabilities (2/3)
 
 :::: {.column width=50%}
 **Binomial Distribution**
@@ -443,7 +583,7 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ Note that the `pbinom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ using the Binomial PMF.
+$\star$ The `pbinom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ using the Binomial PMF.
 :::
 ::::
 
@@ -453,8 +593,8 @@ $\star$ Note that the `pbinom()` function computes the probability $P(X \le k)$,
 *What is the probability of getting at most 4 "success" in 10 trials with $p=\frac{1}{2}$?*
 $$
 \begin{aligned}
-P(X \le 4) & = \sum_{k=0}^4 P(X = k) \\ 
-           & = \sum_{k=0}^4 \binom{10}{k} \left(\frac{1}{2}\right)^k \left(1-\frac{1}{2}\right)^{10-k} \\
+P(X \le 4) & = \sum_{i=0}^4 P(X = i) \\ 
+           & = \sum_{i=0}^4 \binom{10}{k} \left(\frac{1}{2}\right)^i \left(1-\frac{1}{2}\right)^{10-i} \\
 P(X \le 4) & \approx 0.377 \\
 \end{aligned}
 $$
@@ -463,6 +603,60 @@ $$
 
 ```{r echo=TRUE, eval=TRUE}
 pbinom(4,10,1/2)
+```
+::::
+
+## Binomial Probabilities (3/3)
+
+:::: {.column width=50%}
+**Binomial Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+n <- 10 # number of trials
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,n,1) # set outcome from 0 to n
+binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+df <- tibble(k=x_outcomes, pmf=binom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="blue") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="blue") + 
+  gghighlight(k>=4,unhighlighted_colour = "black") + 
+  ggtitle(paste("Binomial PMF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Since we want the probability of 4 or more "success" in 10 trials, we need $P(X \ge 4)$. Then, we use the complement rule.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability of getting at least 4 "success" in 10 trials with $p=\frac{1}{2}$?*
+$$
+\begin{aligned}
+P(X \ge 4) & = 1 - P(X \le 3) \\ 
+           & = 1 - \sum_{i=0}^3 P(X = i) \\ 
+           & = 1 - \sum_{i=0}^3 \binom{10}{i} \left(\frac{1}{2}\right)^i \left(1-\frac{1}{2}\right)^{10-i} \\
+           & \approx 1 - 0.172 \\
+P(X \ge 4) & \approx 0.828 \\
+\end{aligned}
+$$
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+1-pbinom(3,10,1/2)
 ```
 ::::
 
@@ -593,20 +787,26 @@ mean(samples) # compute sample mean
 ```
 ::::
 
-## Bernoulli, Geometric, and Binomial Distribution Summary
+## Summary of Discrete R.V.s and their Properties
 
-| $X$ | **Bernoulli** | **Geometric** | **Binomial** |
-|:---|:------:|:------:|:------:|
+|  | **Bernoulli** | **Geometric** | **Binomial** |
+|:------|:-------:|:-------:|:-------:|
 | *Description* | "success" or "failure" outcome in 1 independent trial | Number of "failure" independent trials before a "success" | Number of "success" in $n$ independent trials |
-| *Parameters* | $p \longrightarrow$ probability of "success" | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
-| *PMF*<br>$P(X=k)$ | $p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $(1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2, \cdots, n$ |
-| *Expected Value*<br>$\text{E}(X)$ | $p$ | $\frac{1-p}{p}$ | $np$ |
-| *Variance*<br>$\text{Var}(X)$ | $p(1-p)$ | $\frac{1-p}{p^2}$ | $np(1-p)$ |
-| $P(X = k)$ | `dbinom(1,p)` | `dgeom(p)` | `dbinom(n,p)` |
-| $P(X \le k)$ | `pbinom(1,p)` | `pgeom(p)` | `pbinom(n,p)` |
-| $k$ | `qbinom(P,1,p)` | `qgeom(P,p)` | `qbinom(P,n,p)` |
-| $N$ *Simulations* | `rbinom(N,1,p)` | `rgeom(N,p)` | `rbinom(N,n,p)` |
+| *Parameters* | $p \leftarrow$ probability of "success" | $p \leftarrow$ probability of "success" | $n \leftarrow$ number of trials<br>$p \leftarrow$ probability of "success" |
+| $\displaystyle X$ | $\displaystyle \text{Bern}(p)$ | $\displaystyle \text{Geom}(p)$ | $\displaystyle \text{Binom}(n,p)$ |
+| $\displaystyle \text{E}(X)$ | $\displaystyle p$ | $\displaystyle \frac{1-p}{p}$ | $\displaystyle np$ |
+| $\displaystyle \text{Var}(X)$ | $\displaystyle p(1-p)$ | $\displaystyle \frac{1-p}{p^2}$ | $\displaystyle np(1-p)$ |
+
+## Summary of Discrete R.V.s and their PMFs
+
+|  | **Bernoulli** | **Geometric** | **Binomial** |
+|:------|:-------:|:-------:|:-------:|
+| $\displaystyle P(X = k)$ *PMF* | $\displaystyle p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $\displaystyle (1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\displaystyle \binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2, \cdots, n$ |
+| *R PMF* | `dbinom` | `dgeom` | `dbinom` |
+| *R CDF* | `pbinom` | `pgeom` | `pbinom` |
+| *R Inverse CDF* | `qbinom` | `qgeom` | `qbinom` |
+| *R Simulations* | `rbinom` | `rgeom` | `rbinom` |
 
 ::: {style="color: red;"}
-$\star$ The basis for both Geometric and Binomial r.v. is the independent Bernoulli trials but with different counting methodology of "successes".
+$\star$ The Binomial r.v. reduces to the Bernoulli r.v. if $n=1$.
 :::
