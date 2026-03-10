@@ -1,0 +1,121 @@
+---
+title: "Exponential and Normal Distributions"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gghighlight)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- 
+- 
+- 
+::::
+
+:::: {.column width=15%}
+::::
+
+## Visualizing The Exponential Distribution (1/2)
+
+:::: {.column width=50%}
+**Exponential Probability Density Function (PDF)**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# exponential pdf
+mean <- 15
+lambda <- 1/mean
+x_exp <- seq(0,60,0.10)
+exp_pdf <- dexp(x_exp,lambda)
+
+# convert pdf to tibble
+df_exp <- tibble(x=x_exp,pdf=exp_pdf)
+
+# plot the exponential distribution
+ggplot(df_exp,aes(x=x,y=pdf)) + 
+  geom_line(color="black",linewidth=1) + 
+  ggtitle(TeX(paste("Exponential PDF ","$(\\lambda$","=","$\\frac{1}{",mean,"})$"))) + # sets the title of the plot
+  theme_minimal()
+```
+
+::: {style="color: red;"}
+$\star$ The exponential r.v. has infinitely sized sample space. The plot of the exponential PDF only shows the range $0 \le x \le 60$.
+:::
+::::
+
+:::: {.column width=49%}
+**Exponential R.V. and PDF:**
+
+Let $\lambda$ be the rate parameter.
+
+* $\displaystyle X \sim \text{Exp}\left(\lambda\right)$
+* $\displaystyle f(x) = \lambda e^{-\lambda x}, \quad x \ge 0$
+
+**Relevant R Functions:**
+
+* `dexp` $\leftarrow$ PDF
+* `rexp` $\leftarrow$ random sampling simulation
+::::
+
+## Visualizing The Exponential Distribution (2/2)
+
+:::: {.column width=50%}
+**Exponential Cumulative Distribution Function (CDF)**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mean <- 15
+lambda <- 1/mean
+x_exp <- seq(0,60,0.10)
+exp_cdf <- pexp(x_exp,lambda)
+
+# convert cdf to tibble
+df_exp <- tibble(x=x_exp,cdf=exp_cdf)
+
+# plot the exponential distribution
+ggplot(df_exp,aes(x=x,y=cdf)) + 
+  geom_line(color="black",linewidth=1) + 
+  ggtitle(TeX(paste("Exponential CDF ","$(\\lambda$","=","$\\frac{1}{",mean,"})$"))) + # sets the title of the plot
+  theme_minimal()
+```
+
+::: {style="color: red;"}
+$\star$ The CDF, in general, computes the cumulative probability of a given PDF.
+:::
+::::
+
+:::: {.column width=49%}
+**Exponential PDF and CDF:**
+
+Let $\lambda$ be the rate parameter.
+
+* $\displaystyle f(x) = \lambda e^{-\lambda x}, \quad x \ge 0$
+* $\displaystyle P(X \le x) = \int_{0}^{x} f(t) \ dt, \quad x \ge 0$
+
+**Relevant R Functions:**
+
+* `pexp` $\leftarrow$ CDF
+* `qexp` $\leftarrow$ Inverse CDF
+::::
+
+

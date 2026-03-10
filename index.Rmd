@@ -529,7 +529,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Random Sampling and Law of Large Numbers](lesson/4.2-mth361-random-sampling-and-law-of-large-numbers/4.2-mth361-random-sampling-and-law-of-large-numbers.html){target="_blank"} | Ch. 2.2 @speegle2021probability |
 | [Discrete Random Variables and Probability Mass Functions](lesson/4.3-mth361-discrete-random-variables-and-probability-mass-functions/4.3-mth361-discrete-random-variables-and-probability-mass-functions.html){target="_blank"} | Ch. 3.1-3.2 \& Ch. 3.5 @speegle2021probability |
 | [Geometric and Binomial Distributions](lesson/4.4-mth361-geometric-and-binomial-distributions/4.4-mth361-geometric-and-binomial-distributions.html){target="_blank"} | Ch. 3.3-3.4 @speegle2021probability |
-| Continuous Random Variables and Probability Density Functions | Ch. 4.1-4.3 @speegle2021probability |
+| [Continuous Random Variables and Probability Density Functions](lesson/5.1-mth361-continuous-random-variables-and-probability-density-functions/5.1-mth361-continuous-random-variables-and-probability-density-functions.html){target="_blank"} | Ch. 4.1-4.3 @speegle2021probability |
 | Normal and Exponential Distributions | Ch. 4.4-4.5 @speegle2021probability |
 | Conditional Probability and Bayes' Theorem | Ch. 2.3-2.4 @speegle2021probability |
 | Central Limit Theorem | Ch. 5.1-5.4 @speegle2021probability |
