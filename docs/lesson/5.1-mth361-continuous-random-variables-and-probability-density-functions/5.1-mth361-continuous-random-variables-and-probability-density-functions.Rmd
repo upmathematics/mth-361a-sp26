@@ -93,6 +93,9 @@ $$
 pgeom(1,0.40)
 ```
 
+::: {style="color: red;"}
+$\star$ Note that the R function `pgeom` is the Geometric CDF.
+:::
 ::::
 
 ## Rate to "Success" (Continuous)
@@ -125,7 +128,7 @@ The **exponential r.v.** is a continuous r.v. that models the time until an even
 **Rate Parameter**
 
 * $\lambda$ is reciprocal to the average time of an event occurs.
-* This means that --on average-- $\frac{1}{\lambda}$ "success" occurs per unit length.
+* This means that $\frac{1}{\lambda}$ is the average time until a "success" occurs.
 
 ## The Exponential R.V.: PDF
 
@@ -133,24 +136,6 @@ The exponential r.v. $X \sim \text{Exp}(\lambda)$ has infinite possible outcomes
 
 ::: {style="color: red;"}
 $\star$ The exponential r.v. models the unit length until an event happens.
-:::
-
-## Probabilities of PDFs
-
-A **Probability Density Function (PDF)** $f(x)$ describes the likelihood of a continuous r.v. taking a specific value.
-
-* The probability of a single point is zero for continuous distributions: $$P(X = x) = 0, \ \text{for any } x$$ because continuous distributions are defined over an infinite number of possible values, and the probability at a single point is infinitesimally small.
-
-* Instead, we calculate probabilities over intervals using integration: 
-
-  - Cumulative $\longrightarrow \displaystyle P(X \le x) = \int_{-\infty}^x f(t) \ dt$
-  - Interval $\longrightarrow \displaystyle P(a \le X \le b) = \int_a^b f(t) \ dt$
-
-::: {style="color: red;"}
-$\star$
-
-* PMF (discrete r.v.): $P(X=k)$ is a meaningful probability
-* PDF (continuous r.v.): $P(X=x)=0$, but density matters for interval probabilities.
 :::
 
 ## Assessment Completion Length
@@ -186,7 +171,29 @@ P(X \le 15) & \approx 0.632
 ```{r echo=TRUE, eval=TRUE}
 pexp(15,1/15)
 ```
+
+::: {style="color: red;"}
+$\star$ Note that the R function `pexp` is the Exponential CDF.
+:::
 ::::
+
+## Probabilities of PDFs
+
+A **Probability Density Function (PDF)** $f(x)$ describes the likelihood of a continuous r.v. taking a specific value from a continuous interval.
+
+* The probability of a single point is zero for continuous distributions: $$P(X = x) = 0, \ \text{for any } x$$ because continuous distributions are defined over an infinite number of possible values, and the probability at a single point is infinitesimally small.
+
+* Instead, we calculate probabilities over intervals using integration: 
+
+  - Cumulative $\longrightarrow \displaystyle P(X \le x) = \int_{-\infty}^x f(t) \ dt$
+  - Interval $\longrightarrow \displaystyle P(a \le X \le b) = \int_a^b f(t) \ dt$
+
+::: {style="color: red;"}
+$\star$
+
+* PMF (for discrete r.v.): $P(X=k)$ is a meaningful probability
+* PDF (for continuous r.v.): $P(X=x)=0$, but density matters for interval probabilities.
+:::
 
 ## Flipping $n$ Coins
 
@@ -215,6 +222,14 @@ knitr::include_graphics("pascals-triangle-2trial-comb.png")
 ::: {style="color: red;"}
 $\star$ The binomial coefficient tells you how many ways $k$ "success" outcomes can occur in $n$ trials, corresponding to the $k$-th column in the $n$-th row of Pascal’s Triangle.
 :::
+
+## The Binomial Coefficient
+
+**Pascal’s Triangle and Combinations** This formula calculates the number of ways to choose $k$ elements from a set of $n$. Each number in Pascal’s Triangle corresponds to a combination. Also known as the **binomial coefficient**.
+
+```{r pascals-triangle-binom-comb, echo=FALSE, fig.cap="", out.width="60%", fig.align="center"}
+knitr::include_graphics("pascals-triangle-binom-comb.png")
+```
 
 ## Probability of Observing $H$ outcomes in $n$ Trials
 
@@ -304,16 +319,111 @@ A **normal r.v.** is a type of continuous r.v. whose probability distribution fo
 
 ## The Normal R.V.: PDF
 
-The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \ -\infty < x < \infty$$
+The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} \exp{\left(-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2\right)}, \ -\infty < x < \infty$$ where the term $\exp{(\cdot)}$ is the exponential function $e^{(\cdot)}$. *We* write it this way because the function the exponent term is complicated.
 
 ::: {style="color: red;"}
 $\star$ The normal r.v. often approximates the distribution of many types of data, especially when there are large numbers of independent factors contributing to the outcome.
 :::
 
-## Appendix: The Binomial Coefficient
+## The "z-score"
 
-**Pascal’s Triangle and Combinations** This formula calculates the number of ways to choose $k$ elements from a set of $n$. Each number in Pascal’s Triangle corresponds to a combination. Also known as the **binomial coefficient**.
+A **standardized score** is a measure on how many standard deviations a value is from the mean. This computed by the **z-score** formula: $$z = \frac{x - \mu}{\sigma}.$$
 
-```{r pascals-triangle-binom-comb, echo=FALSE, fig.cap="", out.width="60%", fig.align="center"}
-knitr::include_graphics("pascals-triangle-binom-comb.png")
+Using the z-score transformation, the normal PDF reduces to the **standard normal PDF**, $$f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2}\right)}, \ -\infty < z < \infty.$$
+
+::: {style="color: red;"}
+$\star$ The standardized score is used to compare two normal distributions with different means and variances.
+:::
+
+## Normal Approximation to the Binomial
+
+:::: {.column width=50%}
+**When can we use it?**
+
+The binomial distribution $X \sim \text{Binom}(n,p)$ can be approximated by a normal distribution when:
+
+* $np$ (expected "success") and $np(1-p)$ (expected "fail") are *sufficiently large*.
+::::
+
+:::: {.column width=49%}
+**Approximation Formula**
+
+* If $X \sim \text{Binom}(n,p)$, then for large $n$, $$X \approx \text{N}(\mu,\sigma^2)$$ where $\mu = np$ and $\sigma^2 = np(1-p)$.
+
+::: {style="color: red;"}
+$\star$ The normal approximation simplifies binomial probability calculations for large $n$.
+:::
+::::
+
+## Percentiles (1/2)
+
+A large introductory statistics course has a final exam consisting of many independent multiple-choice questions. Each question has a probability of "success" $p = 0.70$ (a typical student answers correctly with probability $0.7$). The exam has $n = 100$ questions.
+
+Let $X$ represent the number of correct answers on the exam.
+
+:::: {.column width=49%}
+**Information Given:**
+
+* The number of correct answers follows a Binomial distribution: $$X \sim \text{Binom}(n,p)$$ where $n = 100$ and $p = 0.70$.
+
+* Mean and standard deviation:
+
+\[
+\begin{aligned}
+\mu & = np \\
+    & = 100(0.70) = 70 \\
+\sigma^2 & = \sqrt{np(1-p)} \\ 
+    & = \sqrt{100(0.70)(1-0.70)} \approx 4.583
+\end{aligned}
+\]
+::::
+
+:::: {.column width=49%}
+**Normal Approximation:**
+
+* Because the sample size is large and both 
+
+\[
+\begin{aligned}
+np & = 100(0.70) = 70 \\
+n(1-p) & = 100(1-0.70) = 30
+\end{aligned}
+\]
+are greater than 10, the Binomial distribution can be approximated by a Normal distribution: $$X \approx \text{N}(np,np(1-p)).$$
+::::
+
+## Percentiles (2/2)
+
+The $90$th percentile of the standard normal distribution is $\displaystyle z_{0.90} \approx 1.283$. That is interpreted as $1.283$ standard deviations from the mean.
+
+:::: {.column width=49%}
+**Computing Percentiles:**
+
+* Convert the standardized score to the exam score using the "z-score" formula:
+
+\[
+\begin{aligned}
+x & = \mu + z \sigma \\
+x & = 70 + (1.283)(4.583) \\
+x & \approx 75.88
+\end{aligned}
+\]
+
+* This suggests a score of about $76$ correct answers is roughly the $90$th percentile.
+::::
+
+:::: {.column width=49%}
+**Interpretation:**
+
+* A student who scores about $\frac{76}{100}$ performed better than approximately $90$\% of the class.
+
+**Using R:**
+
+```{r echo=TRUE}
+qnorm(0.90, 100*0.7, sqrt(100*0.7*0.3))
 ```
+
+::: {style="color: red;"}
+$\star$ The R function `qnorm` is the inverse CDF of the Normal distribution.
+:::
+::::
