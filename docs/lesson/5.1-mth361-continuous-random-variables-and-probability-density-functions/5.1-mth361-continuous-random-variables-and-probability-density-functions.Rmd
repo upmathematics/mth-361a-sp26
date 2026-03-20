@@ -46,10 +46,10 @@ knitr::include_graphics("rate-to-success-discrete.png")
 :::: {.column width=49%}
 **Geometric R.V. (Revisited)**
 
-- Independent Bernoulli trials with "success" probability $p$
-- Count the number of "fail" trials before the first "success"
-- The probability of getting $k$ number of "fail" before a "success" follows the Geometric PMF
-- The expected number of fails before a "success" is $\frac{1-p}{p}$
+- Independent Bernoulli trials with "success" probability $p$.
+- Count the number of "fail" trials before the first "success".
+- The probability of getting $k$ number of "fail" before a "success" follows the Geometric PMF.
+- The expected number of fails before a "success" is $\text{E}(X) = \frac{1-p}{p}$.
 ::::
 
 ::: {style="color: red;"}
@@ -58,44 +58,23 @@ $\star$ In a time-based interpretation, if events occur in discrete time steps, 
 
 ## Assessment Retakes
 
-A professor allows students to take a short assessment quiz, and if they do not pass, they can revise their answers and retake the quiz in the next session. The probability that a student passes on any given attempt is $p=0.40$, and attempts continue until the student passes.
+A professor allows students to take a short assessment quiz, and if they fail, they can revise their answers and retake the quiz in the next session. The probability that a student passes on any given attempt is $p=0.40$, and attempts continue until the student passes.
 
-Let $X$ be the number of "fail" attempts before the student get a "pass".
+Let $X$ be the number of fail attempts before the student get a pass.
 
 :::: {.column width=49%}
 **Information Given:**
 
-* R.V. is $X \sim \text{Geom}(p)$
-* Expected value is $\text{E}(X) = \frac{1-p}{p}$
-* What is the expected number of "fail" until a student get a "pass"? $$\text{E}(X) = \frac{1-0.40}{0.40} = 1.5$$
-
-::: {style="color: red;"}
-$\star$ On average, the student would "fail" on their 1st attempt before they get a "pass". The chances of a "pass" with $1$ "fail" attempt is $0.64$.
-:::
+* R.V. is $X \sim \text{Geom}(p)$ because we are counting the number of fail attempts before a pass occurs.
+* Expected value is $\text{E}(X) = \frac{1-p}{p}$.
+* The probability of passing on a given attempt is $p = 0.40$.
 ::::
 
 :::: {.column width=49%}
-**Computing Probabilities:**
+**Interpretation:**
 
-* Geometric PMF is $P(X=k) = (1-p)^k p$
-* What is the probability that a student get a "pass" with at most $1$ "fail" attempt? 
-$$
-\begin{aligned}
-P(X \le 1) & = \sum_{k=0}^1 P(X=k) \\
-           & = (0.60)^0 (0.40) + (0.60)^1 (0.40) \\
-P(X \le 1) & = 0.64
-\end{aligned}
-$$
-
-**Using R:**
-
-```{r echo=TRUE, eval=TRUE}
-pgeom(1,0.40)
-```
-
-::: {style="color: red;"}
-$\star$ Note that the R function `pgeom` is the Geometric CDF.
-:::
+* *What is the expected number of fail until a student get a pass?* $$\text{E}(X) = \frac{1-0.40}{0.40} = 1.5 \approx 1 \text{ or } 2$$
+* On average, the student would fail on their 1st or 2nd attempt before they get a pass.
 ::::
 
 ## Rate to "Success" (Continuous)
@@ -111,11 +90,11 @@ knitr::include_graphics("rate-to-success-continuous.png")
 
 - Unit length until an event occurs
 - "success" event happens at a constant rate
-::::
 
 ::: {style="color: red;"}
 $\star$ In a time-based interpretation, if events occur in continuous time, the exponential r.v. represents the length of time required until an event of interest happens.
 :::
+::::
 
 ## The Exponential R.V.
 
@@ -128,7 +107,7 @@ The **exponential r.v.** is a continuous r.v. that models the time until an even
 **Rate Parameter**
 
 * $\lambda$ is reciprocal to the average time of an event occurs.
-* This means that $\frac{1}{\lambda}$ is the average time until a "success" occurs.
+* This means that $\text{E}(X) = \frac{1}{\lambda}$ is the average time until a "success" occurs.
 
 ## The Exponential R.V.: PDF
 
@@ -142,57 +121,38 @@ $\star$ The exponential r.v. models the unit length until an event happens.
 
 A class of students is taking a quiz, and the time it takes for students to finish the quiz follows an exponential r.v., assuming unlimited quiz time allocation. On average, a student takes 15 minutes to complete the quiz.
 
-Let $X$ represent the time to finish the quiz.
+Let $X$ represent the time to complete the quiz.
 
 :::: {.column width=49%}
 **Information Given:**
 
-* The time it takes for a student to finish a quiz follows an exponential distribution: $$X \sim \text{Exp}(\lambda)$$ where $\lambda$ is the rate parameter.
+* R.V. is $X \sim \text{Exp}(\lambda)$ because we are measuring the time it takes for a student to finish a quiz.
+* The expected value is $\text{E}(X) = \frac{1}{\lambda}$.
+* the rate parameter is $\lambda = \frac{1}{15}$.
+::::
+
+:::: {.column width=50%}
+**Interpretation:**
+
+* *What is the expected completion length?* $$\text{E}(X) = \frac{1}{\frac{1}{15}} = 15$$
 * $\lambda = \frac{1}{15}$, which can be interpreted in two ways:
     - on average, one student finishes the quiz in 15 minutes
     - on average, a student finishes $\frac{1}{15}$ part of the quiz per minute
 ::::
 
-:::: {.column width=50%}
-**Computing Probabilities:**
-
-* The exponential PDF is $$f(x) = \frac{1}{15} e^{-\frac{1}{15} x}$$
-* What is the probability that a student finishes a quiz less than or equal to 15 minutes?
-\[
-\begin{aligned}
-P(X \le 15) & = \int_0^{15} f(x) \ dx \\
-            & = \int_0^{15} \frac{1}{15} e^{-\frac{1}{15} x} \ dx \\
-P(X \le 15) & \approx 0.632
-\end{aligned}
-\]
-
-**Using R:**
-
-```{r echo=TRUE, eval=TRUE}
-pexp(15,1/15)
-```
-
-::: {style="color: red;"}
-$\star$ Note that the R function `pexp` is the Exponential CDF.
-:::
-::::
-
 ## Probabilities of PDFs
 
-A **Probability Density Function (PDF)** $f(x)$ describes the likelihood of a continuous r.v. taking a specific value from a continuous interval.
+A **Probability Density Function (PDF)** describes the likelihood of a continuous r.v. taking a specific value from a continuous interval.
 
 * The probability of a single point is zero for continuous distributions: $$P(X = x) = 0, \ \text{for any } x$$ because continuous distributions are defined over an infinite number of possible values, and the probability at a single point is infinitesimally small.
 
-* Instead, we calculate probabilities over intervals using integration: 
+* If $f(x)$ is a PDF, we calculate probabilities over intervals of using integration: 
 
   - Cumulative $\longrightarrow \displaystyle P(X \le x) = \int_{-\infty}^x f(t) \ dt$
   - Interval $\longrightarrow \displaystyle P(a \le X \le b) = \int_a^b f(t) \ dt$
 
 ::: {style="color: red;"}
-$\star$
-
-* PMF (for discrete r.v.): $P(X=k)$ is a meaningful probability
-* PDF (for continuous r.v.): $P(X=x)=0$, but density matters for interval probabilities.
+$\star$ The PMF (for discrete r.v.) $P(X=k)$ is a meaningful probability while the PDF (for continuous r.v.) is $P(X=x)=0$.
 :::
 
 ## Flipping $n$ Coins
@@ -319,17 +279,17 @@ A **normal r.v.** is a type of continuous r.v. whose probability distribution fo
 
 ## The Normal R.V.: PDF
 
-The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} \exp{\left(-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2\right)}, \ -\infty < x < \infty$$ where the term $\exp{(\cdot)}$ is the exponential function $e^{(\cdot)}$. *We* write it this way because the function the exponent term is complicated.
+The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} \exp{\left(-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2\right)}, \ -\infty < x < \infty$$ where the term $\exp{(\cdot)}$ is the exponential function $e^{(\cdot)}$. *We* write it this way to make it clear because the exponent term is complicated.
 
 ::: {style="color: red;"}
 $\star$ The normal r.v. often approximates the distribution of many types of data, especially when there are large numbers of independent factors contributing to the outcome.
 :::
 
-## The "z-score"
+## The Z-Score
 
-A **standardized score** is a measure on how many standard deviations a value is from the mean. This computed by the **z-score** formula: $$z = \frac{x - \mu}{\sigma}.$$
+A **standardized score** is a measure on how many standard deviations a value is from the mean. This is computed by the **z-score** formula: $$z = \frac{x - \mu}{\sigma}.$$
 
-Using the z-score transformation, the normal PDF reduces to the **standard normal PDF**, $$f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2}\right)}, \ -\infty < z < \infty.$$
+Using the z-score transformation, the normal r.v. reduces to $$X \sim N(0,1),$$ with mean $0$ and standard deviation of $1$. The normal PDF reduces to the **standard normal PDF**, $$f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2}\right)}, \ -\infty < z < \infty.$$
 
 ::: {style="color: red;"}
 $\star$ The standardized score is used to compare two normal distributions with different means and variances.
@@ -342,7 +302,7 @@ $\star$ The standardized score is used to compare two normal distributions with 
 
 The binomial distribution $X \sim \text{Binom}(n,p)$ can be approximated by a normal distribution when:
 
-* $np$ (expected "success") and $np(1-p)$ (expected "fail") are *sufficiently large*.
+* $np$ (expected "success") and $n(1-p)$ (expected "fail") are *sufficiently large*. The rule of thumb is at least $10$ "Success" and at least $10$ "fail".
 ::::
 
 :::: {.column width=49%}
@@ -355,40 +315,30 @@ $\star$ The normal approximation simplifies binomial probability calculations fo
 :::
 ::::
 
-## Percentiles (1/2)
+## Exam Scores
 
-A large introductory statistics course has a final exam consisting of many independent multiple-choice questions. Each question has a probability of "success" $p = 0.70$ (a typical student answers correctly with probability $0.7$). The exam has $n = 100$ questions.
+A large introductory statistics course has a final exam consisting of many independent multiple-choice questions. Each question has a probability of "success" $p = 0.70$ (a typical student answers correctly with probability $0.70$). The exam has $n = 100$ questions.
 
 Let $X$ represent the number of correct answers on the exam.
 
 :::: {.column width=49%}
 **Information Given:**
 
-* The number of correct answers follows a Binomial distribution: $$X \sim \text{Binom}(n,p)$$ where $n = 100$ and $p = 0.70$.
-
-* Mean and standard deviation:
-
-\[
-\begin{aligned}
-\mu & = np \\
-    & = 100(0.70) = 70 \\
-\sigma^2 & = \sqrt{np(1-p)} \\ 
-    & = \sqrt{100(0.70)(1-0.70)} \approx 4.583
-\end{aligned}
-\]
+* R.V. is $\displaystyle X \sim \text{Binom}(n,p)$ because we are counting the number of correct answers out of a fixed number of questions.
+* The probability of answering one question is $p = 0.70$.
+* The number of questions is $n = 100$.
 ::::
 
 :::: {.column width=49%}
 **Normal Approximation:**
 
 * Because the sample size is large and both 
-
-\[
+$$
 \begin{aligned}
 np & = 100(0.70) = 70 \\
 n(1-p) & = 100(1-0.70) = 30
 \end{aligned}
-\]
+$$
 are greater than 10, the Binomial distribution can be approximated by a Normal distribution: $$X \approx \text{N}(np,np(1-p)).$$
 ::::
 
@@ -399,31 +349,32 @@ The $90$th percentile of the standard normal distribution is $\displaystyle z_{0
 :::: {.column width=49%}
 **Computing Percentiles:**
 
-* Convert the standardized score to the exam score using the "z-score" formula:
-
-\[
+* Mean and standard deviation:
+$$
 \begin{aligned}
-x & = \mu + z \sigma \\
+\mu & = np \\
+    & = 100(0.70) = 70 \\
+\sigma^2 & = \sqrt{np(1-p)} \\ 
+    & = \sqrt{100(0.70)(1-0.70)} \approx 4.583
+\end{aligned}
+$$
+* Convert the standardized score to the exam score using the "z-score" formula:
+$$
+\begin{aligned}
+x & = \mu + z_{0.90} \sigma \\
 x & = 70 + (1.283)(4.583) \\
 x & \approx 75.88
 \end{aligned}
-\]
-
-* This suggests a score of about $76$ correct answers is roughly the $90$th percentile.
+$$
 ::::
 
 :::: {.column width=49%}
 **Interpretation:**
 
+* This suggests a score of about $76$ correct answers is roughly the $90$th percentile.
 * A student who scores about $\frac{76}{100}$ performed better than approximately $90$\% of the class.
 
-**Using R:**
-
-```{r echo=TRUE}
-qnorm(0.90, 100*0.7, sqrt(100*0.7*0.3))
-```
-
 ::: {style="color: red;"}
-$\star$ The R function `qnorm` is the inverse CDF of the Normal distribution.
+$\star$ Note that the z-score $\displaystyle z_{0.90}$ can be computed using the R function of the inverse CDF of the standard normal distribution.
 :::
 ::::

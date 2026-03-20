@@ -1,0 +1,223 @@
+---
+title: "Conditional Probability and <br>Bayes' Theorem"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gghighlight)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce conditional probability**
+- **Develop an understanding of dependent events**
+- **Know how to compute conditional probabilities**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Why Learn Conditional Probability?
+
+
+
+## Sampling with Replacement
+
+**Sampling with replacement** is a sampling method where each selected unit is returned to the population before the next selection. Each selection is independent of previous selection.
+
+:::: {.column width=50%}
+**Characteristics:**
+
+* The population remains unchanged after each selection.
+* Each item can be chosen more than once.
+* Items are independently chosen with the same probability.
+::::
+
+:::: {.column width=49%}
+```{r sampling-with-replacement, echo=FALSE, fig.cap="", out.width="70%", fig.align="center"}
+knitr::include_graphics("sampling-with-replacement.png")
+```
+::::
+
+## Sampling without Replacement
+
+**Sampling without replacement** is a sampling method where each selected unit is not returned to the population before the next draw. Each selection depends on previous selections, as the population size decreases.
+
+:::: {.column width=50%}
+**Characteristics:**
+
+* The population changes after each selection.
+* Each item can be chosen only once.
+* Items are dependently chosen with changing probability.
+::::
+
+:::: {.column width=49%}
+```{r sampling-without-replacement, echo=FALSE, fig.cap="", out.width="70%", fig.align="center"}
+knitr::include_graphics("sampling-without-replacement.png")
+```
+::::
+
+## With vs Without Replacement
+
+| **Feature** | **Sampling with Replacement** | **Sampling without Replacement** |
+|:---|:---|:---|
+| _Independence_ | Yes | No |
+| _Duplication_ | Yes | No |
+| _Changing Sample Space_ | No | Yes |
+
+## Drawing Cards (with Replacement)
+
+You draw cards from a standard 52-card deck.
+
+:::: {.column width=49%}
+**With Replacement:**
+
+* After drawing a card, you put it back into the deck.
+* The deck resets to $52$ cards every time.
+* Each draw is independent.
+
+::: {style="color: red;"}
+$\star$ Outcomes do not affect future draws.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+* Probability of drawing an Ace on each draw: $$P(\text{Ace}) = \frac{4}{52} \text{ or } \frac{1}{13}$$ because there are four Aces in the deck out of 52 cards.
+* Same probability at every draw.
+::::
+
+## Drawing Cards (without Replacement)
+
+You draw cards from a standard 52-card deck.
+
+:::: {.column width=49%}
+**Without Replacement:**
+
+* After drawing a card, you do not put it back.
+* The number of cards from the deck decreases each time you draw.
+* Each draw is dependent, except for the first draw.
+
+::: {style="color: red;"}
+$\star$ Outcomes change future probabilities.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+* 1st draw: $P(\text{Ace}_1) = \frac{4}{52}$
+* 2nd draw: $P(\text{Ace}_2 \text{ given } \text{Ace}_1) = \frac{3}{51}$
+
+**Multiplication Rule:** 
+
+* *What is the probability that the 1st draw is an Ace and the 2nd draw is another Ace?*
+
+$$
+\begin{aligned}
+P(\text{Ace}_1 \text{ and Ace}_2) & = P(\text{Ace}_1) P(\text{Ace}_2 \text{ given } \text{Ace}_1) \\
+   & = \left( \frac{4}{52} \right) \left( \frac{3}{51} \right) \\
+ & = \frac{1}{221} \\
+P(\text{Ace}_1 \text{ and Ace}_2) & \approx 0.0045
+\end{aligned}
+$$
+::::
+
+## Conditional Probability
+
+:::: {.column width=49%}
+**Why Conditional Probability?**
+
+* Sometimes probabilities change when we have new or extra information
+
+**What is Conditional Probability?**
+
+* The probability of an event $A$, given that event $B$ has already occurred: $$P(A | B)$$ which read as "Probability of $A$ given $B$".
+::::
+
+:::: {.column width=49%}
+**Definition:**
+
+* Given events $A$ and $B$ in the sample space $S$, $$P(A | B) = \frac{P(A \cap B)}{P(B)}$$ where:
+
+  - $P(A \cap B)$ is the probability that both $A$ and $B$ occur and 
+  - $P(B) > 0$ is the probability that $B$ occurs (event $B$ must be possible).
+  
+::: {style="color: red;"}
+$\star$ Conditional probability helps us update probabilities based on new information.
+:::
+::::
+
+## Multiplication Rule
+
+:::: {.column width=49%}
+**Independence:** Given events $A$ and $B$ with non-zero probability in the sample space $S$, the following are equivalent:
+
+* $A$ and $B$ are independent
+* $P(A \cap B) = P(A)P(B)$
+* $P(A|B) = P(A)$
+* $P(B|A) = P(B)$
+::::
+
+:::: {.column width=49%}
+**Dependence:** Given events $A$ and $B$, then by definition:
+
+* $P(A \cap B) = P(B)P(A|B)$ if $A$ is dependent on $B$ or
+* $P(B \cap A) = P(A)P(B|A)$ if $B$ is dependent on $A$.
+::::
+
+## Balls in Jars (1/2)
+
+
+
+## Balls in Jars (2/2)
+
+
+
+## Probability Tree
+
+
+
+## Reverse Balls in Jars (1/2)
+
+
+
+## Reverse Balls in Jars (2/2)
+
+
+
+## Reverse Probability Tree
+
+
+
+## Law of Total Probability
+
+
+
+## Bayes' Rule
+
+
+
+## Disease Testing
+
+
