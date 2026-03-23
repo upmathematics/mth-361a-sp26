@@ -336,6 +336,10 @@ Suppose we conduct an experiment of rolling two six-sided dice and sum the outco
 | *Disjoint* | $P(A \cap B) = 0$ |
 | *Complement* | If $P(A) + P(B) = 1$, then $1-P(A)=P(B)$. |
 
+::: {style="color: red;"}
+$\star$ A common notation used for a complement event is $A^c$ or $\overline{A}$, meaning, if $P(A) + P(A^c) = 1$, then $P(A^c) = 1- P(A)$.
+:::
+
 ## Probability Axioms
 
 | **Axiom** | **Statement** |

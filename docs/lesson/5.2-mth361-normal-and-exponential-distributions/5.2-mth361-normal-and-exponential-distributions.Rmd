@@ -502,7 +502,7 @@ which is the center of the normal distribution.
 ## Summary of Continuous R.V.s and their Properties
 
 |  | **Exponential** | **Normal** |
-|:------|:-------:|:-------:|
+|:----|:-------:|:-------:|
 | *Description* | Unit length until a "success" event happens | Approximation to the Binomial with sufficiently large number of $n$ independent Bernoulli trials |
 | *Parameters* | $\lambda \longrightarrow$ rate of "success" | $\mu \longrightarrow$ mean<br>$\sigma^2 \longrightarrow$ variance |
 | $\displaystyle X$ | $\displaystyle \text{Exp}(\lambda)$ | $\displaystyle \text{N}(\mu,\sigma^2)$ |
@@ -516,7 +516,7 @@ $\star$ If you are approximating a Binomial distribution, set $\mu = np$ and $\s
 ## Summary of Continuous R.V.s and their PMFs
 
 |  | **Exponential** | **Normal** |
-|:------|:-------:|:-------:|
+|:----|:-------:|:-------:|
 | $\displaystyle f(x)$ *PDF* | $\displaystyle \lambda e^{-\lambda x}$<br>$\text{for } x \ge 0$ | $\displaystyle \frac{1}{\sigma \sqrt{2 \pi}} \exp{\left(-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2\right)}$<br>$\text{for }-\infty < x < \infty$ |
 | *R PMF* | `dexp` | `dnorm` |
 | *R CDF* | `pexp` | `pnorm` |

@@ -790,7 +790,7 @@ mean(samples) # compute sample mean
 ## Summary of Discrete R.V.s and their Properties
 
 |  | **Bernoulli** | **Geometric** | **Binomial** |
-|:------|:-------:|:-------:|:-------:|
+|:----|:-------:|:-------:|:-------:|
 | *Description* | "success" or "failure" outcome in 1 independent trial | Number of "failure" independent trials before a "success" | Number of "success" in $n$ independent trials |
 | *Parameters* | $p \leftarrow$ probability of "success" | $p \leftarrow$ probability of "success" | $n \leftarrow$ number of trials<br>$p \leftarrow$ probability of "success" |
 | $\displaystyle X$ | $\displaystyle \text{Bern}(p)$ | $\displaystyle \text{Geom}(p)$ | $\displaystyle \text{Binom}(n,p)$ |
@@ -800,7 +800,7 @@ mean(samples) # compute sample mean
 ## Summary of Discrete R.V.s and their PMFs
 
 |  | **Bernoulli** | **Geometric** | **Binomial** |
-|:------|:-------:|:-------:|:-------:|
+|:----|:-------:|:-------:|:-------:|
 | $\displaystyle P(X = k)$ *PMF* | $\displaystyle p^k (1-p)^{1-k}$<br>$\text{for } k = 0,1$ | $\displaystyle (1-p)^k p$<br>$\text{for } k=0,1,2,\cdots$ | $\displaystyle \binom{n}{k} p^k (1-p)^{n-k}$<br>$\text{for } k = 0,1,2, \cdots, n$ |
 | *R PMF* | `dbinom` | `dgeom` | `dbinom` |
 | *R CDF* | `pbinom` | `pgeom` | `pbinom` |

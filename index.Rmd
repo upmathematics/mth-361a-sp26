@@ -531,7 +531,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Geometric and Binomial Distributions](lesson/4.4-mth361-geometric-and-binomial-distributions/4.4-mth361-geometric-and-binomial-distributions.html){target="_blank"} | Ch. 3.3-3.4 @speegle2021probability |
 | [Continuous Random Variables and Probability Density Functions](lesson/5.1-mth361-continuous-random-variables-and-probability-density-functions/5.1-mth361-continuous-random-variables-and-probability-density-functions.html){target="_blank"} | Ch. 4.1-4.3 @speegle2021probability |
 | [Exponential and Normal Distributions](lesson/5.2-mth361-normal-and-exponential-distributions/5.2-mth361-normal-and-exponential-distributions.html){target="_blank"} | Ch. 4.4-4.5 @speegle2021probability |
-| Conditional Probability and Bayes' Theorem | Ch. 2.3-2.4 @speegle2021probability |
+| [Conditional Probability and Bayes' Theorem](lesson/6.1-mth361-conditional-probability-and-bayes-theorem/6.1-mth361-conditional-probability-and-bayes-theorem.html){target="_blank"} | Ch. 2.3-2.4 @speegle2021probability |
 | Central Limit Theorem | Ch. 5.1-5.4 @speegle2021probability |
 | Bootstrapping and Randomization | - |
 | Parameter Estimation | - |
