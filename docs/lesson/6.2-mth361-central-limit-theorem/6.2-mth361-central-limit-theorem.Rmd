@@ -136,7 +136,7 @@ Suppose we want to estimate the mean annual income of a city.
 
 **Why it matters for hypothesis testing:**
 
-* Suppose that our null hypothesis is $\mu > 50$.
+* Suppose that our null hypothesis is $\mu = 50$.
 * Using CLT, we can compute the probability of observing a sample mean as extreme as $\overline{x} = 70$, assuming the null hypothesis is true.
 * This probability is called the *p-value*.
 
