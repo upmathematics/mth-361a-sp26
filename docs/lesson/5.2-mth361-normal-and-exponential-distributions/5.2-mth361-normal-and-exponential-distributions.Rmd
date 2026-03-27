@@ -217,6 +217,56 @@ P(X \ge 2.5) & \approx 0.435
 ```
 ::::
 
+## Exponential Interval Probabilities
+
+:::: {.column width=50%}
+**Exponential Distribution:**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mean <- 3
+lambda <- 1/mean 
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 60 (technically infinite)
+exp_pdf <- dexp(x_outcomes,lambda) # function `dexp()` is the Exponential PDF 
+df <- tibble(x=x_outcomes, pmf=exp_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pmf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=1 & x<=5),aes(x=x,ymax=dexp(x,lambda)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Exponential PDF ","$(\\lambda","=","1/",mean,")$"))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Here, you need $P(1 \le X \le 5)$, which is equivalent to $P(X \le 5) - P(X \le 1)$. Since $P(X = 1) = 0$ and $P(X = 5) = 0$ for continuous r.v.s, we don't worry about these cases when calculating interval probabilities.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability that "success" happens between 1 to 5 unit length, given $\lambda=\frac{1}{3}$? *
+\[
+\begin{aligned}
+P(1 \le X \le 5) & = P(X \le 5) - P(X \le 1) \\
+            & = \int_0^{5} f(t) \ dt - \int_0^{1} f(t) \ dt \\
+            & = \int_1^{5} f(t) \ dt \\
+            & = \int_1^{5} \frac{1}{3} e^{-\frac{1}{3} t} \ dt \\
+P(1 \le X \le 5) & \approx 0.528
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+pexp(5,1/3)-pexp(1,1/3)
+```
+::::
+
 ## Exponential Expected Value
 
 :::: {.column width=50%}
@@ -449,6 +499,57 @@ P(X \le 13) & \approx 0.090
 
 ```{r echo=TRUE, eval=TRUE}
 1-pnorm(13,10,2.24)
+```
+::::
+
+## Normal Interval Probabilities
+
+:::: {.column width=50%}
+**Normal Distribution:**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=7 & x<=13),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$(\\mu","=",mu," ",", \\sigma","=",round(sd,2),")$"))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Here, you need $P(7 \le X \le 13)$, which is equivalent to $P(X \le 13) - P(X \le 7)$. Since $P(X = 7) = 0$ and $P(X = 13) = 0$ for continuous r.v.s, we don't worry about these cases when calculating interval probabilities.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability that a randomly selected value is between $7$ and $13$?*
+
+\[
+\begin{aligned}
+P(7 \le X \le 13) & = P(X \le 13)-P(X \le 7) \\
+            & = \int_{-\infty}^{13} f(t) \ dt - \int_{-\infty}^{7} f(t) \ dt \\
+            & = \int_{7}^{13} f(t) \ dt \\
+            & = \int_{7}^{13} \frac{1}{2.24 \sqrt{2 \pi}} \exp{\left(-\frac{1}{2} \left( \frac{t - 10}{2.24} \right)^2\right)} \ dt \\
+P(7 \le X \le 13) & \approx 0.820
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+pnorm(13,10,2.24)-pnorm(7,10,2.24)
 ```
 ::::
 

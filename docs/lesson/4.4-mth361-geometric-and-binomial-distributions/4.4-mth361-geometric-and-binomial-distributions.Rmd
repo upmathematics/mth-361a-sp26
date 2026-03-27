@@ -256,7 +256,7 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ Since $k$ is the number of "failures" before a "success" occurs, the probability of that "success" occurs at least on the fifth trial is $P(X \ge 4)$. Then, we use the complement rule.
+$\star$ Since $k$ is the number of "failures" before a "success" occurs, the probability of that "success" occurs at least on the 5th trial is $P(X \ge 4)$. Then, we use the complement rule.
 :::
 ::::
 
@@ -278,6 +278,59 @@ $$
 
 ```{r echo=TRUE, eval=TRUE}
 1-pgeom(3,1/2)
+```
+::::
+
+## Geometric Interval Probabilities
+
+:::: {.column width=50%}
+**Geometric Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+geom_pmf <- dgeom(x_outcomes,p) # function `dgeom()` is the Geometric PMF 
+df <- tibble(k=x_outcomes, pmf=geom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="blue") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="blue") + 
+  gghighlight(k>=2&k<=4,unhighlighted_colour = "black") + 
+  ggtitle(paste("Geometric PMF (p=",p,")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Here, you need $P(2 \le X \le 4)$, which is equivalent to the upper bound $P(X \le 4)$ minus the lower bound $P(X \le 1)$. Note that the lower bound is reduced by one because we want to include $P(X = 2)$.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability that "success" occurs between the 3rd and 5th trial, given $p = \frac{1}{2}$?*
+$$
+\begin{aligned}
+P(2 \le X \le 4) & = P(X \le 4) - P(X \le 1) \\
+           & = \sum_{i=0}^4 P(X = i) - \sum_{i=0}^1 P(X = i) \\ 
+           & = \sum_{i=2}^4 P(X = i) \\
+           & = \sum_{i=2}^4 \left(1-\frac{1}{2}\right)^{i} \left(\frac{1}{2}\right) \\
+P(2 \le X \le 4) & \approx 0.219 \\
+\end{aligned}
+$$
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+pgeom(4,1/2)-pgeom(1,1/2)
 ```
 ::::
 
@@ -657,6 +710,60 @@ $$
 
 ```{r echo=TRUE, eval=TRUE}
 1-pbinom(3,10,1/2)
+```
+::::
+
+## Binomial Interval Probabilities
+
+:::: {.column width=50%}
+**Binomial Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+n <- 10 # number of trials
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,n,1) # set outcome from 0 to n
+binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+df <- tibble(k=x_outcomes, pmf=binom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="blue") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="blue") + 
+  gghighlight(k>=3&k<=7,unhighlighted_colour = "black") + 
+  ggtitle(paste("Binomial PMF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ Here, you need $P(3 \le X \le 7)$, which is equivalent to the upper bound $P(X \le 7)$ minus the lower bound $P(X \le 2)$. Note that the lower bound is reduced by one because we want to include $P(X = 3)$.
+:::
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+*What is the probability of getting between 3 to 7 "success" in 10 trials with $p=\frac{1}{2}$?*
+$$
+\begin{aligned}
+P(3 \le X \ge 7) & = P(X \le 7) - P(X \le 2) \\ 
+           & = \sum_{i=0}^7 P(X = i) - \sum_{i=0}^2 P(X = i) \\
+           & = \sum_{i=3}^7 P(X = i) \\
+           & = \sum_{i=3}^7 \binom{10}{i} \left(\frac{1}{2}\right)^i \left(1-\frac{1}{2}\right)^{10-i} \\
+P(3 \le X \ge 7) & \approx 0.891 \\
+\end{aligned}
+$$
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+pbinom(7,10,1/2)-pbinom(2,10,1/2)
 ```
 ::::
 

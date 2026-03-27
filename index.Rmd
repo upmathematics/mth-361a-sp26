@@ -167,12 +167,12 @@ The following learning objectives are designed to build on one another, with som
 | **5** | Tu 2/10 | $\rightarrow$Continuous Random Variables and Probability Density Functions<br>$\rightarrow$ Normal and Exponential Distributions |
 |  | Th 2/12 | **Project Phase 0 & 1** |
 | **6** | Tu 2/17 | $\rightarrow$Conditional Probability and Bayes' Theorem |
-|  | Th 2/19 | $\rightarrow$ Central Limit Theorem<br>$\rightarrow$ Bootstrapping and Randomization |
+|  | Th 2/19 | $\rightarrow$ Central Limit Theorem |
 | **7** | Tu 2/24 | $\rightarrow$ Parameter Estimation |
-|  | Th 2/26 | $\rightarrow$ Hypothesis Testing |
+|  | Th 2/26 | $\rightarrow$ Hypothesis Testing<br>$\rightarrow$ Decision Errors |
 | **8** | Tu 3/3 | _Spring Vacation_ |
 |  | Th 3/5 | _Spring Vacation_ |
-| **9** | Tu 3/10 | $\rightarrow$ Decision Errors |
+| **9** | Tu 3/10 | <br>$\rightarrow$ Bootstrapping and Randomization |
 |  | Th 3/12 | $\rightarrow$ Inference for One Proportion<br>$\rightarrow$ Inference for Two Proportions |
 | **10** | Tu 3/17 | $\rightarrow$ Chi-Squared Test for Goodness of Fit<br>$\rightarrow$ Chi-Squared Tests for Independence |
 |  | Th 3/19 | **Project Phase 2** |
@@ -533,10 +533,10 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Exponential and Normal Distributions](lesson/5.2-mth361-normal-and-exponential-distributions/5.2-mth361-normal-and-exponential-distributions.html){target="_blank"} | Ch. 4.4-4.5 @speegle2021probability |
 | [Conditional Probability and Bayes' Theorem](lesson/6.1-mth361-conditional-probability-and-bayes-theorem/6.1-mth361-conditional-probability-and-bayes-theorem.html){target="_blank"} | Ch. 2.3-2.4 @speegle2021probability |
 | [Central Limit Theorem](lesson/6.2-mth361-central-limit-theorem/6.2-mth361-central-limit-theorem.html){target="_blank"} | Ch. 5.1-5.4 @speegle2021probability |
-| Bootstrapping and Randomization | - |
 | Parameter Estimation | - |
 | Hypothesis Testing | - |
 | Decision Errors | - |
+| Bootstrapping and Randomization | - |
 | Inference for One Proportion | Ch. 10.2 @speegle2021probability |
 | Inference for Two Proportions | Ch. 10.2 @speegle2021probability |
 | Chi-Squared Test for Goodness of Fit | Ch. 10.3 @speegle2021probability |
