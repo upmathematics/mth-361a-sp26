@@ -289,7 +289,7 @@ $\star$ The normal r.v. often approximates the distribution of many types of dat
 
 A **standardized score** is a measure on how many standard deviations a value is from the mean. This is computed by the **z-score** formula: $$z = \frac{x - \mu}{\sigma}.$$
 
-Using the z-score transformation, the normal r.v. reduces to $$X \sim N(0,1),$$ with mean $0$ and standard deviation of $1$. The normal PDF reduces to the **standard normal PDF**, $$f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2}\right)}, \ -\infty < z < \infty.$$
+Using the z-score transformation, the normal r.v. reduces to $$Z \sim N(0,1),$$ with mean $0$ and standard deviation of $1$. The normal PDF reduces to the **standard normal PDF**, $$f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2}\right)}, \ -\infty < z < \infty.$$
 
 ::: {style="color: red;"}
 $\star$ The standardized score is used to compare two normal distributions with different means and variances.
@@ -342,9 +342,28 @@ $$
 are greater than 10, the Binomial distribution can be approximated by a Normal distribution: $$X \approx \text{N}(np,np(1-p)).$$
 ::::
 
-## Percentiles (2/2)
+## Exam Scores Percentiles (1/2)
 
-The $90$th percentile of the standard normal distribution is $\displaystyle z_{0.90} \approx 1.283$. That is interpreted as $1.283$ standard deviations from the mean.
+:::: {.column width=49%}
+**90th Percentile:**
+
+* The $90$th percentile of the standard normal distribution is $$z_{0.90} \approx 1.282.$$
+
+**Using R:**
+
+```{r}
+qnorm(0.90,0,1)
+```
+::::
+
+:::: {.column width=49%}
+**This can be interpreted as:**
+
+* For a z-score of $1.283$ standard deviations above the mean, the probability of observing a standardized value less than or equal to $1.282$ is $0.90$.
+* That is equivalent to: $$P(Z \le z_{0.90}) = 0.90$$ where $Z \sim N(0,1)$.
+::::
+
+## Exam Scores Percentiles (2/2)
 
 :::: {.column width=49%}
 **Computing Percentiles:**
@@ -358,11 +377,12 @@ $$
     & = \sqrt{100(0.70)(1-0.70)} \approx 4.583
 \end{aligned}
 $$
-* Convert the standardized score to the exam score using the "z-score" formula:
+
+* Convert the standardized score to the exam score using the z-score formula:
 $$
 \begin{aligned}
 x & = \mu + z_{0.90} \sigma \\
-x & = 70 + (1.283)(4.583) \\
+x & = 70 + (1.282)(4.583) \\
 x & \approx 75.88
 \end{aligned}
 $$
@@ -374,7 +394,13 @@ $$
 * This suggests a score of about $76$ correct answers is roughly the $90$th percentile.
 * A student who scores about $\frac{76}{100}$ performed better than approximately $90$\% of the class.
 
+**Using R:**
+
+```{r}
+qnorm(0.90,70,4.583)
+```
+
 ::: {style="color: red;"}
-$\star$ Note that the z-score $\displaystyle z_{0.90}$ can be computed using the R function of the inverse CDF of the standard normal distribution.
+$\star$ Note that, this is approximately equal to `70 + qnorm(0.90,0,1)*(4.583)`, where the code `qnorm(0.90,0,1)` is the z-score.
 :::
 ::::

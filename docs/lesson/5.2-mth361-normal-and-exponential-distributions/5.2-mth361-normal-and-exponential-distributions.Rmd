@@ -600,6 +600,215 @@ In general, the expected value of the normal r.v. is given by
 which is the center of the normal distribution.
 ::::
 
+## The Normal Distribution is Symmetric
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) +
+  geom_vline(xintercept=0, color="black") + 
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ The key property of the normal distribution is that it is symmetric about the mean $\mu$, meaning the probabilities are equal for each side.
+:::
+
+## The 68-95-99.7 Rule (1/3)
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_vline(xintercept=1, color="black") + 
+  geom_vline(xintercept=-1, color="black") + 
+  geom_ribbon(data=subset(df_norm,x>=-1 & x<=1),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+$$P(\mu - \sigma \le X \le \mu + \sigma) \approx 0.68$$
+
+## The 68-95-99.7 Rule (2/3)
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_vline(xintercept=2, color="black") + 
+  geom_vline(xintercept=-2, color="black") + 
+  geom_ribbon(data=subset(df_norm,x>=-2 & x<=2),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+$$P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0.95$$
+
+## The 68-95-99.7 Rule (3/3)
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_vline(xintercept=3, color="black") + 
+  geom_vline(xintercept=-3, color="black") + 
+  geom_ribbon(data=subset(df_norm,x>=-3 & x<=3),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+$$P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0.997$$
+
+## Total Area
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=-4 & x<=4),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+$$P(\mu - \infty \le X \le \mu + \infty) = 1$$
+
+::: {style="color: red;"}
+$\star$ Because of the axiom that the sum of the probabilities for all outcomes in the sample space is equal to 1, the total area under the Normal PDF is always 1.
+:::
+
+## The Standard Normal Distribution
+
+:::: {.column width=49%}
+**The z-score formula:**
+
+$$z = \frac{x - \mu}{\sigma}$$
+
+**Standard Normal R.V. and PDF:**
+
+Let $\mu = 0$ be the mean and $\sigma^2 = 1$ be the variance.
+
+* $\displaystyle Z \sim \text{N}\left(0,1\right)$
+* $\displaystyle f(z) = \frac{1}{\sqrt{2 \pi}} \exp{\left(-\frac{z^2}{2} \right)}; \\ \quad \text{ for } -\infty < z < \infty$
+::::
+
+:::: {.column width=49%}
+**How the transformation works:**
+
+* Let $x = \mu$ and $\sigma = 1$.
+* Then, $z = 0$, meaning the distance from the mean to itself is $0$ standard deviations.
+* A positive z-score indicates the value is above the mean, while a negative z-score indicates it is below.
+
+::: {style="color: red;"}
+$\star$ The z-score $z$ is a measure on how many standard deviations a data point $x$ is from the mean $\mu$.
+:::
+::::
+
+## Visualizing the Standard Normal Distribution
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_vline(xintercept=0, color="black") + 
+  ylab("density") + 
+  ggtitle("Standard Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-4,-3,-2,-1,0,1,2,3,4)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ The standard normal distribution serves as a reference distribution, allowing any normally distributed variable to be standardized.
+:::
+
 ## Summary of Continuous R.V.s and their Properties
 
 |  | **Exponential** | **Normal** |
@@ -612,6 +821,8 @@ which is the center of the normal distribution.
 
 ::: {style="color: red;"}
 $\star$ If you are approximating a Binomial distribution, set $\mu = np$ and $\sigma^2 = np(1-p)$.
+
+$\star$ If you want the standard normal distribution set $\mu = 0$ and $\sigma = 1$.
 :::
 
 ## Summary of Continuous R.V.s and their PMFs

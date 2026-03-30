@@ -30,7 +30,7 @@ seed <- 42
 :::: {.column width=70%}
 - **Introduce the Central Limit Theorem (CLT)**
 - **Develop an understanding how CLT works**
-- **Know how to use the standard normal distribution**
+- **Develop an understanding why CLT matters in inference**
 ::::
 
 :::: {.column width=15%}
@@ -48,11 +48,11 @@ knitr::include_graphics("clt-diagram.png")
 **Definition:**
 
 * Let $X_1,X_2, \cdots X_n$ be i.i.d. r.v.s, which denote a statistical sample of size $n$ from a population distribution with finite positive variance.
-* Let $\overline{X}_n$ a statistical measurement (i.e. sample mean), which is itself a r.v..
+* Let $\overline{X}_n$ a statistical measurement (i.e. sample mean), which is itself an r.v..
 * The limit as $n \to \infty$ of the distribution of $\overline{X}_n$ is a normal distribution.
 
 ::: {style="color: red;"}
-$\star$ The distribution of $\overline{X}_n$ is called the sampling distribution.
+$\star$ The probability distribution of $\overline{X}_n$ is called the sampling distribution.
 :::
 ::::
 
@@ -62,14 +62,14 @@ $\star$ The distribution of $\overline{X}_n$ is called the sampling distribution
 **Definition:**
 
 * A probability distribution of a statistic.
-* A statistic can be: proportion, mean, median, standard deviation, etcetera.
+* A statistic can be a proportion, mean, median, standard deviation, $\cdots$ etcetera.
 
 **CLT Conditions:**
 
 * **Independence:** Sample values must be independent
-* **Identical Distribution:** Variables should be from the same distribution
-* **Finite Variance:** The population must have a finite variance
-* **Large Sample Size:** A larger sample size improves approximation
+* **Identical distribution:** Samples should be from the same distribution with a fixed parameter
+* **Finite variance:** The population must have a finite variance
+* **Large sample size:** A larger sample size improves approximation
 ::::
 
 :::: {.column width=49%}
@@ -77,7 +77,7 @@ $\star$ The distribution of $\overline{X}_n$ is called the sampling distribution
 
 The normal distribution is a type of a sampling distribution as long the CLT conditions hold.
 
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='100%'}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
 # normal pdf
 mu <- 0
 sigma <- 1
@@ -89,8 +89,7 @@ df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
 
 # plot the Bernoulli distribution and store it into a R variable
 p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
-  geom_ribbon(data=subset(df_norm,x>=-4 & x<=4),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  geom_line(color="#009159",linewidth=1) +
   xlab("") + 
   ylab("") +
   theme_minimal() + # set theme of entire plot
@@ -110,244 +109,159 @@ $\star$ With a sufficiently large sample size, the mean of the sampling distribu
 :::
 ::::
 
-## Mean Annual Income
+## The CLT Formula
+
+The CLT is very useful because it tell us that the sampling distribution of the sample mean is normal, regardless of the population's distribution shape.
 
 :::: {.column width=49%}
-Suppose we want to estimate the mean annual income of a city.
+**Sampling distribution of the sample mean:**
 
-**Set-up:**
-
-* The income distribution is highly skewed (not normal).
-* We take a random sample of $n=100$ people and compute the sample mean $\overline{x} = 70$ (in thousands).
-
-**CLT:**
-
-* We assume that $\overline{x}$ came from $\overline{X}$.
-* The distribution of $\overline{X}$ is approximately normal.
-* Let $\mu$ be the true population mean with variance $\sigma^2$.
-* The population parameters $\mu$ and $\sigma$ may or may not be known.
+* For large sample size $n$, the sampling distribution of the sample mean $\overline{X}_n$ is approximately normal.
+* Its expected value is the population mean: $\displaystyle \text{E}(\overline{X}_n) = \mu$.
+* The variance is by a factor of $\frac{1}{n}$ of the population variance: $\displaystyle \text{Var}(\overline{X}_n) = \frac{\sigma^2}{n}$
+* As we increase $n$, the variance $\text{Var}(\overline{X}_n)$ approaches zero, meaning the sample mean $\text{E}(\overline{X}_n)$ approaches $\mu$.
 ::::
 
 :::: {.column width=49%}
-**Why it matters for parameter estimation:**
+**The CLT z-score:**
 
-* Construct confidence intervals for $\mu$.
-* We can use the confidence interval to estimate the true mean income.
+Under CLT, $\mu$ is the mean and $\frac{\sigma^2}{n}$ is the variance.
 
-**Why it matters for hypothesis testing:**
-
-* Suppose that our null hypothesis is $\mu = 50$.
-* Using CLT, we can compute the probability of observing a sample mean as extreme as $\overline{x} = 70$, assuming the null hypothesis is true.
-* This probability is called the *p-value*.
+* We standardize the sample mean using the z-score formula: $$z = \frac{\overline{x} - \mu}{\frac{\sigma}{\sqrt{n}}}$$
 
 ::: {style="color: red;"}
-$\star$ The p-value answers the question: If the true mean were $50$, how likely is it to observe a sample mean this far (or farther) from $50$ just by random chance?
+$\star$ The sample standard deviation $s$ is used when the population standard deviation $\sigma$ is unknown.
 :::
 ::::
 
-## Interval Probabilities (1/4)
+## The Sampling Distribution Under CLT
 
-:::: {.column width=50%}
-**Normal Distribution**
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
 
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
-# set parameters, outcomes, and probabilities
-mu <- 20*0.50
-sd <- sqrt(20*0.50*(1-0.50))
-x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
-norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
-df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
 
 # plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df,aes(x=x,y=pdf)) + 
-  geom_line(size=1,color="black") + # size here is defined for all points
-  geom_ribbon(data=subset(df,x>=7 & x<=14),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
-  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
-  theme_minimal() # set theme of entire plot
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) +
+  geom_vline(xintercept=0, color="black") + 
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-\\frac{3\\sigma}{\\sqrt{n}}$"),TeX("$\\mu-\\frac{2\\sigma}{\\sqrt{n}}$"),TeX("$\\mu-\\frac{1\\sigma}{\\sqrt{n}}"),TeX("$\\mu$"),TeX("$\\mu+\\frac{1\\sigma}{\\sqrt{n}}$"),TeX("$\\mu+\\frac{2\\sigma}{\\sqrt{n}}$"),TeX("$\\mu+\\frac{3\\sigma}{\\sqrt{n}}$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
 
 # display plot
 p1
 ```
-::::
-
-:::: {.column width=49%}
-**Example:**
-
-What is $P(7 \le X \le 14)$ for $X \sim \text{N}(10,2.24)$? 
-\[
-\begin{aligned}
-P(7 \le X \le 13) & = P(X \le 13) - P(X \le 7) \\
-P(7 \le X \le 13) & \approx 0.8727
-\end{aligned}
-\]
-
-**Using R:**
-
-```{r echo=TRUE, eval=TRUE}
-pnorm(14,10,2.24)-pnorm(7,10,2.24)
-```
-::::
 
 ::: {style="color: red;"}
-$\star$ Note that the Normal PDF is symmetrical but the interval probability we just computed was not.
+$\star$ The distribution remains the same except that the standard deviations of this normal distribution is multiplied by a factor of $\frac{1}{\sqrt{n}}$.
 :::
 
-## Interval Probabilities (2/4)
+## Mean Annual Household Income (1/2)
 
-:::: {.column width=50%}
-**Normal Distribution**
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
-# set parameters, outcomes, and probabilities
-mu <- 20*0.50
-sd <- sqrt(20*0.50*(1-0.50))
-x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
-norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
-df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df,aes(x=x,y=pdf)) + 
-  geom_line(size=1,color="black") + # size here is defined for all points
-  geom_ribbon(data=subset(df,x>=mu-sd & x<=mu+sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
-  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
-  theme_minimal() # set theme of entire plot
-
-# display plot
-p1
-```
-::::
+Suppose that we want to estimate the mean annual income of the city of *Fancyland*.
 
 :::: {.column width=49%}
-**Example:**
+**Data:**
 
-What is $P(7.7639 \le X \le 12.2361)$ for $X \sim \text{N}(10,2.24)$? 
-\[
-\begin{aligned}
-P(7.7639 \le X \le 12.2361) & = P(X \le 12.2361) - P(X \le 7.7639) \\
-P(7.7639 \le X \le 12.2361) & \approx 0.6818
-\end{aligned}
-\]
+Here, we show a distribution of $140$ annual household incomes. The numbers are in thousands.
 
-**Using R:**
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, out.width='100%', fig.width=4,fig.height=2, fig.align='center'}
+d <- read.csv("house_income.csv") |> 
+  drop_na() |> 
+  filter(house_income < 4000000) |> 
+  mutate(house_income = house_income/1000)
+d_mean <- mean(d$house_income)
+d_var <- var(d$house_income)
+d_sd <- sd(d$house_income)
 
-```{r echo=TRUE, eval=TRUE}
-pnorm(12.2361,10,2.24)-pnorm(7.7639,10,2.24)
+ggplot(d, aes(x=house_income)) + 
+  geom_histogram(bins = 20, boundary=-0.5, fill = COL[1,1], color = "white") + 
+  geom_vline(xintercept = d_mean,color="red") +
+  geom_text(aes(d_mean,0),label = paste("sample mean = ",round(d_mean,0),sep=""), 
+            vjust = -10, hjust=-0.025,color="red") +
+  xlab("Annual Household Income (in 1000s)") + 
+  ylab("counts") +
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
 ```
-::::
 
-::: {style="color: red;"}
-$\star$ Note that $P(7.7639 \le X \le 12.2361) = P(10-2.24 \le X \le 10+2.24) \approx 0.6818$.
-:::
-
-## Interval Probabilities (3/4)
-
-:::: {.column width=50%}
-**Normal Distribution**
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
-# set parameters, outcomes, and probabilities
-mu <- 300*0.50
-sd <- sqrt(300*0.50*(1-0.50))
-x_outcomes <- seq(100,200,0.10) # set outcome from 0 to 20 (technically infinite)
-norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
-df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df,aes(x=x,y=pdf)) + 
-  geom_line(size=1,color="black") + # size here is defined for all points
-  geom_ribbon(data=subset(df,x>=mu-sd & x<=mu+sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
-  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
-  theme_minimal() # set theme of entire plot
-
-# display plot
-p1
-```
-::::
-
-:::: {.column width=49%}
-**Example:**
-
-What is $P(141.3397 \le X \le 158.6603)$ for $X \sim \text{N}(150,8.66)$? 
-\[
-\begin{aligned}
-P(141.3397 \le X \le 158.6603) & = P(X \le 158.6603) - P(X \le 141.3397) \\
-P(141.3397 \le X \le 158.6603) & \approx 0.6827
-\end{aligned}
-\]
-
-**Using R:**
-
-```{r echo=TRUE, eval=TRUE}
-pnorm(158.6603,150,8.66)-pnorm(141.3397,150,8.66)
-```
-::::
-
-::: {style="color: red;"}
-$\star$ Note that $P(141.3397 \le X \le 158.6603) = P(150-8.66 \le X \le 150+8.66) \approx 0.6827$.
-:::
-
-## Interval Probabilities (4/4)
-
-:::: {.column width=50%}
-**Normal Distribution**
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
-# set parameters, outcomes, and probabilities
-mu <- 20*0.50
-sd <- sqrt(20*0.50*(1-0.50))
-x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
-norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
-df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df,aes(x=x,y=pdf)) + 
-  geom_line(size=1,color="black") + # size here is defined for all points
-  geom_ribbon(data=subset(df,x>=mu-2*sd & x<=mu+2*sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
-  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
-  theme_minimal() # set theme of entire plot
-
-# display plot
-p1
-```
-::::
-
-:::: {.column width=49%}
-**Example:**
-
-What is $P(5.5279 \le X \le 14.4721)$ for $X \sim \text{N}(10,2.24)$? 
-\[
-\begin{aligned}
-P(5.5279 \le X \le 14.4721) & = P(X \le 14.4721) - P(X \le 5.5279) \\
-P(5.5279 \le X \le 14.4721) & \approx 0.9541
-\end{aligned}
-\]
-
-**Using R:**
-
-```{r echo=TRUE, eval=TRUE}
-pnorm(14.4721,10,2.24)-pnorm(5.5279,10,2.24)
-```
-::::
-
-::: {style="color: red;"}
-$\star$ Note that $P(5.5279 \le X \le 14.4721) = P(10-2 \times 2.24 \le X \le 10+2 \times 2.24) \approx 0.9541$.
-:::
+Let $\overline{x} = 245$ be the *estimate*.
 
 ::: {style="color: blue;"}
-$\dagger$ Is $P(141.3397 \le X \le 158.6603) = P(150-2 \times 8.66 \le X \le 150+2 \times 8.66) \approx 0.95$?
+$\dagger$ The sample mean $\overline{x}$ is known as an *unbiased estimator* of the population mean $\mu$ because $\text{E}(\overline{X}) = \mu$ over repeated sampling.
 :::
+::::
 
-## The 68-95-99.7 Rule (1/3)
+:::: {.column width=49%}
+**Sampling distribution:**
 
-**1st standard deviation from the mean**
+* Suppose that we *sample $140$ annual incomes again* from the same city and *record the mean annual income* and repeat this *multiple times*.
+* The sample means will vary but we can *assume that the sampling distribution of these means is approximately normal*.
+* Even though the annual income data are right-skewed, the sampling distribution of the sample mean is approximately normal under the CLT.
 
-$$P(\mu - \sigma \le X \le \mu + \sigma) \approx 0.68$$
+::: {style="color: red;"}
+$\star$ We can't take data multiple times due to practical constraints. That is why we assume CLT as long as the conditions hold.
+:::
+::::
 
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+## Mean Annual Household Income (2/2)
+
+Suppose we want to estimate the variance of the sampling distribution of the mean annual income.
+
+:::: {.column width=49%}
+**Information from the data:**
+
+* The sample mean is $\overline{x} = 245$.
+* The sample standard deviation is $s = 226$.
+* The sample size is $n = 140$.
+
+**The unknowns:**
+
+* We don't know the population mean $\mu$ (true mean annual income).
+* We don't know the population variance $\sigma^2$ (true variance of the annual incomes).
+::::
+
+:::: {.column width=49%}
+**Best Estimate:**
+
+* Since $\sigma^2$ is unknown, our best estimate for the variance is $s^2$, the sample variance.
+* So, under CLT, $s^2 = 226^2$ is the variance estimate of the sampling distribution of the sample mean.
+
+::: {style="color: blue;"}
+$\dagger$ Similar to the sample mean, the sample variance $s^2$ is also an *unbiased estimator* of the population variance $\sigma^2$ because $\text{Var}(\overline{X}) = \sigma^2$ over repeated sampling.
+:::
+::::
+
+## Parameter Estimation
+
+The mean annual income $\overline{x} = 245$ is an estimate for an unknown parameter, but how good is this estimate?
+
+:::: {.column width=49%}
+**Why CLT matters for parameter estimation:**
+
+* The mean annual income $\overline{x} = 245$, the observation itself, exhibits normality of its own sampling distribution assuming CLT.
+* The standard deviation of this sampling distribution is $\displaystyle \frac{s}{\sqrt{n}} = \frac{226}{\sqrt{140}} \approx 19.1$.
+* A confidence interval uses the sample mean and standard deviation to estimate a range, about $214$ to $227$ for a $0.95$ confidence level.
+::::
+
+:::: {.column width=49%}
+**Sampling distribution of the observation:**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
 # normal pdf
-mu <- 0
-sigma <- 1
-x_norm <- seq(-4,4,0.10)
+n <- 140
+mu <- 245
+sigma <- 226/sqrt(n)
+x_norm <- seq(mu-90,mu+70,0.10)
 norm_pdf <- dnorm(x_norm,mu,sigma)
 
 # convert pdf into tibble
@@ -355,101 +269,15 @@ df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
 
 # plot the Bernoulli distribution and store it into a R variable
 p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
-  geom_ribbon(data=subset(df_norm,x>=-1 & x<=1),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  geom_line(color="#009159",linewidth=1) +
+  geom_ribbon(data=subset(df_norm,x>=mu-qnorm(0.95,0,1)*sigma & x<=mu+qnorm(0.95,0,1)*sigma),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") + 
+  geom_vline(xintercept=mu, color="#009159", linetype = "dashed") + 
+  geom_vline(xintercept=225, color="blue", linetype = "dashed") + 
+  geom_vline(xintercept=mu-qnorm(0.95,0,1)*sigma, color="black") + 
+  geom_vline(xintercept=mu+qnorm(0.95,0,1)*sigma, color="black") + 
+  xlab("") + 
   ylab("density") + 
-  ggtitle("Normal Distribution") + # sets the title of the plot
-  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
-  theme_minimal() + # set theme of entire plot
-  theme(legend.title=element_blank())
-
-# display plot
-p1
-```
-
-## The 68-95-99.7 Rule (2/3)
-
-**2nd standard deviation from the mean**
-
-$$P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0.95$$
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
-# normal pdf
-mu <- 0
-sigma <- 1
-x_norm <- seq(-4,4,0.10)
-norm_pdf <- dnorm(x_norm,mu,sigma)
-
-# convert pdf into tibble
-df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
-  geom_ribbon(data=subset(df_norm,x>=-2 & x<=2),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
-  ylab("density") + 
-  ggtitle("Normal Distribution") + # sets the title of the plot
-  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
-  theme_minimal() + # set theme of entire plot
-  theme(legend.title=element_blank())
-
-# display plot
-p1
-```
-
-## The 68-95-99.7 Rule (3/3)
-
-**3rd standard deviation from the mean**
-
-$$P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0.997$$
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
-# normal pdf
-mu <- 0
-sigma <- 1
-x_norm <- seq(-4,4,0.10)
-norm_pdf <- dnorm(x_norm,mu,sigma)
-
-# convert pdf into tibble
-df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
-  geom_ribbon(data=subset(df_norm,x>=-3 & x<=3),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
-  ylab("density") + 
-  ggtitle("Normal Distribution") + # sets the title of the plot
-  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
-  theme_minimal() + # set theme of entire plot
-  theme(legend.title=element_blank())
-
-# display plot
-p1
-```
-
-## Total Area Under the Curve
-
-**The Normal PDF satisfies the probability axioms**
-
-$$P(\mu - \infty \le X \le \mu + \infty) \approx 1$$
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
-# normal pdf
-mu <- 0
-sigma <- 1
-x_norm <- seq(-4,4,0.10)
-norm_pdf <- dnorm(x_norm,mu,sigma)
-
-# convert pdf into tibble
-df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
-
-# plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
-  geom_ribbon(data=subset(df_norm,x>=-4 & x<=4),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
-  ylab("density") + 
-  ggtitle("Normal Distribution") + # sets the title of the plot
-  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  scale_x_discrete(limits=c(214,225,mu,277),label=c(TeX("$214$"),TeX("$\\mu$"),TeX("$245$"),TeX("$277$"))) +
   theme_minimal() + # set theme of entire plot
   theme(legend.title=element_blank())
 
@@ -458,37 +286,48 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** Because of the axiom that the sum of the probabilities for all outcomes in the sample space is equal to 1, the total area under the Normal PDF is always 1.
+$\star$ The $0.95$ confidence level is the long-run probability that intervals constructed from repeated samples will contain the true population mean $\mu$.
 :::
+::::
 
-## Standard Normal Distribution (1/2)
+## Hypothesis Testing (1/3)
 
-The **standard normal distribution** is when $\mu=0$ and $\sigma=1$.
+The mean annual income $\overline{x} = 245$ is an observation from the data, but how far is this observation from a null value?
 
-**The transformation formula (the z-score)**
+:::: {.column width=49%}
+**Why it matters for hypothesis testing:**
 
-Standardized scores that measure how many standard deviations a value is from the mean. $$z = \frac{x - \mu}{\sigma}.$$
+* The null hypothesis is a statement about a population parameter that represents a default assumption, which we assume as true.
+* Using CLT, we can compute the probability of observing a sample mean as extreme as $\overline{x} = 245$.
+* This probability is called the *p-value*.
+::::
 
-## Standard Normal Distribution (2/2)
+:::: {.column width=49%}
+**Sampling distribution of the null value:**
 
-**The standard normal distribution:**
-
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
 # normal pdf
-mu <- 0
-sigma <- 1
-x_norm <- seq(-4,4,0.10)
+n <- 140
+mu <- 245
+sigma <- 226/sqrt(n)
+x_norm <- seq(mu-90,mu+70,0.10)
 norm_pdf <- dnorm(x_norm,mu,sigma)
+null_pdf <- dnorm(x_norm,225,sigma)
 
 # convert pdf into tibble
-df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+df_null <- tibble(x=x_norm, null_pdf=null_pdf)
 
 # plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
-  geom_line(color="#009159",linewidth=1) + 
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) +
+  geom_vline(xintercept=mu, color="#009159", linetype = "dashed") + 
+  geom_vline(xintercept=225, color="blue", linetype = "dashed") + 
+  geom_line(data=df_null,aes(x=x,y=null_pdf),color="blue",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=mu),aes(x=x,ymax=dnorm(x,225,sigma)),ymin=0,alpha=0.3,fill="blue") + 
+  xlab("") + 
   ylab("density") + 
-  ggtitle("Standard Normal Distribution") + # sets the title of the plot
-  scale_x_discrete(limits=c(-4,-3,-2,-1,0,1,2,3,4)) + 
+  scale_x_discrete(limits=c(225,mu),label=c(TeX("$225$"),TeX("$\\bar{x}$"))) +
   theme_minimal() + # set theme of entire plot
   theme(legend.title=element_blank())
 
@@ -497,5 +336,59 @@ p1
 ```
 
 ::: {style="color: red;"}
-$\star$ The standard normal distribution is that it is a normal distribution with a mean of $0$ and a standard deviation of $1$. It serves as a reference distribution, allowing any normally distributed variable to be standardized.
+$\star$ The p-value answers the question: If the true mean were $\mu = 225$, how likely is it to observe a sample mean this far (or farther) from $\mu$ just by random chance?
+:::
+::::
+
+## Hypothesis Testing (2/3)
+
+:::: {.column width=49%}
+**The null hypothesis:**
+
+* It states that the population mean is equal to a specified value $\mu = \mu_0$.
+* Suppose that the true mean annual income is $\mu_0 = 225$.
+* So, $H_0: \mu = 225$.
+* In context: Note that we actually don't know the true mean annual income. We are just assuming prior knowledge that Fancyland is that fancy.
+
+**The alternative hypothesis:**
+
+* Since our observation is $\overline{x} = 245$, we offer an alternative hypothesis (or claim) that the true mean is greater than the null value $\mu_0 = 225$.
+* So, $H_A: \mu > 225$.
+* In context: We claim that Fancyland is fancier than originally thought.
+::::
+
+:::: {.column width=49%}
+**The p-value:**
+
+* To compute the p-value you need to assume CLT, meaning all of its conditions are assumed to hold.
+* We compute the z-score before computing the p-value, which we call the *test statistic*: 
+$$
+\begin{aligned}
+z & = \frac{\overline{x} - \mu_0}{s / \sqrt{n}}\\
+  & = \frac{245 - 225}{226 / \sqrt{140}} \\
+z & \approx 1.047
+\end{aligned}
+$$
+* The p-value is $P(Z \ge z | H_0) = 0.148$, where $Z$ is an r.v. with the standard normal distribution.
+
+**Using R:**
+
+```{r echo=TRUE}
+1-pnorm(1.047,0,1)
+```
+::: {style="color: red;"}
+$\star$ Note the conditional probability notation $P(Z \ge z | H_0)$ for the p-value, which is not the same as $P(H_0 | Z \ge z)$.
+:::
+::::
+
+## Hypothesis Testing (3/3)
+
+**Interpreting the p-value:**
+
+* There is a $0.148$ probability of observing a sample mean at least as large as $\overline{x} = 245$, given the $H_0$ is true.
+* Is this enough evidence? There is not a sufficient evidence to support $H_A: \mu > 225$. The p-value is "relatively large", indicating that the observed result is not unusual under $H_0: \mu = 225$. The observation we obtained likely occurred due to random chance (or sampling variability).
+* In context: There is no sufficient evidence to support our claim that Fancyland is fancier than originally thought. The city of Fancyland remains fancy but not too fancy.
+
+::: {style="color: red;"}
+$\star$ Deciding whether we have sufficient evidence (to "reject" or "fail to reject" the null hypothesis) requires a *significance level*, a probability that we choose in advance and use to compare with the p-value.
 :::
