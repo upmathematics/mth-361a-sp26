@@ -1,0 +1,471 @@
+---
+title: "Parameter Estimation"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2026 | University of Portland"
+output:
+  slidy_presentation:
+    font_adjustment: +2
+    footer: "| MTH-361A Spring 2026 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gghighlight)
+library(gridExtra)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce confidence intervals**
+- **Know how to compute confidence intervals**
+- **Develop an understanding of interpreting confidence intervals**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Confidence Intervals
+
+A plausible range of values for the population parameter is called a *confidence interval*.
+
+:::: {.column width=49%}
+**Fishing analogy:**
+
+A confidence interval is like using a fishing net, rather than a spear, to catch fish in a murky lake.
+
+* *Parameter (the fish):* The true population parameter (e.g., mean fish length). This is assumed to be fixed but unknown.
+* *Sample statistic (the catch):* The observation (e.g., the data collected from the lake) and the point estimate (e.g., sample mean fish length).
+::::
+
+:::: {.column width=49%}
+**The interval:**
+
+We need to set the size of the fishing net first before casting it into the lake.
+
+* *Confidence level (the net size):* A higher confidence level (e.g., 99\%) means a wider, larger net, increasing the chance of catching the fish.
+* *Confidence interval (the net):* The range of values calculated from the sample.
+::::
+
+::: {style="color: red;"}
+$\star$ If we report a point estimate, we probably won't hit the exact population parameter. If we report a range of plausible values we have a good shot at capturing the parameter.
+:::
+
+## Spam Emails
+
+Suppose we want to estimate the *number* of spam emails of an account.
+
+:::: {.column width=49%}
+**Data summary:**
+
+```{r}
+set.seed(42)
+n <- 200
+email_sub <- email %>% 
+  slice_sample(n = n) %>% 
+  group_by(spam) %>% 
+  summarise(count = n(),
+            prop = count/n)
+```
+
+| Not Spam | Spam |
+|:---:|:---:|
+| 184 | 16 |
+
+* The data shows that there are $16$ spam emails out of $200$ emails.
+* The population of interest is all emails of one account.
+* The data we have is a random sample from the population.
+::::
+
+:::: {.column width=49%}
+**Point estimate:**
+
+* The *sample statistic* is $$\overline{x} = 16,$$ which is our *point estimate*.
+* $\overline{x}$ is the number of spam emails, an estimate to an unknown *population parameter*.
+
+::: {style="color: red;"}
+$\star$ For the purpose of this example, the sample mean notation $\overline{x}$ can be thought of as the mean of a binomial r.v..
+:::
+::::
+
+## Sampling Distribution
+
+The point estimate for the number of spam emails is $\overline{x} = 16$ and the sample size is $n = 200$.
+
+:::: {.column width=49%}
+**Assumptions:**
+
+* The emails are independently sampled from the same account
+* The probability of getting a randomly selected spam email is fixed.
+* We assume that CLT conditions are satisfied.
+* The sampling distribution of the number of spam emails exhibits a binomial distribution.
+::::
+
+:::: {.column width=49%}
+**Sampling distribution of $\overline{x}$:**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+n <- 200 # number of trials
+p <- 16/n # set "success" probability
+x_outcomes <- seq(0,31,1) # set outcome from 0 to n
+binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+binom_ev <- n*p # expected value
+df <- tibble(k=x_outcomes, pmf=binom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="black") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="black") + 
+  geom_vline(xintercept = n*p, color="red", linetype="dashed") + 
+  xlab("") + 
+  ylab("probability") + 
+  ylim(0,0.12) + 
+  scale_x_discrete(limits=c(16),label=c(TeX("$\\bar{x} = 16$"))) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ The domain of this distribution is $0 \le x \le 200$ (the graph is truncated) because there are $n = 200$ samples and the $x$ value is the number of spam emails out of $n$, where it could be $0$, $200$, or in between.
+:::
+::::
+
+## Confidence Interval of the Number of Spam Emails
+
+The confidence level is a probability that we set. This is how wide our interval is going to be.
+
+:::: {.column width=49%}
+**Confidence Level:**
+
+* Suppose we want a "$90$\% confidence interval". So, the confidence level is $0.90$.
+* This is the interval probability of the sampling distribution.
+* The goal is to find $a$ and $b$, so that $$P(a \le \overline{X} \le b) \approx 0.90,$$ where $X$ is a binomial r.v..
+* The middle probability is $0.90$ and the tail probabilities sums to $0.10$, with individual tails to be $0.05$, assuming symmetry.
+* Probability components:
+
+  - lower bound: $\displaystyle P(\overline{X} \le a) \approx 0.05 \longrightarrow a = 10$
+  - upper bound: $\displaystyle P(\overline{X} \le b) \approx 0.95 \longrightarrow b = 23$
+::::
+
+:::: {.column width=49%}
+**Confidence Interval:**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=4,fig.height=2,out.width='100%'}
+# set parameters, outcomes, and probabilities
+n <- 200 # number of trials
+p <- 16/n # set "success" probability
+x_outcomes <- seq(0,31,1) # set outcome from 0 to n
+binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+binom_ev <- n*p # expected value
+df <- tibble(k=x_outcomes, pmf=binom_pmf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=k,y=pmf)) + 
+  geom_point(size=3,color="blue") + # size here is defined for all points
+  geom_segment(aes(x=k,xend=k, # draws a line between two defined points
+                   y=rep(0,length(k)),yend=pmf), 
+                   color="blue") + 
+  gghighlight(k>=10&k<=23, unhighlighted_colour = "black") + 
+  geom_vline(xintercept = n*p, color="red", linetype="dashed") + 
+  geom_vline(xintercept = 10, color="red") + 
+  geom_vline(xintercept = 23, color="red") + 
+  xlab("") + 
+  ylab("probability") + 
+  ylim(0,0.12) + 
+  scale_x_discrete(limits=c(10,16,23),label=c(TeX("$10$"),TeX("$16$"),TeX("$23$"))) + 
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+
+
+$$10 \le \overline{x} \le 23$$
+
+::: {style="color: red;"}
+$\star$ Interpreting this interval requires you to understand how CLT works and a basic understanding of the frequentist interpretation of probability.
+:::
+
+**Using R:**
+
+```{r echo = TRUE}
+cl <- 0.90 # confidence level
+cl_tail <- 1-cl # tail probabilities
+lb <- qbinom(cl_tail/2,200,16/200) # lower bound
+ub <- qbinom(cl+(cl_tail/2),200,16/200) # upper bound
+c(lb,ub) # confidence interval as an ordered list
+```
+::::
+
+## Normal Approximation
+
+We have $16$ spam emails and $184$ not spam emails, both are more than $10$, and the sample size $n = 200$ is considered large enough. This *rule of thumb* says that we can approximate the binomial using the normal distribution.
+
+:::: {.column width=49%}
+**Normal approximation:**
+
+* The normal approximation to the binomial would yield:
+$$
+\begin{aligned}
+\overline{x} & = n\hat{p} \longleftarrow \text{ sample mean} \\
+s^2 & = n\hat{p}(1-\hat{p}) \longleftarrow \text{sample variance}
+\end{aligned}
+$$
+* Note that $$\hat{p} = \frac{\text{number of spam emails}}{n}.$$ This is known as the sample proportion.
+* So, $\displaystyle \hat{p} = \frac{16}{200} = 0.08$.
+::::
+
+:::: {.column width=49%}
+**Confidence interval assuming normality:**
+
+$$
+\overline{x} \pm z^* \cdot SE
+$$
+where $SE$ is called the *standard error*. Here, $\displaystyle SE = \sqrt{n\hat{p}(1-\hat{p})}$. The term $z^*$ is called the critical value, which can be computed using R.
+
+So, the interval is 
+
+$$
+\begin{aligned}
+\overline{x} & \pm z^* \cdot \sqrt{n\hat{p}(1-\hat{p})} \\
+16 & \pm 1.645\left(\sqrt{200(0.08)(1-0.08)})\right)
+\end{aligned}
+$$
+
+$$9.689 \le \overline{x} \le 22.311$$
+
+**Using R:**
+
+```{r echo=TRUE}
+cl <- 0.90 # confidence level
+cl_tail <- 1-cl # tail probabilities
+lb <- qnorm(cl_tail/2,16,sqrt(200*0.08*(1-0.08))) # lower bound
+ub <- qnorm(cl+(cl_tail/2),16,sqrt(200*0.08*(1-0.08))) # upper bound
+c(lb,ub) # confidence interval as an ordered list
+```
+::::
+
+## Facebook’s categorization of user interests
+
+Most commercial websites (e.g. social media platforms, news out- lets, online retailers) collect a data about their users’ behaviors and use these data to deliver targeted content, recommendations, and ads.
+
+To understand whether Americans think their lives line up with how the algorithm-driven classification systems categorizes them, Pew Research asked **a representative sample of 850 American Facebook users** how accurately they feel the list of categories Facebook has listed for them on the page of their supposed interests actually represents them and their interests. **67% of the respondents said that the listed categories were accurate**.
+
+Estimate the true proportion of American Facebook users who think the Facebook categorizes their interests accurately.
+
+## Point Estimate and Standard Error
+
+The goal of parameter estimation is to find a range of possible values (confidence interval).
+
+**Given information**
+
+* $\hat{p} = 0.67 \longleftarrow \text{point estimate}$
+* $n = 850 \longleftarrow \text{sample size}$
+    - The expected number of users who think the Facebook categorizes their interests accurately is $850 \times 0.67 \approx 569.5$ (569 or 570).
+    - There around 280.5 (280 or 281) users think the opposite.
+* Let $p$ bet he true population proportion and $\hat{p}$ be the sample proportion.
+    
+**The Confidence Interval**
+
+We want to find the 95% confidence interval using the formula: $$\text{point estimate} \pm 1.96 \times \text{SE}$$ where **SE is the standard error**.
+
+This can be written as 
+\[
+\begin{aligned}
+0.67 & \pm 1.96 \times \sqrt{\frac{0.67 (1-0.67)}{850}} \\
+0.67 & \pm 1.96 \times 0.0161 \\
+& \longrightarrow (0.67-0.0316,0.67+0.0316) \\
+& \longrightarrow (0.6384,0.7016)
+\end{aligned}
+\]
+
+Thus, the 95% interval for estimating the true $p$ is between 0.6384 and 0.7016.
+
+## Interpretation
+
+Which of the following is the correct interpretation of this confidence interval? We are 95% confident that:
+
+i. 64% to 67% of American Facebook users in this sample think Facebook categorizes their interests accurately.
+ii. 64% to 67% of all American Facebook users think Facebook categorizes their interests accurately
+iii. there is a 64% to 67% chance that a randomly chosen American Facebook user’s interests are categorized accurately.
+vi. there is a 64% to 67% chance that 95% of American Facebook users’ interests are categorized accurately.
+
+::: {style="color: red;"}
+$\star$ 64% to 67% of all American Facebook users think Facebook categorizes their interests accurately.
+:::
+
+::: {style="color: blue;"}
+$\dagger$ Why do we interpret the confidence interval this way?
+:::
+
+## What does 95% Confident Mean?
+
+Suppose we took many samples and built a confidence interval from each sample using the equation $$\text{point estimate} \pm 1.96 \times \text{standard error}.$$
+
+Then about 95% of those intervals would contain the true population proportion ($p$).
+
+## Width of an interval
+
+If we want to be more certain that we capture the population parameter, i.e. increase our confidence level, should we use a wider interval or a smaller interval?
+
+::: {style="color: red;"}
+$\star$ A wider interval.
+:::
+
+Can you see any drawbacks to using a wider interval?
+
+::: {style="color: red;"}
+$\star$ If the interval is too wide it may not be very informative.
+:::
+
+## Changing the Confidence Level
+
+$$\text{point estimate} \pm z^{\star} \times \text{SE}.$$
+
+* In a confidence interval, $z^{\star} \times \text{SE}$ is called the **margin of error**, and for a given sample, the margin of error changes as the confidence level changes.
+* In order to change the confidence level we need to adjust $z^{\star}$ in the above formula.
+* Commonly used confidence levels in practice are 90%, 95%, 98%, and 99%.
+* For a 95% confidence interval, $z^{\star} = 1.96$.
+* However, using the standard normal distribution, it is possible to find the appropriate $z^{\star}$ for any confidence level.
+
+## 95% Confidence Interval
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,z>=-1.96 & z<=1.96),aes(x=z,ymax=dnorm(z,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ylab("density") + 
+  ggtitle("0.95 Probability is Between -1.96 to 1.96") + # sets the title of the plot
+  scale_x_discrete(limits=c(-1.96,0,1.96)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## 99.7% Confidence Interval
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,z>=-2.97 & z<=2.97),aes(x=z,ymax=dnorm(z,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ylab("density") + 
+  ggtitle("0.997 Probability is Between -2.97 to 2.97") + # sets the title of the plot
+  scale_x_discrete(limits=c(-2.97,0,2.97)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## Finding $z^{\star}$ Exactly
+
+Find the $z^{\star}$ for a 92\% confidence level.
+
+:::: {.column width=50%}
+**Process:**
+
+* Confidence level is 0.92.
+* Lower tail of the $Z \sim N(0,1)$ is $\frac{(1-0.92)}{2} = 0.04$.
+* We want to find the $z$ score that would yield a 0.04 probability.
+* Use the `qnorm()` function in R.
+
+**Using R:**
+
+```{r echo=TRUE}
+cl <- 0.92 # confidence level
+lt <- (1-cl)/2 # lower tail probability
+qnorm(lt,0,1) # computes the z star
+```
+::::
+
+:::: {.column width=49%}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='100%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,z<=-1.75),aes(x=z,ymax=dnorm(z,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("0.04 Probability is up to -1.75") + # sets the title of the plot
+  scale_x_discrete(limits=c(-1.75)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='100%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,z>=-1.75 & z<=1.75),aes(x=z,ymax=dnorm(z,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("0.92 Probability is Between -1.75 to 1.75") + # sets the title of the plot
+  scale_x_discrete(limits=c(-1.75,0,1.75)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+::::

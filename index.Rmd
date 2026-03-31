@@ -533,7 +533,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Exponential and Normal Distributions](lesson/5.2-mth361-normal-and-exponential-distributions/5.2-mth361-normal-and-exponential-distributions.html){target="_blank"} | Ch. 4.4-4.5 @speegle2021probability |
 | [Conditional Probability and Bayes' Theorem](lesson/6.1-mth361-conditional-probability-and-bayes-theorem/6.1-mth361-conditional-probability-and-bayes-theorem.html){target="_blank"} | Ch. 2.3-2.4 @speegle2021probability |
 | [Central Limit Theorem](lesson/6.2-mth361-central-limit-theorem/6.2-mth361-central-limit-theorem.html){target="_blank"} | Ch. 5.1-5.4 @speegle2021probability |
-| Parameter Estimation | - |
+| [Parameter Estimation](lesson/7.1-mth361-parameter-estimation/7.1-mth361-parameter-estimation.html){target="_blank"} | - |
 | Hypothesis Testing | - |
 | Decision Errors | - |
 | Bootstrapping and Randomization | - |
