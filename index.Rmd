@@ -169,7 +169,7 @@ The following learning objectives are designed to build on one another, with som
 | **6** | Tu 2/17 | $\rightarrow$Conditional Probability and Bayes' Theorem |
 |  | Th 2/19 | $\rightarrow$ Central Limit Theorem |
 | **7** | Tu 2/24 | $\rightarrow$ Parameter Estimation |
-|  | Th 2/26 | $\rightarrow$ Hypothesis Testing<br>$\rightarrow$ Decision Errors |
+|  | Th 2/26 | $\rightarrow$ Hypothesis Testing and Decision Errors |
 | **8** | Tu 3/3 | _Spring Vacation_ |
 |  | Th 3/5 | _Spring Vacation_ |
 | **9** | Tu 3/10 | <br>$\rightarrow$ Bootstrapping and Randomization |
@@ -534,8 +534,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (Ch
 | [Conditional Probability and Bayes' Theorem](lesson/6.1-mth361-conditional-probability-and-bayes-theorem/6.1-mth361-conditional-probability-and-bayes-theorem.html){target="_blank"} | Ch. 2.3-2.4 @speegle2021probability |
 | [Central Limit Theorem](lesson/6.2-mth361-central-limit-theorem/6.2-mth361-central-limit-theorem.html){target="_blank"} | Ch. 5.1-5.4 @speegle2021probability |
 | [Parameter Estimation](lesson/7.1-mth361-parameter-estimation/7.1-mth361-parameter-estimation.html){target="_blank"} | - |
-| Hypothesis Testing | - |
-| Decision Errors | - |
+| [Hypothesis Testing and Decision Errors](lesson/7.2-mth361-hypthesis-testing-and-decision-errors/7.2-mth361-hypthesis-testing-and-decision-errors.html){target="_blank"} | - |
 | Bootstrapping and Randomization | - |
 | Inference for One Proportion | Ch. 10.2 @speegle2021probability |
 | Inference for Two Proportions | Ch. 10.2 @speegle2021probability |
